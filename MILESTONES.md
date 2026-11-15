@@ -146,6 +146,25 @@ Riutilizzare nella pagina Ospitalità il tavolo dei ricordi abbinato al rullino,
 
 Organizzazione locale proposta: materiali/foto-originali/ospitalita/ con sottocartelle per appartamento. Nomi e struttura effettivi da confermare con i materiali. Questa milestone registra il lavoro futuro e non autorizza ad avviare la codifica senza il successivo incarico.
 
+## M3.2 — Video per Bicicletta e territorio
+
+Stato: OBIETTIVO APPROVATO da Giovanni il 15 novembre 2026; selezione, modalità di presentazione e parametri tecnici da concordare prima dell'implementazione.
+
+Valorizzare nella pagina Bicicletta e territorio video pertinenti alle uscite e al paesaggio, preparando copie adatte al web senza modificare gli originali.
+
+- [ ] Raccogliere gli originali localmente; cartella proposta materiali/video-originali/, da escludere da Git prima di aggiungere file.
+- [ ] Far analizzare a Codex durata, dimensioni, risoluzione, orientamento, codec e presenza di audio dei file, verificando la disponibilità di FFmpeg/ffprobe.
+- [ ] Scegliere con Giovanni i filmati, gli eventuali estratti e le copertine; preservare gli originali.
+- [ ] Concordare come presentarli nella pagina Bicicletta: video autonomi o eventuale integrazione con foto/rullino restano alternative da discutere.
+- [ ] Definire risoluzione, compressione, formato e peso in base ai materiali; MP4 compatibile e 720p/1080p sono opzioni da valutare, non requisiti fissi.
+- [ ] Prevedere copertine leggere, controlli accessibili e riproduzione volontaria, evitando autoplay e download dei video pesanti all'apertura della pagina.
+- [ ] Concordare gestione dell'audio e sottotitoli o alternative testuali quando necessari; testi IT/EN.
+- [ ] Verificare qualità visiva, riproduzione e caricamento su desktop/mobile; documentare pesi originali/ottimizzati e limiti dei test.
+- [ ] Valutare collocazione dei file e limiti dell'hosting prima di aggiungere video al repository; nessun servizio esterno o cambio hosting senza decisione condivisa.
+- [ ] Presentare anteprima per approvazione; pubblicazione con autorizzazione separata.
+
+Questa milestone pianifica il lavoro futuro; non autorizza ancora conversioni, modifiche applicative o pubblicazione. Il successivo incarico sarà definito dopo aver raccolto e analizzato i materiali.
+
 ## M4 — Visibilità e SEO
 
 Stato: OBIETTIVO APPROVATO; attività e strumenti PROPOSTI.
