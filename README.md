@@ -24,4 +24,6 @@ Aprire http://127.0.0.1:8000/?lang=it oppure http://127.0.0.1:8000/?lang=en.
 
 Le pagine si aprono direttamente. I collegamenti mantengono il parametro `lang`; la preferenza viene anche salvata in `localStorage`, quando disponibile. I testi italiani sono presenti nell'HTML anche senza JavaScript.
 
-Le cinque copie WebP della raccolta sono in `images/raccolta-2026/`. Gli originali in `materiali/foto-originali/` restano esclusi da Git. Il piano e lo stato della revisione locale sono in `MILESTONES.md`; l'approvazione di Giovanni e la pubblicazione restano pendenti.
+Le copie WebP della raccolta e le miniature sono in `images/raccolta-2026/`; la selezione di 40 foto è descritta in `FOTO-RACCOLTA.md`. Gli originali in `materiali/foto-originali/` restano esclusi da Git. Il piano e lo stato della revisione sono in `MILESTONES.md`.
+
+Versione pubblica per prova d'uso: https://casaisabellabike.it, autorizzata da Giovanni con GC-20261115-07. Valutazione dell'usabilità e approvazione definitiva di testi, immagini e impaginazione restano da svolgere. Commit, controlli e tag della versione precedente sono in `CODEX-GPT.md`.

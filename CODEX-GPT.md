@@ -2,7 +2,7 @@
 
 Data: 15 novembre 2026. Riferimento condiviso: `dev`. Gli stati sotto riportati descrivono lavoro e verifiche di Codex; non attestano l'approvazione finale di Giovanni. Gli incarichi sono in `GPT-CODEX.md`, il piano in `MILESTONES.md`.
 
-Aggiornamento più recente: **GC-20261115-07 — Pubblicazione per prova d'uso**, resoconto in fondo al documento. Candidata `25a85213df4db69636d860c2a6ce960687ceef93`; autorizzazione esplicita ricevuta, controlli locali superati, pubblicazione da eseguire. Il contenuto applicativo rimane quello di `3f7f0cbcbec4fafdd50e5d5990b934f12ae14826`.
+Aggiornamento più recente: **GC-20261115-07 — Pubblicazione per prova d'uso**, resoconto in fondo al documento. Candidata `25a85213df4db69636d860c2a6ce960687ceef93`; autorizzazione esplicita ricevuta e **pubblicazione riuscita e verificata** tramite merge `0cc5f2fef8c099b6cd18cabd59f5e0e279c090f7`. Il contenuto applicativo rimane quello di `3f7f0cbcbec4fafdd50e5d5990b934f12ae14826`. Valutazione d'uso e approvazione definitiva di Giovanni ancora pendenti; i resoconti precedenti descrivono lo stato storico al momento dei singoli incarichi.
 
 ## GC-20261115-01 — Riallineamento della collaborazione
 
@@ -138,7 +138,7 @@ Restano da Giovanni: selezione definitiva, eventuali rimozioni tramite i nomi or
 
 ## GC-20261115-07 — Pubblicazione per prova d'uso
 
-Autorizzazione esplicita di Giovanni del 15 novembre 2026, registrata in GPT-CODEX.md e limitata alla candidata **`25a85213df4db69636d860c2a6ce960687ceef93`**. La prova pubblica non equivale all'approvazione definitiva dei contenuti. Stato di preparazione: controlli preliminari superati; deploy pubblico ancora da eseguire.
+Autorizzazione esplicita di Giovanni del 15 novembre 2026, registrata in GPT-CODEX.md e limitata alla candidata **`25a85213df4db69636d860c2a6ce960687ceef93`**. La prova pubblica non equivale all'approvazione definitiva dei contenuti. **Implementazione verificata, pubblicazione autorizzata e riuscita, controlli pubblici superati; valutazione d'uso di Giovanni ancora da svolgere.**
 
 ### Preparazione e verifiche prima del rilascio
 
@@ -149,12 +149,29 @@ Autorizzazione esplicita di Giovanni del 15 novembre 2026, registrata in GPT-COD
 - Controllati tutti i 102 file della candidata: nessun percorso materiali/, originale della raccolta, archivio ZIP, PDF, certificato, file .env o chiave privata. Ricerca di pattern di credenziali comuni senza rilevamenti; WXEF0435.JPG e JGUG3431.JPG assenti dall'elenco fotografico e dalle copie usate. Snapshot SHA-256 dei materiali locali e dei file precedenti prima del rilascio.
 - API GitHub in sola lettura: Pages legacy da main `/`, dominio casaisabellabike.it, HTTPS attivo; main non protetto, nessun ruleset attivo. Nessuna impostazione modificata. Il sito pubblico precedente risponde HTTP 200 con la homepage monolitica, prima del deploy.
 
-File modificati da questo incarico: soltanto GPT-CODEX.md, MILESTONES.md e CODEX-GPT.md per autorizzazione, stato e resoconto. Nessuna nuova funzionalità, conversione di immagini o modifica a dominio, CNAME o hosting.
+File modificati da questo incarico: soltanto GPT-CODEX.md, MILESTONES.md e CODEX-GPT.md per autorizzazione, stato e resoconto; README.md e FOTO-RACCOLTA.md aggiornati per distinguere la prova pubblica dalla revisione definitiva ancora aperta. Nessuna nuova funzionalità, conversione di immagini o modifica a dominio, CNAME o hosting.
 
 ### Pubblicazione, verifica pubblica e riallineamento
 
-Da eseguire dopo questo commit documentale: salvare dev e tag sul remoto, integrare dev in main senza riscrivere la cronologia, attendere Pages e verificare pubblicamente la candidata. L'esito effettivo e i commit saranno registrati dopo le verifiche; nessun successo del rilascio è ancora attestato da questa fase di preparazione.
+- Preparazione documentale e autorizzazione salvate su dev nel commit `b8008b428bc223b163bae5b2e901ff15379c23ad`. Tag annotato **`pre-usability-test-20261115-e1363d6`** salvato e verificato sul remoto: punta al precedente main **`e1363d6c3cd40cd0519546efc4d6ef4907bd03b9`**.
+- Dev integrato in main con merge non distruttivo **`0cc5f2fef8c099b6cd18cabd59f5e0e279c090f7`**. API di main ricontrollata prima del push: nessuna protezione o ruleset che richiedesse PR; nessuna regola aggirata. Push ordinario, senza force push.
+- **Prima pubblicazione riuscita:** build Pages per 0cc5f2f in stato built e [workflow pages build and deployment completato con success](https://github.com/giovanniguasti/casaisabellabike/actions/runs/43745053432). Il contenuto applicativo è identico alla candidata autorizzata: le sole differenze sono i documenti del rilascio.
+- **Presenza della nuova versione verificata via HTTPS:** cinque HTML e cinque CSS/JS confrontati byte per byte con i blob della candidata; identici. Originali, archivio ZIP, PDF locale e due percorsi della foto esclusa controllati: tutti 404. Un 503 transitorio sull'URL della vecchia pizza, non usato dal sito, è stato ritentato fino a ottenere 404; nessun file escluso è stato esposto.
+- **Controlli pubblici in Chrome:** ripetute 40 combinazioni delle cinque pagine IT/EN/formato e 50 navigazioni, con lingua mantenuta, email mailto corretta e tastiera. Ripetute le 12 combinazioni del rullino, tutte le 40 foto e le 10 stampe, miniature, primo/ultimo, chiusura, focus, scroll e cambio lingua. Touch emulato nei due sensi, gestione dell'errore intenzionale e Riprova, riduzione delle animazioni; zero errori JavaScript, HTTP o di rete inattesi nelle risorse in uso.
+- **Prestazioni pubbliche:** zero immagini grandi prima di aprire il rullino; alla prima apertura centrale soltanto corrente e due vicine. Il server comprime HTML/CSS/JS: la misura iniziale del browser è 310.685 byte di risorse codificate, HTML incluso, nella stessa viewport 1440×1000; il peso dell'album su disco rimane invariato. Nessuna ottimizzazione aggiuntiva eseguita da questo incarico.
+- **Riallineamento verificato:** dopo il primo deploy dev è avanzato in fast-forward al merge 0cc5f2f e il push è stato confermato; i due rami remoti risultavano identici prima di questo aggiornamento del resoconto. Gli aggiornamenti documentali successivi preservano quella cronologia e non modificano il codice applicativo. Il commit documentale più recente è identificabile con `git log -1 -- CODEX-GPT.md`.
+- Nessuna regressione bloccante rilevata, nessun rollback necessario. Se richiesto da un problema bloccante successivo, usare un commit di revert del merge di rilascio, con il tag precedente come riferimento e risoluzione esplicita degli eventuali conflitti documentali; non usare reset o force push. Il tag non modifica l'hosting e il ripristino non è stato eseguito come test.
+
+URL pubblici verificati:
+
+- https://casaisabellabike.it/
+- https://casaisabellabike.it/ospitalita.html
+- https://casaisabellabike.it/bicicletta.html
+- https://casaisabellabike.it/raccolta-olive.html
+- https://casaisabellabike.it/contatti.html
+
+Sono state controllate entrambe le lingue con `?lang=it` e `?lang=en`. Screenshot pubblici desktop/mobile in `%TEMP%/casaisabella-release-review/public/`; anteprima locale ancora disponibile su http://127.0.0.1:8000/. Nessun file temporaneo di test aggiunto a Git.
 
 ### Limiti e valutazione ancora aperta
 
-Nessun problema bloccante rilevato nei controlli preliminari. Dispositivi fisici, Safari, Firefox e lettori di schermo non verificati; la prova touch è un'emulazione del browser. I contenuti introduttivi Ospitalità/Bicicletta rimangono quelli confermati, senza itinerari, disponibilità o servizi inventati. Valutazione dell'usabilità di Giovanni e approvazione definitiva di testi, fotografie e impaginazione ancora da svolgere. Le milestone future restano nel piano, non implementate.
+Nessun problema bloccante rilevato nei controlli locali o pubblici. Dispositivi fisici, Safari, Firefox e lettori di schermo non verificati; la prova touch è un'emulazione del browser. Verificato il collegamento mailto, senza inviare messaggi né testarne il recapito. I contenuti introduttivi Ospitalità/Bicicletta rimangono quelli confermati, senza itinerari, disponibilità o servizi inventati. **Valutazione dell'usabilità di Giovanni e approvazione definitiva di testi, fotografie e impaginazione ancora da svolgere.** Album Ospitalità, video, salvaguardia del territorio, premi, biologico e SEO restano nel piano, non implementati. L'autorizzazione GC-20261115-07 non si estende a rilasci futuri.

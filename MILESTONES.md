@@ -19,7 +19,7 @@ L'approvazione dell'obiettivo o della struttura non equivale all'approvazione fi
 - Il sito unisce ospitalità, bicicletta e vita in campagna a Cortona.
 - Gli ospiti partecipano alla raccolta delle olive. Lavoro, fatica, amicizia e convivialità aiutano a comprendere e gustare l'olio.
 - Valorizzare le fotografie della raccolta e dei momenti conviviali 2026, inclusa la pizza preparata da Giovanni per 15 persone.
-- Creare una pagina dedicata alla raccolta: implementazione locale verificata il 15 novembre 2026, riutilizzando la sezione già realizzata. Approvazione finale e pubblicazione restano pendenti.
+- Creare una pagina dedicata alla raccolta: implementazione verificata e pubblicata per prova d'uso il 15 novembre 2026 con autorizzazione GC-20261115-07. Approvazione definitiva dei contenuti ancora pendente.
 - Homepage breve con accesso a pagine dedicate: Ospitalità, Bicicletta e territorio, La raccolta delle olive, Contatti. Decisione successiva che sostituisce la lunga homepage a sezioni.
 - Contatti: inizialmente email e indicazioni su periodo, numero di persone ed esperienza desiderata; modulo da valutare separatamente.
 - Incrementare la visibilità del sito tramite SEO.
@@ -38,7 +38,7 @@ Completamento: visione e vincoli esplicitamente approvati; nessun servizio inven
 
 ## M1 — Raccolta delle olive 2026
 
-Stato: REALIZZAZIONE LOCALE VERIFICATA; approvazione finale di Giovanni e pubblicazione pendenti.
+Stato: IMPLEMENTAZIONE VERIFICATA E PUBBLICATA PER PROVA D'USO (GC-20261115-07); approvazione definitiva di Giovanni ancora pendente.
 
 Intervento locale e vincoli:
 - Il racconto è in raccolta-olive.html, raggiungibile dalla homepage e dal menu. La homepage presenta soltanto un invito alla pagina; non ospita la galleria o il racconto completo.
@@ -53,7 +53,7 @@ Criteri di completamento:
 - [x] Anteprima locale e controllo IT/EN, menu, immagini e console.
 - [x] Riepilogo dei pesi e delle modifiche: le cinque WebP precedenti, 1.188.286 byte, sono riutilizzate senza modifiche; selezione ampliata e prestazioni documentate in M1.2 e FOTO-RACCOLTA.md.
 - [ ] Selezione, testi e impaginazione approvati da Giovanni; conferma delle foto pubblicabili.
-- [ ] Pubblicazione solo dopo autorizzazione separata e controllo successivo.
+- [x] Pubblicazione per prova d'uso autorizzata separatamente con GC-20261115-07 ed eseguita con controllo pubblico successivo; non equivale all'approvazione definitiva.
 
 L'ampliamento del racconto fotografico è autorizzato da GC-20261115-06. Premi e certificazione restano esclusi: interventi separati da concordare in M2.
 
@@ -80,7 +80,7 @@ La collocazione futura di olio, premi e biologico nella pagina raccolta resta un
 
 ## M1.2 — Tavolo dei ricordi e rullino fotografico
 
-Incarico: GC-20261115-06. Stato: IMPLEMENTATO E VERIFICATO LOCALMENTE; selezione definitiva e revisione finale di Giovanni pendenti. Nessuna pubblicazione del sito.
+Incarico di implementazione: GC-20261115-06. Stato: IMPLEMENTATO, VERIFICATO E PUBBLICATO PER PROVA D'USO con GC-20261115-07; selezione definitiva e revisione finale di Giovanni ancora pendenti.
 
 - [x] Sincronizzazione sicura di dev: fast-forward da c6299a8 a 989dd08, preservando i materiali locali non tracciati e leggendo l'incarico aggiornato in GPT-CODEX.md.
 - [x] Esaminati tutti i 49 originali: selezionati 40 scatti distinti; esclusi WXEF0435.JPG, il duplicato esatto JGUG3431.JPG e altri 7 scatti per pertinenza o inquadrature simili. Originali preservati, scarti documentati senza cancellazioni.
@@ -92,7 +92,7 @@ Incarico: GC-20261115-06. Stato: IMPLEMENTATO E VERIFICATO LOCALMENTE; selezione
 - [x] Verificata la ripresa dopo un caricamento bloccato intenzionalmente; cambio rapido di foto con rete rallentata e lingua mantenuta dal dialogo alla pagina Contatti. Verifiche di regressione delle altre quattro pagine in IT/EN.
 - [x] Anteprima e screenshot desktop/mobile pronti per la revisione. Originali, cinque WebP preesistenti, homepage, pagine diverse dalla raccolta, stili comuni e CNAME preservati tramite SHA-256; nella logica comune è aggiunto soltanto l'evento di cambio lingua necessario al rullino.
 - [ ] Selezione finale delle fotografie pubblicabili, testi e impaginazione approvati da Giovanni.
-- [ ] Autorizzazione separata e successiva pubblicazione.
+- [x] Autorizzazione separata GC-20261115-07 ricevuta per la candidata corrente e pubblicazione per prova d'uso verificata; le versioni future richiedono nuova autorizzazione.
 
 Pesi delle copie utilizzate: 40 immagini grandi (35 nuove e 5 riutilizzate), 11.839.408 byte; 40 miniature, 1.347.262 byte; totale su disco 13.186.670 byte. Le sole miniature del tavolo pesano 292.546 byte.
 
@@ -218,27 +218,29 @@ Le proposte di consolidamento tecnico sono registrate in GPT-CODEX.md, voce GC-2
 
 ## M5.1 — Pubblicazione per prova d'uso
 
-Incarico GC-20261115-07, autorizzazione esplicita ricevuta il 15 novembre 2026. Candidata: `25a85213df4db69636d860c2a6ce960687ceef93`; nessuna modifica applicativa autorizzata da questo rilascio. Stato: CONTROLLI PRELIMINARI SUPERATI, PUBBLICAZIONE DA ESEGUIRE. L'autorizzazione alla prova pubblica non costituisce approvazione definitiva di tutti i contenuti.
+Incarico GC-20261115-07, autorizzazione esplicita ricevuta il 15 novembre 2026. Candidata: `25a85213df4db69636d860c2a6ce960687ceef93`; nessuna modifica applicativa introdotta da questo rilascio. Stato: PUBBLICAZIONE RIUSCITA E VERIFICATA SUL DOMINIO PUBBLICO. L'autorizzazione alla prova pubblica non costituisce approvazione definitiva di tutti i contenuti; valutazione dell'usabilità di Giovanni ancora da svolgere.
 
 - [x] Istruzioni e documenti letti; dev aggiornato in fast-forward, senza sovrascrivere modifiche locali. Conservati gli aggiornamenti alle milestone future.
 - [x] Confronto con main e tag locale `pre-usability-test-20261115-e1363d6`, riferito al precedente main `e1363d6c3cd40cd0519546efc4d6ef4907bd03b9`.
 - [x] Controlli locali: 40 combinazioni delle cinque pagine IT/EN/formato e 50 percorsi di navigazione; rullino verificato in 12 combinazioni, 40 fotografie caricate e 10 stampe aperte correttamente. Mailto, lingua, tastiera, focus e immagini funzionanti, nessun errore JavaScript.
 - [x] File tracciati controllati: nessun originale locale, archivio ZIP, PDF, certificato o credenziale riconoscibile; WXEF0435.JPG e duplicato esatto esclusi. CNAME invariato; Pages legacy da main `/`, HTTPS invariato. Main non protetto e nessun ruleset attivo rilevato.
 - [x] Autorizzazione limitata alla candidata registrata in GPT-CODEX.md.
-- [ ] Tag di ripristino salvato sul remoto, integrazione dev/main e pubblicazione GitHub Pages completate.
-- [ ] Versione pubblica verificata su cinque pagine, desktop/mobile, IT/EN, immagini e rullino.
-- [ ] Dev e main riallineati al termine senza riscrivere la cronologia.
+- [x] Tag di ripristino salvato sul remoto; dev integrato in main senza riscrivere la cronologia nel commit `0cc5f2fef8c099b6cd18cabd59f5e0e279c090f7`. GitHub Pages: build e workflow completati con successo.
+- [x] Versione pubblica verificata: cinque pagine e cinque file CSS/JS identici alla candidata, 40 combinazioni pagina/lingua/formato e 50 navigazioni; rullino in 12 combinazioni con tutte le 40 immagini. Sei URL di materiali esclusi restituiscono 404.
+- [x] Dev e main riallineati al merge pubblicato, senza riscrivere la cronologia; il resoconto successivo modifica soltanto documenti e viene mantenuto condiviso sui due rami.
 - [ ] Valutazione della facilità d'uso da parte di Giovanni.
 - [ ] Approvazione definitiva di testi, immagini e impaginazione.
 
 Le prove touch sono eseguite tramite Chrome DevTools: dispositivi fisici, Safari, Firefox e lettori di schermo restano non verificati. M2, M3.1, M3.2, M3.3, M4 e la proposta generale di consolidamento non vengono implementate da questo rilascio. Esito, commit e dettagli in CODEX-GPT.md.
 
+Versione precedente: `pre-usability-test-20261115-e1363d6` → `e1363d6c3cd40cd0519546efc4d6ef4907bd03b9`. Il tag è disponibile su GitHub. Nessuna regressione bloccante rilevata e nessun revert necessario; un eventuale ripristino va eseguito tramite commit di revert, mai con force push. CNAME e configurazione Pages invariati.
+
 ## Riallineamento della collaborazione
 
-Incarico approvato GC-20261115-01: integrare il lavoro già realizzato e i documenti del ramo chore/ignore-original-photos su `dev`, predisporre i file di scambio e pubblicare il resoconto su quel ramo, previa verifica dell'assenza di pubblicazione automatica da `dev`. M1 e M1.1 restano sottoposte alla revisione finale di Giovanni per testi, immagini e impaginazione. Non avviare M2, M3 oltre i contenuti già autorizzati, M4 o il consolidamento tecnico proposto. Nessuna autorizzazione a merge su `main` o pubblicazione del sito.
+Incarico di riallineamento GC-20261115-01 completato su `dev`, senza pubblicare il sito in quella fase. M1 e M1.1 restano sottoposte alla revisione definitiva di Giovanni per testi, immagini e impaginazione. La successiva autorizzazione GC-20261115-07 consente soltanto il rilascio della candidata identificata per prova d'uso, non nuove funzionalità o rilasci futuri. Non avviare M2, M3 oltre i contenuti già autorizzati, M4 o il consolidamento tecnico proposto.
 
 - [x] Lavoro applicativo salvato su dev; cronologia chore/ignore-original-photos integrata preservando il piano locale aggiornato.
 - [x] GPT-CODEX.md e CODEX-GPT.md creati; revisione documentale autorizzata completata. MANIFEST.md segnalato come assente.
 - [x] Verificata la pubblicazione configurata soltanto da main; push su dev eseguito e confrontato con il remoto, senza workflow o deployment da dev. Commit ed evidenze in CODEX-GPT.md.
 - [ ] Revisione finale di Giovanni dei contenuti e dell'impaginazione del sito.
-- [ ] Autorizzazione separata per merge su main e pubblicazione del sito.
+- [x] Autorizzazione separata GC-20261115-07 ricevuta per merge della candidata in main e pubblicazione per prova d'uso. Esito in M5.1; nessuna approvazione definitiva implicita.

@@ -1,6 +1,6 @@
 # Raccolta — Selezione fotografica per la revisione
 
-Incarico GC-20261115-06, 15 novembre 2026. **40 fotografie distinte**, di cui 10 sul tavolo. Selezione iniziale ampia da rivedere con Giovanni; non costituisce approvazione alla pubblicazione. Tutti i 49 originali sono conservati. L’ordine è editoriale e non attribuisce date o una cronologia agli scatti.
+Incarico GC-20261115-06, 15 novembre 2026. **40 fotografie distinte**, di cui 10 sul tavolo. Selezione iniziale ampia da rivedere con Giovanni; pubblicazione della candidata per prova d'uso autorizzata separatamente con GC-20261115-07, senza approvazione definitiva della selezione. Tutti i 49 originali sono conservati. L’ordine è editoriale e non attribuisce date o una cronologia agli scatti.
 
 Per chiedere una rimozione basta indicare il nome originale, visibile anche nel rullino. L’elenco centrale è `raccolta-foto.js`: ordine dell’array = ordine del rullino; `table` da 1 a 10 = posizione sul tavolo, 0 = solo rullino. Testi, alt IT/EN e percorsi delle copie sono nello stesso elenco.
 
