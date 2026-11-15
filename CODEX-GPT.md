@@ -2,6 +2,8 @@
 
 Data: 15 novembre 2026. Riferimento condiviso: `dev`. Gli stati sotto riportati descrivono lavoro e verifiche di Codex; non attestano l'approvazione finale di Giovanni. Gli incarichi sono in `GPT-CODEX.md`, il piano in `MILESTONES.md`.
 
+Aggiornamento più recente: **GC-20261115-06 — Tavolo dei ricordi e rullino fotografico**, resoconto in fondo al documento. Commit di implementazione: `3f7f0cbcbec4fafdd50e5d5990b934f12ae14826`.
+
 ## GC-20261115-01 — Riallineamento della collaborazione
 
 ### Attività e file
@@ -70,3 +72,66 @@ python -m http.server 8000 --bind 127.0.0.1
 Aprire http://127.0.0.1:8000/?lang=it oppure http://127.0.0.1:8000/?lang=en. Se il server dell'anteprima è già attivo, aprire direttamente l'indirizzo. Screenshot delle cinque pagine in IT/EN, desktop 1440 px e mobile 390 px, prodotti nella precedente verifica locale; non sono artefatti permanenti su Git.
 
 Restano aperti: approvazione finale di Giovanni, contenuti M3, definizione di MANIFEST.md e discussione della proposta tecnica. M2 e M4 non avviate. Altri browser e dispositivi fisici non verificati. Nessuna autorizzazione alla pubblicazione o al merge su main.
+
+## GC-20261115-06 — Tavolo dei ricordi e rullino fotografico
+
+Data: 15 novembre 2026. Riferimenti: M1 e nuova M1.2. **Implementato e verificato, selezione e risultato finale da revisionare con Giovanni.**
+
+Commit di implementazione: **`3f7f0cbcbec4fafdd50e5d5990b934f12ae14826`**, `Add memories table and accessible photo roll with 40 harvest photos`. Il commit del presente aggiornamento documentale è identificabile con `git log -1 -- CODEX-GPT.md`.
+
+### Sincronizzazione e ambito
+
+All'inizio dev era a c6299a8, senza modifiche ai file tracciati. Dopo fetch, il remoto aveva aggiunto soltanto l'incarico in GPT-CODEX.md, commit 989dd08: eseguito fast-forward sicuro e letto il testo completo. I materiali non tracciati sono rimasti intatti. Nessun intervento su main, reset, force push o modifica all'hosting. GPT-CODEX.md è preservato senza riscrivere le decisioni.
+
+Intervento limitato alla pagina raccolta e alle risorse necessarie. Il racconto IT/EN già approvato è invariato. Homepage, Ospitalità, Bicicletta, Contatti, stili comuni, fotografia iniziale e CNAME sono invariati; la proposta generale GC-20261115-05 resta distinta e non completata da questo incarico.
+
+### Attività e file
+
+- `raccolta-olive.html`: sostituita la precedente galleria lunga con il tavolo e il dialogo del rullino; collegamento esplicito a tutte le foto e messaggio bilingue per browser senza JavaScript.
+- `raccolta-foto.js`: elenco centrale di 40 fotografie, con nome originale, percorsi/dimensioni delle copie, alt, didascalie e titoli brevi IT/EN. Ordine nell'array per il rullino, proprietà table per le 10 stampe; lo stesso elenco alimenta entrambe le viste.
+- `ricordi.css`: stili della sola pagina raccolta, stampe con dimensioni variate e lievi inclinazioni, composizione mobile semplice, dialogo adattabile e preferenza di riduzione delle animazioni.
+- `ricordi.js`: apertura sullo scatto scelto, immagine intera senza ritagli, precedente/successiva con limiti espliciti, miniature selezionabili, contatore, nome originale e lingua anche nel dialogo. Frecce tastiera, Home/End, swipe touch, Tab/Shift+Tab contenuti nel dialogo, chiusura visibile ed Escape, restituzione del focus e della posizione di scorrimento. Caricamento della foto corrente e al massimo dei due vicini; errore di caricamento con Riprova.
+- `script.js`: aggiunto soltanto l'evento languagechange, necessario ad aggiornare tavolo e rullino con la lingua già gestita dal sito.
+- `images/raccolta-2026/album/`: 35 nuove copie grandi WebP; riutilizzate senza modifiche le 5 precedenti. `images/raccolta-2026/miniature/`: 40 miniature WebP separate.
+- `FOTO-RACCOLTA.md`: selezione completa numerata con nomi originali, stampe sul tavolo, scarti motivati e pesi. `MILESTONES.md`: aggiornata M1 e aggiunta M1.2 sulla base delle verifiche effettive, con revisione finale e pubblicazione ancora pendenti.
+
+### Selezione e conservazione
+
+Esaminati tutti i **49 originali**. Inclusi **40 scatti distinti**: lavoro tra gli ulivi, persone, reti e cassette, trattore, pause davanti alla casa, paesaggio, forno e tavola all'aperto. L'ordine è editoriale e non attribuisce date, nomi, ruoli o una cronologia alle fotografie.
+
+Esclusi WXEF0435.JPG come richiesto e JGUG3431.JPG, duplicato esatto di FXQP3615.JPG verificato con SHA-256. Altri sette scatti non inclusi: IMG_1824.JPG, CVZI4831.JPG, HWYO7681.JPG, REFK3371.JPG, SHDD5304.JPG, TFHS1474.JPG e VMPI5800.JPG; motivi nel documento di selezione. Questi sette scatti restano disponibili per un'eventuale scelta diversa di Giovanni.
+
+Tutti gli originali sono preservati tramite verifica SHA-256 e restano esclusi da Git. Orientamento EXIF applicato ai pixel, nessun ritaglio né ingrandimento; assenza di chunk EXIF, XMP e ICC verificata nelle 80 WebP utilizzate. Le cinque copie precedenti restano identiche. ZIP e certificato locali non sono inclusi nei commit.
+
+### Pesi e caricamento progressivo
+
+| Risorsa | Peso |
+|---|---:|
+| 40 immagini grandi, comprese le 5 precedenti | 11.839.408 byte |
+| 40 miniature separate | 1.347.262 byte |
+| Totale delle copie usate dall'album su disco | 13.186.670 byte |
+| Sole miniature delle 10 stampe sul tavolo | 292.546 byte |
+| Contenuti iniziali misurati nel browser, HTML incluso | 367.440 byte |
+
+Misura iniziale: Chrome headless, cache disabilitata, viewport 1440×1000, server statico locale; zero immagini grandi prima dell'apertura. Il totale iniziale comprende HTML, CSS, JavaScript e miniature, senza equipararlo al peso su disco. Varia con viewport, cache e porzione visibile. Alla prima apertura su IMG_1858.JPG, richieste soltanto quella foto e le due vicine QFIU9033.JPG/DQET0289.JPG: 725.186 byte complessivi per le immagini grandi. Nessun caricamento iniziale dell'album completo. Le miniature del rullino vengono create soltanto alla prima apertura e hanno caricamento differito.
+
+### Verifiche effettive e risultati
+
+- Chrome headless: pagina raccolta IT/EN a 1440×1000, 1024×768, 768×1024, 390×844, 320×568 e 844×390: **12 combinazioni**, senza overflow orizzontale o sovrapposizione delle stampe. Controlli del dialogo visibili anche in orizzontale, foto verticali/orizzontali intere con object-fit: contain.
+- Tutte le 40 fotografie grandi caricate e confrontate con percorso, nome originale, alt e didascalia attesi; tutte le 10 stampe aperte sullo scatto corretto. Miniature selezionabili, primo/ultimo scatto coerenti, nessun autoplay.
+- Mouse reale tramite eventi del browser; tastiera con Invio, frecce, Home/End, Tab e Shift+Tab, focus visibile e contenuto, Escape e pulsante Chiudi. Verificati restituzione del focus al controllo di apertura, posizione di scorrimento ripristinata e blocco dello sfondo.
+- Cambio IT/EN nel dialogo senza cambiare foto, didascalie e alt aggiornati, lingua mantenuta dal rullino alla pagina Contatti. Altre quattro pagine controllate in IT/EN: testi e link conservati, nessun dialogo aggiunto.
+- Touch tramite Input.dispatchTouchEvent di Chrome: swipe nei due sensi, gesto breve senza avanzamento, movimento verticale senza avanzamento, limite iniziale. **Non è una prova su un telefono fisico.**
+- Richiesta bloccata intenzionalmente: messaggio di errore accessibile e Riprova funzionanti, focus rimasto nel dialogo. Cambio rapido fra foto con rete rallentata: immagine e didascalia finali coerenti. Il blocco di rete intenzionale è escluso dal conteggio degli errori inattesi.
+- Preferenza reduced-motion verificata: transizioni delle stampe disattivate. Nessun errore JavaScript, risposta HTTP inattesa fallita o errore di rete inatteso nei controlli. git diff --check superato.
+- SHA-256 di tutti gli originali e dei file preesistenti fuori dall'ambito: preservati. Nessun originale già tracciato; dati senza WXEF0435.JPG o duplicati esatti. File mancanti, duplicati negli identificatori e dati fotografici incompleti non rilevati.
+
+Screenshot del tavolo e del rullino in IT/EN, desktop 1440 px e mobile 390 px, disponibili localmente in `%TEMP%/casaisabella-ricordi-review/`. I test e gli artefatti temporanei non introducono dipendenze applicative nel repository.
+
+### Anteprima, consegna e punti aperti
+
+Anteprima: http://127.0.0.1:8000/raccolta-olive.html?lang=it oppure http://127.0.0.1:8000/raccolta-olive.html?lang=en. Dalla radice del repository, se non è già attiva: `python -m http.server 8000 --bind 127.0.0.1`.
+
+Ramo di consegna: **dev**. Controllo autenticato della configurazione prima dell'invio: Pages legacy da main `/`, policy dell'ambiente github-pages limitata a main, nessun webhook. Il push su dev non attiva la pubblicazione configurata. Nessuna modifica a main o alle impostazioni di hosting.
+
+Restano da Giovanni: selezione definitiva, eventuali rimozioni tramite i nomi originali, approvazione delle immagini pubblicabili, testi e impaginazione. Limiti tecnici: nessun test su dispositivo fisico, Safari, Firefox o lettore di schermo. M2, M3 oltre i contenuti già autorizzati e M4 non avviate; MANIFEST.md resta assente. Nessuna pubblicazione del sito autorizzata o eseguita.
