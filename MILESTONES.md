@@ -4,11 +4,15 @@ Aggiornato: 15 novembre 2026.
 
 ## Regole e stati
 
-La progettazione viene discussa con Giovanni; l'implementazione è affidata a Codex. Nessuna modifica al codice senza incarico esplicito. Nessun merge, push delle modifiche applicative o pubblicazione senza autorizzazione esplicita. La creazione di questo piano non autorizza tutte le attività elencate.
+La progettazione viene discussa con Giovanni; l'implementazione è affidata a Codex. Nessuna modifica al codice senza incarico esplicito. Il ramo GitHub `dev` è il riferimento condiviso tra Giovanni, ChatGPT e Codex locale: fetch/pull e push su `dev` sono autorizzati nell'ambito degli incarichi ricevuti, previa verifica che il push non pubblichi il sito. Merge su `main` e pubblicazioni richiedono autorizzazione esplicita di Giovanni. La creazione di questo piano non autorizza tutte le attività elencate.
+
+Gli incarichi e le proposte sono registrati in `GPT-CODEX.md`; osservazioni, risultati e commit sono in `CODEX-GPT.md`. Una proposta non autorizza l'implementazione. `MANIFEST.md` non è presente: resta da discutere e creare con Giovanni, senza dedurne nuove decisioni.
 
 - APPROVATO: obiettivo o vincolo confermato da Giovanni.
 - PROPOSTA: dettaglio da discutere; non costituisce un incarico.
 - DA VERIFICARE: informazione o risultato ancora da controllare.
+
+L'approvazione dell'obiettivo o della struttura non equivale all'approvazione finale di testi, fotografie e impaginazione. Implementazione, verifica tecnica, approvazione finale di Giovanni e pubblicazione sono passaggi distinti. La struttura delle pagine può essere completata mentre i contenuti di ospitalità e bicicletta restano da definire in M3.
 
 ## Decisioni approvate
 
@@ -37,7 +41,7 @@ Completamento: visione e vincoli esplicitamente approvati; nessun servizio inven
 Stato: REALIZZAZIONE LOCALE VERIFICATA; approvazione finale di Giovanni e pubblicazione pendenti.
 
 Intervento locale e vincoli:
-- Impostazione iniziale superata: la raccolta va ora in una pagina dedicata, raggiungibile dalla homepage e dal menu. Riutilizzare il lavoro locale già fatto.
+- Il racconto è in raccolta-olive.html, raggiungibile dalla homepage e dal menu. La homepage presenta soltanto un invito alla pagina; non ospita la galleria o il racconto completo.
 - Testi IT/EN e racconto fotografico di lavoro, persone, pause e pizza.
 - Selezione locale per la revisione: BPUS6989.JPG, FXQP3615.JPG, IMG_1858.JPG, IMG_1857.JPG, NSOU7354.JPG. WXEF0435.JPG esclusa su indicazione di Giovanni; originale preservato e copia WebP rimossa.
 - JGUG3431.JPG è un duplicato esatto di FXQP3615.JPG: non usare entrambi.
@@ -55,7 +59,7 @@ Non includere ancora una galleria completa, i premi o la certificazione: interve
 
 ## M1.1 — Homepage breve e pagine dedicate
 
-Stato: IMPLEMENTAZIONE LOCALE VERIFICATA; in attesa dell'approvazione di Giovanni. M2 non avviata.
+Stato: STRUTTURA IMPLEMENTATA E VERIFICATA; approvazione della struttura confermata da Giovanni, revisione finale di testi, fotografie e impaginazione pendente. Il completamento dei contenuti di ospitalità e bicicletta resta in M3. M2 non avviata.
 
 - [x] Homepage con fotografia principale, breve identità, tre inviti visivi alle esperienze e pulsante Contattaci.
 - [x] Pagine dedicate: Ospitalità, Bicicletta e territorio, La raccolta delle olive, Contatti.
@@ -65,11 +69,12 @@ Stato: IMPLEMENTAZIONE LOCALE VERIFICATA; in attesa dell'approvazione di Giovann
 - [x] Navigazione comune, ritorno alla home e lingua mantenuta tra pagine; sito statico.
 - [x] Verificare apertura diretta delle pagine, link, lingue, layout mobile e desktop e console.
 - [x] Presentare anteprima per approvazione, senza pubblicare.
-- [ ] Approvazione finale di Giovanni di struttura, testi, fotografie pubblicabili e impaginazione.
+- [x] Struttura multipagina approvata da Giovanni come direzione del progetto.
+- [ ] Approvazione finale di Giovanni di testi, fotografie pubblicabili e impaginazione.
 
 Verifiche locali del 15 novembre 2026: Chrome headless, cinque pagine in IT/EN a 1440×1000, 390×844, 320×568 e 844×390 (40 combinazioni); 50 combinazioni di navigazione con lingua conservata; tastiera con Tab, focus visibile, salto al contenuto e Invio su lingua e collegamenti. Titoli e descrizioni distinti per pagina e lingua, immagini caricate senza deformazioni, nessuna sovrapposizione del menu, nessun errore JavaScript; fotografie, CSS, JavaScript e pagine caricati correttamente. Screenshot desktop e mobile generati per tutte le pagine. Dispositivi fisici e altri browser non verificati.
 
-Preservazione verificata tramite SHA-256 di tutte le immagini esistenti, degli originali, di .gitignore e di CNAME. Nessun originale tracciato, nessuna modifica all'indice Git o alla configurazione di pubblicazione. Il piano remoto è stato letto con fetch e importato perché non esisteva un piano locale; nessun checkout o merge.
+Nella riorganizzazione multipagina è stata verificata tramite SHA-256 la preservazione di tutte le immagini esistenti, degli originali, di .gitignore e di CNAME. Nessun originale tracciato. Nel successivo riallineamento autorizzato su `dev` il piano locale più aggiornato è stato confrontato con chore/ignore-original-photos e preservato; .gitignore integra la stessa esclusione e il commento del ramo remoto. CNAME e impostazioni di hosting restano invariati. Commit e stato della sincronizzazione sono documentati in CODEX-GPT.md.
 
 La collocazione futura di olio, premi e biologico nella pagina raccolta resta una proposta, non autorizza l'inserimento in questo intervento.
 
@@ -93,7 +98,7 @@ Completamento: contenuti documentati, approvati e distinti per annata; nessun pr
 
 ## M3 — Casa, ospitalità e bicicletta
 
-Stato: DIREZIONE APPROVATA; dettagli PROPOSTI.
+Stato: DIREZIONE E STRUTTURA DELLE PAGINE APPROVATE; contenuti di dettaglio incompleti e da concordare. Le pagine esistono con le sole informazioni confermate: questo non completa M3.
 
 - [ ] Definire informazioni reali sulla casa e sui soggiorni.
 - [ ] Scegliere fotografie e modalità di contatto.
@@ -126,6 +131,8 @@ Stato: PROCEDURA PROPOSTA; approvazione esplicita della pubblicazione è un VINC
 - [ ] Ricevere autorizzazione alla pubblicazione e controllare il sito dopo il rilascio.
 - [ ] Definire revisione periodica di contenuti stagionali e certificati.
 
-## Primo incarico suggerito a Codex
+Le proposte di consolidamento tecnico sono registrate in GPT-CODEX.md, voce GC-20261115-05. Richiedono discussione con Giovanni e non sono avviate da questo riallineamento; il resoconto distingue ciò che era già presente nel lavoro precedente da ciò che resta proposto.
 
-M1.1 implementata e verificata localmente: sottoporre l'anteprima a Giovanni. Questa decisione sostituisce il precedente incarico limitato alla sezione nella homepage. Non avviare M2, M3 oltre la riorganizzazione dei contenuti confermati, o M4. Approvazione finale, push, merge e pubblicazione restano separati e non eseguiti.
+## Riallineamento della collaborazione
+
+Incarico approvato GC-20261115-01: integrare il lavoro già realizzato e i documenti del ramo chore/ignore-original-photos su `dev`, predisporre i file di scambio e pubblicare il resoconto su quel ramo, previa verifica dell'assenza di pubblicazione automatica da `dev`. M1 e M1.1 restano sottoposte alla revisione finale di Giovanni per testi, immagini e impaginazione. Non avviare M2, M3 oltre i contenuti già autorizzati, M4 o il consolidamento tecnico proposto. Nessuna autorizzazione a merge su `main` o pubblicazione del sito.
