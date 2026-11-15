@@ -16,6 +16,8 @@ La progettazione viene discussa con Giovanni; l'implementazione è affidata a Co
 - Gli ospiti partecipano alla raccolta delle olive. Lavoro, fatica, amicizia e convivialità aiutano a comprendere e gustare l'olio.
 - Valorizzare le fotografie della raccolta e dei momenti conviviali 2026, inclusa la pizza preparata da Giovanni per 15 persone.
 - Creare una sezione dedicata alla raccolta: è stato richiesto un prompt per Codex; implementazione e pubblicazione non risultano verificate.
+- Homepage breve con accesso a pagine dedicate: Ospitalità, Bicicletta e territorio, La raccolta delle olive, Contatti. Decisione successiva che sostituisce la lunga homepage a sezioni.
+- Contatti: inizialmente email e indicazioni su periodo, numero di persone ed esperienza desiderata; modulo da valutare separatamente.
 - Incrementare la visibilità del sito tramite SEO.
 - Conservare gli originali in materiali/foto-originali/, esclusi da Git; tenere tracciate le copie pubblicabili in images/.
 
@@ -35,7 +37,7 @@ Completamento: visione e vincoli esplicitamente approvati; nessun servizio inven
 Stato: OBIETTIVO APPROVATO; realizzazione locale da verificare.
 
 Proposta di intervento già inclusa nel prompt per Codex:
-- Sezione dopo Il progetto e prima di Percorsi e territorio; collegamento nel menu.
+- Impostazione iniziale superata: la raccolta va ora in una pagina dedicata, raggiungibile dalla homepage e dal menu. Riutilizzare il lavoro locale già fatto.
 - Testi IT/EN e racconto fotografico di lavoro, persone, pause e pizza.
 - Prima selezione proposta, non definitiva: BPUS6989.JPG, FXQP3615.JPG, IMG_1858.JPG, IMG_1857.JPG, NSOU7354.JPG, WXEF0435.JPG.
 - JGUG3431.JPG è un duplicato esatto di FXQP3615.JPG: non usare entrambi.
@@ -50,6 +52,21 @@ Criteri di completamento:
 - [ ] Pubblicazione solo dopo autorizzazione separata e controllo successivo.
 
 Non includere ancora una galleria completa, i premi o la certificazione: interventi separati da concordare.
+
+## M1.1 — Homepage breve e pagine dedicate
+
+Stato: APPROVATO; implementazione locale da eseguire/verificare prima di M2.
+
+- [ ] Homepage con fotografia principale, breve identità, tre inviti visivi alle esperienze e pulsante Contattaci.
+- [ ] Pagine dedicate: Ospitalità, Bicicletta e territorio, La raccolta delle olive, Contatti.
+- [ ] Spostare il racconto della raccolta conservando immagini ottimizzate e traduzioni già realizzate.
+- [ ] Riutilizzare solo informazioni confermate nelle altre pagine; non inventare servizi, prezzi, itinerari o disponibilità.
+- [ ] Contatti con email visibile e suggerimento di indicare periodo, numero di persone ed esperienza; nessun modulo/backend.
+- [ ] Navigazione comune, ritorno alla home e lingua mantenuta tra pagine; sito statico.
+- [ ] Verificare apertura diretta delle pagine, link, lingue, layout mobile e desktop e console.
+- [ ] Presentare anteprima per approvazione, senza pubblicare.
+
+La collocazione futura di olio, premi e biologico nella pagina raccolta resta una proposta, non autorizza l'inserimento in questo intervento.
 
 ## M2 — Olio, premi e coltivazione biologica
 
@@ -106,4 +123,4 @@ Stato: PROCEDURA PROPOSTA; approvazione esplicita della pubblicazione è un VINC
 
 ## Primo incarico suggerito a Codex
 
-Controllare lo stato locale e l'eventuale lavoro già svolto sulla raccolta; leggere questo piano e le istruzioni del repository. Se M1 non è stata implementata, applicare il prompt dedicato alla raccolta. Se è già implementata, verificarla e correggere soltanto problemi nel medesimo ambito. Presentare anteprima locale e risultati senza pubblicare. M2, M3 e M4 richiedono incarichi successivi; non avviarli automaticamente.
+Completare M1.1 riutilizzando la raccolta già implementata localmente. Questa decisione sostituisce il precedente incarico limitato alla sezione nella homepage. Non avviare M2, M3 oltre la riorganizzazione dei contenuti confermati, o M4. Presentare anteprima locale senza push, merge o pubblicazione.
