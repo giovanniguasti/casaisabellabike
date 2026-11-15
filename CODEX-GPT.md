@@ -22,7 +22,14 @@ Letture autenticate delle API GitHub, senza modifiche alle impostazioni:
 - `GET /repos/giovanniguasti/casaisabellabike/hooks`: nessun webhook.
 - Workflow rilevato: solo pages-build-deployment dinamico; deploy recenti da main. Nessun workflow aggiunto nel repository.
 
-Esito: **il push su dev non pubblica tramite l'hosting configurato**. CNAME, ramo predefinito e configurazione Pages rimangono invariati. La verifica va ripetuta se cambia la configurazione. Il commit del presente resoconto precede il primo push; l'esito effettivo della sincronizzazione sarà registrato dopo la verifica remota.
+Esito: **il push su dev non pubblica tramite l'hosting configurato**. CNAME, ramo predefinito e configurazione Pages rimangono invariati. La verifica va ripetuta se cambia la configurazione.
+
+### Esito della sincronizzazione
+
+- Primo push eseguito e verificato: `origin/dev` punta a **`46689dac457245b1f8fd664cd08396d43087240c`**, commit di integrazione dei documenti e dei file di scambio, discendente sia dal commit applicativo `ab9dbb82843fd359180f8a146d97d201155a8d88` sia da chore/ignore-original-photos.
+- `dev` locale segue `origin/dev`. Nessun aggiornamento a main, rimasto a `e1363d6c3cd40cd0519546efc4d6ef4907bd03b9`; anche chore è rimasto invariato.
+- Dopo il primo push, API GitHub: zero workflow run per `branch=dev` e zero deployment per `ref=dev`. Nessuna pubblicazione attivata.
+- Il presente aggiornamento documentale registra quell'esito dopo la verifica. Per il commit più recente del resoconto consultare `git log -1 -- CODEX-GPT.md`; per il contenuto applicativo fare riferimento al commit di implementazione sopra indicato.
 
 ### Verifiche
 

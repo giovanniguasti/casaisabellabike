@@ -136,3 +136,9 @@ Le proposte di consolidamento tecnico sono registrate in GPT-CODEX.md, voce GC-2
 ## Riallineamento della collaborazione
 
 Incarico approvato GC-20261115-01: integrare il lavoro già realizzato e i documenti del ramo chore/ignore-original-photos su `dev`, predisporre i file di scambio e pubblicare il resoconto su quel ramo, previa verifica dell'assenza di pubblicazione automatica da `dev`. M1 e M1.1 restano sottoposte alla revisione finale di Giovanni per testi, immagini e impaginazione. Non avviare M2, M3 oltre i contenuti già autorizzati, M4 o il consolidamento tecnico proposto. Nessuna autorizzazione a merge su `main` o pubblicazione del sito.
+
+- [x] Lavoro applicativo salvato su dev; cronologia chore/ignore-original-photos integrata preservando il piano locale aggiornato.
+- [x] GPT-CODEX.md e CODEX-GPT.md creati; revisione documentale autorizzata completata. MANIFEST.md segnalato come assente.
+- [x] Verificata la pubblicazione configurata soltanto da main; push su dev eseguito e confrontato con il remoto, senza workflow o deployment da dev. Commit ed evidenze in CODEX-GPT.md.
+- [ ] Revisione finale di Giovanni dei contenuti e dell'impaginazione del sito.
+- [ ] Autorizzazione separata per merge su main e pubblicazione del sito.
