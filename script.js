@@ -183,6 +183,7 @@ function setLang(lang) {
   const url = new URL(window.location.href);
   url.searchParams.set("lang", normalized);
   try { history.replaceState(null, "", url); } catch (_) { /* Direct file preview. */ }
+  document.dispatchEvent(new CustomEvent("languagechange", { detail: { lang: normalized } }));
 }
 
 document.getElementById("lang-it").addEventListener("click", () => setLang("it"));

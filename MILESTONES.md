@@ -42,20 +42,20 @@ Stato: REALIZZAZIONE LOCALE VERIFICATA; approvazione finale di Giovanni e pubbli
 
 Intervento locale e vincoli:
 - Il racconto è in raccolta-olive.html, raggiungibile dalla homepage e dal menu. La homepage presenta soltanto un invito alla pagina; non ospita la galleria o il racconto completo.
-- Testi IT/EN e racconto fotografico di lavoro, persone, pause e pizza.
-- Selezione locale per la revisione: BPUS6989.JPG, FXQP3615.JPG, IMG_1858.JPG, IMG_1857.JPG, NSOU7354.JPG. WXEF0435.JPG esclusa su indicazione di Giovanni; originale preservato e copia WebP rimossa.
+- Testi IT/EN e racconto fotografico di lavoro, persone, pause e pizza, ora presentato con tavolo dei ricordi e rullino (GC-20261115-06, M1.2).
+- Selezione locale ampliata per la revisione: 40 scatti distinti, elenco completo e motivi dei 9 scarti in FOTO-RACCOLTA.md. Le cinque fotografie precedenti restano incluse. WXEF0435.JPG esclusa su indicazione di Giovanni; originale preservato e nessuna copia pubblicabile utilizzata.
 - JGUG3431.JPG è un duplicato esatto di FXQP3615.JPG: non usare entrambi.
 - Originali preservati; copie WebP in images/raccolta-2026/, orientamento corretto e metadati rimossi.
-- Dimensioni adattate al layout, senza ingrandire immagini piccole; riferimento indicativo 1200 px lato lungo e 100–250 KB per foto, privilegiando la qualità. Circa 1 MB complessivo è un obiettivo indicativo, non un requisito rigido.
+- Dimensioni adattate al layout, senza ingrandire immagini piccole. Il precedente riferimento indicativo di circa 1 MB riguardava la prima selezione di cinque foto: non si applica all'album ampliato. Pesi su disco e caricamento iniziale sono distinti in M1.2.
 - Layout mobile/desktop, testi alternativi, dimensioni dichiarate e caricamento differito; nessun carosello automatico.
 
 Criteri di completamento:
 - [x] Anteprima locale e controllo IT/EN, menu, immagini e console.
-- [x] Riepilogo dei pesi e delle modifiche: cinque WebP invariati, 1.188.286 byte complessivi, nella pagina raccolta-olive.html.
+- [x] Riepilogo dei pesi e delle modifiche: le cinque WebP precedenti, 1.188.286 byte, sono riutilizzate senza modifiche; selezione ampliata e prestazioni documentate in M1.2 e FOTO-RACCOLTA.md.
 - [ ] Selezione, testi e impaginazione approvati da Giovanni; conferma delle foto pubblicabili.
 - [ ] Pubblicazione solo dopo autorizzazione separata e controllo successivo.
 
-Non includere ancora una galleria completa, i premi o la certificazione: interventi separati da concordare.
+L'ampliamento del racconto fotografico è autorizzato da GC-20261115-06. Premi e certificazione restano esclusi: interventi separati da concordare in M2.
 
 ## M1.1 — Homepage breve e pagine dedicate
 
@@ -77,6 +77,28 @@ Verifiche locali del 15 novembre 2026: Chrome headless, cinque pagine in IT/EN a
 Nella riorganizzazione multipagina è stata verificata tramite SHA-256 la preservazione di tutte le immagini esistenti, degli originali, di .gitignore e di CNAME. Nessun originale tracciato. Nel successivo riallineamento autorizzato su `dev` il piano locale più aggiornato è stato confrontato con chore/ignore-original-photos e preservato; .gitignore integra la stessa esclusione e il commento del ramo remoto. CNAME e impostazioni di hosting restano invariati. Commit e stato della sincronizzazione sono documentati in CODEX-GPT.md.
 
 La collocazione futura di olio, premi e biologico nella pagina raccolta resta una proposta, non autorizza l'inserimento in questo intervento.
+
+## M1.2 — Tavolo dei ricordi e rullino fotografico
+
+Incarico: GC-20261115-06. Stato: IMPLEMENTATO E VERIFICATO LOCALMENTE; selezione definitiva e revisione finale di Giovanni pendenti. Nessuna pubblicazione del sito.
+
+- [x] Sincronizzazione sicura di dev: fast-forward da c6299a8 a 989dd08, preservando i materiali locali non tracciati e leggendo l'incarico aggiornato in GPT-CODEX.md.
+- [x] Esaminati tutti i 49 originali: selezionati 40 scatti distinti; esclusi WXEF0435.JPG, il duplicato esatto JGUG3431.JPG e altri 7 scatti per pertinenza o inquadrature simili. Originali preservati, scarti documentati senza cancellazioni.
+- [x] Dieci stampe rappresentative con formati variati e leggere inclinazioni, senza sovrapposizioni; composizione semplice a due colonne su mobile. Invito esplicito al rullino e apertura sulla fotografia scelta.
+- [x] Rullino modale manuale: immagine intera, frecce, miniature selezionabili, contatore, nome originale, alt e didascalie IT/EN; cambio lingua anche nel dialogo. Chiusura visibile ed Escape, focus contenuto e ripristinato, blocco dello scorrimento sottostante. Riduzione delle animazioni secondo la preferenza del dispositivo.
+- [x] Dati fotografici centrali in raccolta-foto.js, usati da tavolo e rullino; ordine, scelta delle stampe, file ottimizzati e testi modificabili nello stesso elenco. Elenco per la revisione in FOTO-RACCOLTA.md.
+- [x] Miniature separate dalle immagini grandi, orientamento applicato ai pixel e metadati rimossi. Nessuna immagine grande richiesta prima di aprire il rullino; foto corrente e al massimo due vicine all'apertura. Nessun framework o servizio esterno.
+- [x] Verifiche in Chrome headless: 12 combinazioni di formato e lingua, tutte le 40 foto caricate, tutte le 10 stampe aperte sullo scatto corretto, tastiera, focus, miniature, limiti primo/ultimo, cambio lingua e assenza di errori JavaScript. Swipe e gesti brevi/verticali verificati con eventi touch del browser; nessuna prova su telefono fisico.
+- [x] Verificata la ripresa dopo un caricamento bloccato intenzionalmente; cambio rapido di foto con rete rallentata e lingua mantenuta dal dialogo alla pagina Contatti. Verifiche di regressione delle altre quattro pagine in IT/EN.
+- [x] Anteprima e screenshot desktop/mobile pronti per la revisione. Originali, cinque WebP preesistenti, homepage, pagine diverse dalla raccolta, stili comuni e CNAME preservati tramite SHA-256; nella logica comune è aggiunto soltanto l'evento di cambio lingua necessario al rullino.
+- [ ] Selezione finale delle fotografie pubblicabili, testi e impaginazione approvati da Giovanni.
+- [ ] Autorizzazione separata e successiva pubblicazione.
+
+Pesi delle copie utilizzate: 40 immagini grandi (35 nuove e 5 riutilizzate), 11.839.408 byte; 40 miniature, 1.347.262 byte; totale su disco 13.186.670 byte. Le sole miniature del tavolo pesano 292.546 byte.
+
+Caricamento iniziale misurato a cache vuota, viewport 1440×1000: 367.440 byte di contenuti per HTML, CSS, JavaScript e miniature, zero foto grandi. Prima apertura su una foto centrale: soltanto corrente e due vicine, 725.186 byte complessivi per le tre immagini grandi; nessun caricamento integrale dell'album. I valori iniziali variano con viewport, cache e porzione visibile. Dettagli e commit in CODEX-GPT.md.
+
+Limiti: test touch tramite Chrome DevTools, non su hardware reale; Safari, Firefox e lettori di schermo non verificati. L'incarico non ridisegna homepage o altre pagine e non completa la proposta generale GC-20261115-05.
 
 ## M2 — Olio, premi e coltivazione biologica
 
