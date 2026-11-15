@@ -129,6 +129,23 @@ Stato: DIREZIONE E STRUTTURA DELLE PAGINE APPROVATE; contenuti di dettaglio inco
 
 Completamento: il visitatore capisce cosa è disponibile, dove si trova e come chiedere informazioni.
 
+## M3.1 — Album fotografici dell'ospitalità
+
+Stato: OBIETTIVO APPROVATO da Giovanni il 15 novembre 2026; materiali e dettagli da definire prima di un incarico di implementazione.
+
+Riutilizzare nella pagina Ospitalità il tavolo dei ricordi abbinato al rullino, già funzionante per la raccolta, per presentare camere e appartamenti. Il visitatore deve riconoscere chiaramente quali ambienti appartengono a ciascun alloggio.
+
+- [ ] Raccogliere le fotografie originali e concordare nomi e raggruppamenti per appartamento; eventuali camere e spazi comuni identificati senza ambiguità.
+- [ ] Confermare brevi descrizioni e didascalie IT/EN, senza dedurre capienza, dotazioni o servizi dalle sole foto.
+- [ ] Definire la selezione e le immagini pubblicabili con Giovanni.
+- [ ] Preparare un gruppo fotografico distinto per ogni appartamento, con tavolo e rullino dedicati; chiarire prima il raggruppamento di eventuali spazi comuni.
+- [ ] Riutilizzare il componente esistente, mantenendo navigazione manuale, miniature, immagini intere, accessibilità e caricamento progressivo.
+- [ ] Preservare gli originali esclusi da Git e generare copie ottimizzate.
+- [ ] Verificare desktop/mobile, lingue e corretta associazione tra alloggio, immagini e testi; controllare che la raccolta continui a funzionare.
+- [ ] Presentare anteprima e ottenere approvazione finale; pubblicazione con autorizzazione separata.
+
+Organizzazione locale proposta: materiali/foto-originali/ospitalita/ con sottocartelle per appartamento. Nomi e struttura effettivi da confermare con i materiali. Questa milestone registra il lavoro futuro e non autorizza ad avviare la codifica senza il successivo incarico.
+
 ## M4 — Visibilità e SEO
 
 Stato: OBIETTIVO APPROVATO; attività e strumenti PROPOSTI.
