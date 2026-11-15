@@ -165,6 +165,31 @@ Valorizzare nella pagina Bicicletta e territorio video pertinenti alle uscite e 
 
 Questa milestone pianifica il lavoro futuro; non autorizza ancora conversioni, modifiche applicative o pubblicazione. Il successivo incarico sarà definito dopo aver raccolto e analizzato i materiali.
 
+## M3.3 — Salvaguardia del territorio e luoghi incantati
+
+Stato: OBIETTIVO E TEMI APPROVATI da Giovanni il 15 novembre 2026; materiali, struttura e presentazione da concordare prima dell'implementazione.
+
+Raccontare il territorio attraverso i suoi luoghi e il lavoro necessario a prendersene cura, collegando scoperta, memoria del paesaggio e cura degli uliveti.
+
+Ambiti richiesti:
+- **Percorsi:** itinerari per scoprire il territorio; coordinare i contenuti con M3 e Bicicletta e territorio, evitando schede duplicate.
+- **Luoghi incantati:** laghetto, alberi secolari, ruscelli, ponti, case sparse, uliveti, castagni, corbezzoli e arnie; elenco aperto ad altri luoghi indicati da Giovanni.
+- **Il lavoro di cura:** fotografie e video che mostrino quanto lavoro occorre per liberare un ulivo dalla vegetazione del bosco e recuperarlo, con contesto e racconto delle fasi effettivamente documentate.
+
+Attività:
+- [ ] Raccogliere con Giovanni nomi, storie, fotografie e video dei luoghi e degli interventi.
+- [ ] Definire la collocazione: pagina dedicata o articolazione della pagina territorio; mantenere la homepage breve.
+- [ ] Concordare le sezioni percorsi, luoghi e lavoro di cura, e i collegamenti con bicicletta, raccolta e olio.
+- [ ] Verificare descrizioni, accessibilità e informazioni dei percorsi prima di pubblicarle; non dedurre età degli alberi, valore storico degli edifici, proprietà o libero accesso dalle sole immagini.
+- [ ] Concordare per ciascun luogo se indicare posizione precisa o solo una descrizione, rispettando il luogo e le attività presenti.
+- [ ] Selezionare un racconto del recupero di un ulivo: eventuali prima/durante/dopo soltanto con materiali autentici e riferiti allo stesso intervento. Descrivere il lavoro concreto senza generalizzare la rimozione del bosco come beneficio ambientale.
+- [ ] Preparare copie ottimizzate e copertine dei video secondo il metodo da definire in M3.2, preservando gli originali; riproduzione volontaria.
+- [ ] Concordare testi e didascalie IT/EN e la presentazione fotografica/video più adatta.
+- [ ] Verificare anteprima, navigazione e prestazioni su desktop/mobile.
+- [ ] Ottenere approvazione dei contenuti e dell'impaginazione; pubblicazione con autorizzazione separata.
+
+Questa milestone pianifica il lavoro futuro; non autorizza ancora modifiche applicative, nuovi servizi o pubblicazione.
+
 ## M4 — Visibilità e SEO
 
 Stato: OBIETTIVO APPROVATO; attività e strumenti PROPOSTI.
