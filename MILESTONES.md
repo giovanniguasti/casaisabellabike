@@ -216,6 +216,23 @@ Stato: PROCEDURA PROPOSTA; approvazione esplicita della pubblicazione è un VINC
 
 Le proposte di consolidamento tecnico sono registrate in GPT-CODEX.md, voce GC-20261115-05. Richiedono discussione con Giovanni e non sono avviate da questo riallineamento; il resoconto distingue ciò che era già presente nel lavoro precedente da ciò che resta proposto.
 
+## M5.1 — Pubblicazione per prova d'uso
+
+Incarico GC-20261115-07, autorizzazione esplicita ricevuta il 15 novembre 2026. Candidata: `25a85213df4db69636d860c2a6ce960687ceef93`; nessuna modifica applicativa autorizzata da questo rilascio. Stato: CONTROLLI PRELIMINARI SUPERATI, PUBBLICAZIONE DA ESEGUIRE. L'autorizzazione alla prova pubblica non costituisce approvazione definitiva di tutti i contenuti.
+
+- [x] Istruzioni e documenti letti; dev aggiornato in fast-forward, senza sovrascrivere modifiche locali. Conservati gli aggiornamenti alle milestone future.
+- [x] Confronto con main e tag locale `pre-usability-test-20261115-e1363d6`, riferito al precedente main `e1363d6c3cd40cd0519546efc4d6ef4907bd03b9`.
+- [x] Controlli locali: 40 combinazioni delle cinque pagine IT/EN/formato e 50 percorsi di navigazione; rullino verificato in 12 combinazioni, 40 fotografie caricate e 10 stampe aperte correttamente. Mailto, lingua, tastiera, focus e immagini funzionanti, nessun errore JavaScript.
+- [x] File tracciati controllati: nessun originale locale, archivio ZIP, PDF, certificato o credenziale riconoscibile; WXEF0435.JPG e duplicato esatto esclusi. CNAME invariato; Pages legacy da main `/`, HTTPS invariato. Main non protetto e nessun ruleset attivo rilevato.
+- [x] Autorizzazione limitata alla candidata registrata in GPT-CODEX.md.
+- [ ] Tag di ripristino salvato sul remoto, integrazione dev/main e pubblicazione GitHub Pages completate.
+- [ ] Versione pubblica verificata su cinque pagine, desktop/mobile, IT/EN, immagini e rullino.
+- [ ] Dev e main riallineati al termine senza riscrivere la cronologia.
+- [ ] Valutazione della facilità d'uso da parte di Giovanni.
+- [ ] Approvazione definitiva di testi, immagini e impaginazione.
+
+Le prove touch sono eseguite tramite Chrome DevTools: dispositivi fisici, Safari, Firefox e lettori di schermo restano non verificati. M2, M3.1, M3.2, M3.3, M4 e la proposta generale di consolidamento non vengono implementate da questo rilascio. Esito, commit e dettagli in CODEX-GPT.md.
+
 ## Riallineamento della collaborazione
 
 Incarico approvato GC-20261115-01: integrare il lavoro già realizzato e i documenti del ramo chore/ignore-original-photos su `dev`, predisporre i file di scambio e pubblicare il resoconto su quel ramo, previa verifica dell'assenza di pubblicazione automatica da `dev`. M1 e M1.1 restano sottoposte alla revisione finale di Giovanni per testi, immagini e impaginazione. Non avviare M2, M3 oltre i contenuti già autorizzati, M4 o il consolidamento tecnico proposto. Nessuna autorizzazione a merge su `main` o pubblicazione del sito.

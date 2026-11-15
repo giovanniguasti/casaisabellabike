@@ -2,7 +2,7 @@
 
 Data: 15 novembre 2026. Riferimento condiviso: `dev`. Gli stati sotto riportati descrivono lavoro e verifiche di Codex; non attestano l'approvazione finale di Giovanni. Gli incarichi sono in `GPT-CODEX.md`, il piano in `MILESTONES.md`.
 
-Aggiornamento più recente: **GC-20261115-06 — Tavolo dei ricordi e rullino fotografico**, resoconto in fondo al documento. Commit di implementazione: `3f7f0cbcbec4fafdd50e5d5990b934f12ae14826`.
+Aggiornamento più recente: **GC-20261115-07 — Pubblicazione per prova d'uso**, resoconto in fondo al documento. Candidata `25a85213df4db69636d860c2a6ce960687ceef93`; autorizzazione esplicita ricevuta, controlli locali superati, pubblicazione da eseguire. Il contenuto applicativo rimane quello di `3f7f0cbcbec4fafdd50e5d5990b934f12ae14826`.
 
 ## GC-20261115-01 — Riallineamento della collaborazione
 
@@ -135,3 +135,26 @@ Anteprima: http://127.0.0.1:8000/raccolta-olive.html?lang=it oppure http://127.0
 Ramo di consegna: **dev**. Controllo autenticato della configurazione prima dell'invio: Pages legacy da main `/`, policy dell'ambiente github-pages limitata a main, nessun webhook. Il push su dev non attiva la pubblicazione configurata. Nessuna modifica a main o alle impostazioni di hosting.
 
 Restano da Giovanni: selezione definitiva, eventuali rimozioni tramite i nomi originali, approvazione delle immagini pubblicabili, testi e impaginazione. Limiti tecnici: nessun test su dispositivo fisico, Safari, Firefox o lettore di schermo. M2, M3 oltre i contenuti già autorizzati e M4 non avviate; MANIFEST.md resta assente. Nessuna pubblicazione del sito autorizzata o eseguita.
+
+## GC-20261115-07 — Pubblicazione per prova d'uso
+
+Autorizzazione esplicita di Giovanni del 15 novembre 2026, registrata in GPT-CODEX.md e limitata alla candidata **`25a85213df4db69636d860c2a6ce960687ceef93`**. La prova pubblica non equivale all'approvazione definitiva dei contenuti. Stato di preparazione: controlli preliminari superati; deploy pubblico ancora da eseguire.
+
+### Preparazione e verifiche prima del rilascio
+
+- Stato locale iniziale: dev a 02cae72, nessuna modifica ai file tracciati; solo ZIP e certificato locali non tracciati. Fetch e fast-forward a 25a8521, preservando i nuovi piani M3.1/M3.2/M3.3. Questi aggiornamenti modificano soltanto MILESTONES.md e non introducono funzionalità future.
+- Versione precedente di main: **`e1363d6c3cd40cd0519546efc4d6ef4907bd03b9`**. Tag annotato di ripristino creato: **`pre-usability-test-20261115-e1363d6`**. Il confronto conferma CNAME invariato.
+- Controlli ripetuti sulla candidata con Chrome headless: cinque pagine in IT/EN a 1440×1000, 390×844, 320×568 e 844×390, 40 combinazioni; 50 combinazioni di navigazione, titoli e testi tradotti, lingua nei link e apertura diretta, tastiera e focus. Homepage breve con tre inviti; Contatti con mailto esatto `info@casaisabellabike.it` e nessun modulo.
+- Rullino riprovato in 12 combinazioni di formato/lingua: tutte le 40 immagini e le 10 aperture dalle stampe, frecce e Home/End, miniature, chiusura con pulsante/Escape, focus contenuto e ripristinato, scroll bloccato. Swipe tramite eventi touch di Chrome, lingua nel dialogo e caricamento progressivo; nessun errore JavaScript o errore di rete inatteso. Test di errore volontario e Riprova superato.
+- Controllati tutti i 102 file della candidata: nessun percorso materiali/, originale della raccolta, archivio ZIP, PDF, certificato, file .env o chiave privata. Ricerca di pattern di credenziali comuni senza rilevamenti; WXEF0435.JPG e JGUG3431.JPG assenti dall'elenco fotografico e dalle copie usate. Snapshot SHA-256 dei materiali locali e dei file precedenti prima del rilascio.
+- API GitHub in sola lettura: Pages legacy da main `/`, dominio casaisabellabike.it, HTTPS attivo; main non protetto, nessun ruleset attivo. Nessuna impostazione modificata. Il sito pubblico precedente risponde HTTP 200 con la homepage monolitica, prima del deploy.
+
+File modificati da questo incarico: soltanto GPT-CODEX.md, MILESTONES.md e CODEX-GPT.md per autorizzazione, stato e resoconto. Nessuna nuova funzionalità, conversione di immagini o modifica a dominio, CNAME o hosting.
+
+### Pubblicazione, verifica pubblica e riallineamento
+
+Da eseguire dopo questo commit documentale: salvare dev e tag sul remoto, integrare dev in main senza riscrivere la cronologia, attendere Pages e verificare pubblicamente la candidata. L'esito effettivo e i commit saranno registrati dopo le verifiche; nessun successo del rilascio è ancora attestato da questa fase di preparazione.
+
+### Limiti e valutazione ancora aperta
+
+Nessun problema bloccante rilevato nei controlli preliminari. Dispositivi fisici, Safari, Firefox e lettori di schermo non verificati; la prova touch è un'emulazione del browser. I contenuti introduttivi Ospitalità/Bicicletta rimangono quelli confermati, senza itinerari, disponibilità o servizi inventati. Valutazione dell'usabilità di Giovanni e approvazione definitiva di testi, fotografie e impaginazione ancora da svolgere. Le milestone future restano nel piano, non implementate.
