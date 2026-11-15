@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La raccolta delle olive 2026 | Casa Isabella Bike</title>
+  <meta name="description" content="Il racconto fotografico della raccolta delle olive 2026 a Casa Isabella: lavoro condiviso, amici e pizza dal forno acceso." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="ricordi.css" />
+  <script src="script.js" defer></script>
+  <script src="raccolta-foto.js" defer></script>
+  <script src="ricordi.js" defer></script>
+</head>
+<body data-page="harvest">
+  <a data-i18n="skip" class="skip-link" href="#contenuto">Vai al contenuto</a>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a class="logo" href="index.html">Casa Isabella Bike</a>
+      <div class="nav-links"><a data-i18n="nav.home" href="index.html">Home</a>
+<a data-i18n="nav.hospitality" href="ospitalita.html">Ospitalità</a>
+<a data-i18n="nav.bike" href="bicicletta.html">Bicicletta e territorio</a>
+<a data-i18n="nav.harvest" href="raccolta-olive.html" aria-current="page">La raccolta delle olive</a>
+<a data-i18n="nav.contact" href="contatti.html">Contatti</a></div>
+      <div class="lang-switch" role="group" aria-label="Lingua / Language">
+        <button type="button" id="lang-it" aria-pressed="true" aria-label="Italiano">IT</button>
+        <button type="button" id="lang-en" aria-pressed="false" aria-label="English">EN</button>
+      </div>
+    </nav>
+  </header>
+  <main id="contenuto" tabindex="-1">
+  <section id="raccolta" class="container harvest" aria-labelledby="harvest-title">
+    <div class="harvest-story page-intro">
+      <p class="eyebrow" data-i18n="harvest.year">Vita a Casa Isabella · 2026</p>
+      <h1 id="harvest-title" data-i18n="harvest.title">La raccolta delle olive</h1>
+      <p data-i18n="harvest.p1">A Casa Isabella la raccolta delle olive è un pezzo di vita condivisa. Gli ospiti partecipano al lavoro tra gli ulivi: si stendono le reti, si raccolgono le olive e si fa fatica insieme. Poi arrivano le pause, gli amici e il piacere di ritrovarsi a tavola.</p>
+      <p data-i18n="harvest.p2">Conoscere le persone, il luogo e il lavoro che stanno dietro a ogni raccolto cambia anche il modo di gustare l’olio. Le fotografie della raccolta 2026 raccontano questo percorso, fino al forno acceso e alla pizza preparata da Giovanni per 15 persone.</p>
+    </div>
+
+    <section class="memories" aria-labelledby="memories-title">
+      <div class="memories-heading">
+        <div>
+          <p class="eyebrow" data-album-i18n="tableEyebrow">La raccolta, le pause, gli amici</p>
+          <h2 id="memories-title" data-album-i18n="tableTitle">Il tavolo dei ricordi</h2>
+          <p data-album-i18n="tableIntro">Scegli una stampa o apri il rullino per guardare tutte le fotografie.</p>
+        </div>
+        <button class="button open-album" type="button" id="open-album" aria-haspopup="dialog" hidden>Apri il rullino</button>
+      </div>
+      <div id="memory-table" class="memory-table"></div>
+      <noscript><p>Per aprire il rullino fotografico, attiva JavaScript. / Enable JavaScript to open the photo viewer.</p></noscript>
+    </section>
+
+    <dialog id="photo-album" class="album-dialog" aria-labelledby="album-title" aria-describedby="album-help">
+      <div class="album-header">
+        <h2 id="album-title" data-album-i18n="viewerTitle">Il rullino</h2>
+        <div class="album-language" role="group" aria-label="Lingua / Language">
+          <button type="button" data-album-lang="it" aria-label="Italiano" aria-pressed="true">IT</button>
+          <button type="button" data-album-lang="en" aria-label="English" aria-pressed="false">EN</button>
+        </div>
+        <button type="button" id="album-close" class="album-close"><span aria-hidden="true">×</span> <span data-album-i18n="close">Chiudi</span></button>
+      </div>
+      <div class="film-frame" id="film-frame" aria-busy="false">
+        <img id="film-preview" alt="" aria-hidden="true" />
+        <img id="film-image" alt="" decoding="async" />
+        <div id="film-error" class="film-error" role="alert" hidden>
+          <p data-album-i18n="error">La fotografia non si è caricata.</p>
+          <button type="button" id="album-retry" data-album-i18n="retry">Riprova</button>
+        </div>
+      </div>
+      <div class="film-controls">
+        <button type="button" id="album-prev"><span aria-hidden="true">←</span> <span data-album-i18n="previous">Precedente</span></button>
+        <p id="album-counter" role="status" aria-live="polite" aria-atomic="true"></p>
+        <button type="button" id="album-next"><span data-album-i18n="next">Successiva</span> <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="film-description">
+        <p id="album-caption"></p>
+        <p id="album-original" class="album-original"></p>
+      </div>
+      <ol id="filmstrip" class="filmstrip" aria-label="Miniature"></ol>
+      <p id="album-help" class="album-help" data-album-i18n="help">Frecce o swipe per sfogliare. Esc per chiudere.</p>
+    </dialog>
+    <div class="page-cta"><a data-i18n="cta.contact" class="button" href="contatti.html">Contattaci</a></div>
+  </section>
+  </main>
+  <footer><span data-i18n="footer.text">© 2026 Casa Isabella Bike · Cortona, Toscana</span></footer>
+</body>
+</html>

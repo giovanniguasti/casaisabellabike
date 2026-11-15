@@ -3,392 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casa Isabella Bike</title>
-  <meta name="description" content="Casa Isabella Bike: un progetto di cicloturismo tra ulivi, boschi e strade bianche." />
-
-  <style>
-    :root {
-      --green: #2f4f3a;
-      --olive: #7a7f45;
-      --cream: #f7f1e6;
-      --brown: #6b4f35;
-      --white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: var(--cream);
-      color: var(--green);
-      line-height: 1.6;
-    }
-
-    header {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      background:
-        linear-gradient(rgba(47, 79, 58, 0.55), rgba(47, 79, 58, 0.65)),
-        url("images/hero003.jpg");
-      background-size: cover;
-      background-position: center;
-      color: var(--white);
-    }
-
-    nav {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: Arial, sans-serif;
-    }
-
-    nav .logo {
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .lang-switch {
-      display: inline-flex;
-      gap: 0.35rem;
-      border: 1px solid rgba(255,255,255,0.5);
-      border-radius: 999px;
-      padding: 0.2rem;
-      margin-left: 1.2rem;
-    }
-
-    .lang-switch button {
-      appearance: none;
-      background: transparent;
-      border: none;
-      color: var(--white);
-      padding: 0.35rem 0.6rem;
-      border-radius: 999px;
-      font: inherit;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    .lang-switch button[aria-pressed="true"] {
-      background: var(--white);
-      color: var(--green);
-    }
-
-    nav a:focus-visible,
-    .button:focus-visible,
-    .lang-switch button:focus-visible {
-      outline: 3px solid var(--white);
-      outline-offset: 4px;
-    }
-
-    .hero {
-      max-width: 850px;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-      margin-bottom: 2rem;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 0.9rem 1.5rem;
-      border: 1px solid var(--white);
-      border-radius: 999px;
-      color: var(--white);
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      transition: 0.2s ease;
-    }
-
-    .button:hover {
-      background: var(--white);
-      color: var(--green);
-    }
-
-    section {
-      padding: 5rem 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .intro {
-      text-align: center;
-      max-width: 800px;
-    }
-
-    .intro h2,
-    .cards h2 {
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .intro p {
-      font-size: 1.15rem;
-      color: var(--brown);
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .card {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    .card h3 {
-      margin-bottom: 0.7rem;
-      font-size: 1.4rem;
-    }
-
-    .card p {
-      color: var(--brown);
-      font-family: Arial, sans-serif;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: var(--green);
-      color: var(--cream);
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 700px) {
-      nav {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-
-      nav a {
-        margin: 0 0.5rem;
-      }
-
-      .lang-switch {
-        margin-left: 0;
-      }
-    }
-  </style>
+  <title>Casa Isabella Bike | Ospitalità e campagna a Cortona</title>
+  <meta name="description" content="Ospitalità, bicicletta e vita in campagna a Cortona. Scopri Casa Isabella Bike, il territorio e il racconto della raccolta delle olive." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
-
-<body>
-  <header>
-    <nav aria-label="Navigazione principale">
-      <div class="logo">Casa Isabella Bike</div>
-      <div class="nav-right">
-        <div class="nav-links">
-          <a href="#progetto" data-i18n="nav.project">Il progetto</a>
-          <a href="#percorsi" data-i18n="nav.routes">Percorsi</a>
-          <a href="#contatti" data-i18n="nav.contact">Contatti</a>
-        </div>
-        <div class="lang-switch" role="group" aria-label="Lingua / Language">
-          <button type="button" id="lang-it" aria-pressed="true" aria-label="Italiano">IT</button>
-          <button type="button" id="lang-en" aria-pressed="false" aria-label="English">EN</button>
-        </div>
+<body data-page="home">
+  <a data-i18n="skip" class="skip-link" href="#contenuto">Vai al contenuto</a>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a class="logo" href="index.html">Casa Isabella Bike</a>
+      <div class="nav-links"><a data-i18n="nav.home" href="index.html" aria-current="page">Home</a>
+<a data-i18n="nav.hospitality" href="ospitalita.html">Ospitalità</a>
+<a data-i18n="nav.bike" href="bicicletta.html">Bicicletta e territorio</a>
+<a data-i18n="nav.harvest" href="raccolta-olive.html">La raccolta delle olive</a>
+<a data-i18n="nav.contact" href="contatti.html">Contatti</a></div>
+      <div class="lang-switch" role="group" aria-label="Lingua / Language">
+        <button type="button" id="lang-it" aria-pressed="true" aria-label="Italiano">IT</button>
+        <button type="button" id="lang-en" aria-pressed="false" aria-label="English">EN</button>
       </div>
     </nav>
-
-    <div class="hero">
-      <h1 data-i18n="hero.title">Cicloturismo a Cortona, in Toscana</h1>
-      <p data-i18n="hero.subtitle">Un progetto di cicloturismo tra ulivi, boschi e strade bianche.</p>
-      <a class="button" href="#progetto" data-i18n="hero.cta">Scopri il progetto</a>
-    </div>
   </header>
-
-  <section id="progetto" class="intro">
-    <h2 data-i18n="project.title">Il progetto</h2>
-
-    <p data-i18n="project.p1">
-      Casa Isabella Bike &egrave; un progetto di cicloturismo tra ulivi, boschi e strade bianche,
-      nato dalla passione per il territorio e per la bicicletta.
-    </p>
-
-    <p style="margin-top: 1rem;" data-i18n="project.p2">
-      Dove siamo: Cortona (provincia di Arezzo), nel cuore della Toscana, in una zona perfetta
-      per esplorare la campagna lontano dal traffico e dai ritmi veloci.
-    </p>
-  </section>
-
-  <section id="percorsi" class="cards">
-    <h2 data-i18n="routes.title">Percorsi e territorio</h2>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3 data-i18n="routes.card1.title">&#x1F6B4; Strade bianche</h3>
-        <p data-i18n="routes.card1.body">Percorsi gravel tra campagna, uliveti e tratti panoramici.</p>
+  <main id="contenuto" tabindex="-1">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="hero-copy">
+        <p data-i18n="home.location" class="eyebrow">Cortona · Toscana</p>
+        <h1 data-i18n="home.title" id="home-title">Casa Isabella Bike</h1>
+        <p data-i18n="home.intro">Ospitalità, bicicletta e vita in campagna, tra ulivi, boschi e strade bianche.</p>
+        <a data-i18n="cta.contact" class="button" href="contatti.html">Contattaci</a>
       </div>
-
-      <div class="card">
-        <h3 data-i18n="routes.card2.title">&#x1F333; Boschi</h3>
-        <p data-i18n="routes.card2.body">Tratti immersi nella natura, pensati per pedalare lontano dal traffico.</p>
-      </div>
-
-      <div class="card">
-        <h3 data-i18n="routes.card3.title">&#x1F33F; Ulivi</h3>
-        <p data-i18n="routes.card3.body">Paesaggi autentici, silenziosi e legati alla vita agricola del luogo.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contatti" class="intro">
-    <h2 data-i18n="contact.title">Contatti</h2>
-
-    <p data-i18n="contact.p1">
-      Casa Isabella &egrave; un progetto in costruzione, nato dalla passione per il territorio
-      e per il cicloturismo. Se vuoi saperne di pi&ugrave;, raccontarci un&rsquo;idea o semplicemente
-      entrare in contatto, scrivici.
-    </p>
-
-    <p style="margin-top: 1.5rem; font-weight: bold;">
-      &#x1F4E7; <a href="mailto:info@casaisabellabike.it" style="color: inherit;">info@casaisabellabike.it</a>
-    </p>
-
-    <p style="margin-top: 1rem; font-size: 0.95rem; color: #6b4f35;" data-i18n="contact.note">
-      Rispondiamo appena possibile &#x1F33F;
-    </p>
-  </section>
-
-  <footer>
-    <span data-i18n="footer.text">&copy; 2026 Casa Isabella Bike &mdash; Cicloturismo tra ulivi e strade bianche</span>
-  </footer>
-
-  <script>
-    const I18N = {
-      it: {
-        "meta.title": "Casa Isabella Bike",
-        "meta.description": "Casa Isabella Bike: un progetto di cicloturismo tra ulivi, boschi e strade bianche.",
-        "nav.project": "Il progetto",
-        "nav.routes": "Percorsi",
-        "nav.contact": "Contatti",
-        "hero.title": "Cicloturismo a Cortona, in Toscana",
-        "hero.subtitle": "Un progetto di cicloturismo tra ulivi, boschi e strade bianche.",
-        "hero.cta": "Scopri il progetto",
-        "project.title": "Il progetto",
-        "project.p1": "Casa Isabella Bike &egrave; un progetto di cicloturismo tra ulivi, boschi e strade bianche, nato dalla passione per il territorio e per la bicicletta.",
-        "project.p2": "Dove siamo: Cortona (provincia di Arezzo), nel cuore della Toscana, in una zona perfetta per esplorare la campagna lontano dal traffico e dai ritmi veloci.",
-        "routes.title": "Percorsi e territorio",
-        "routes.card1.title": "&#x1F6B4; Strade bianche",
-        "routes.card1.body": "Percorsi gravel tra campagna, uliveti e tratti panoramici.",
-        "routes.card2.title": "&#x1F333; Boschi",
-        "routes.card2.body": "Tratti immersi nella natura, pensati per pedalare lontano dal traffico.",
-        "routes.card3.title": "&#x1F33F; Ulivi",
-        "routes.card3.body": "Paesaggi autentici, silenziosi e legati alla vita agricola del luogo.",
-        "contact.title": "Contatti",
-        "contact.p1": "Casa Isabella &egrave; un progetto in costruzione, nato dalla passione per il territorio e per il cicloturismo. Se vuoi saperne di pi&ugrave;, raccontarci un&rsquo;idea o semplicemente entrare in contatto, scrivici.",
-        "contact.note": "Rispondiamo appena possibile &#x1F33F;",
-        "footer.text": "&copy; 2026 Casa Isabella Bike &mdash; Cicloturismo tra ulivi e strade bianche",
-      },
-      en: {
-        "meta.title": "Casa Isabella Bike",
-        "meta.description": "Casa Isabella Bike: a cycling project through olive groves, woods and white gravel roads.",
-        "nav.project": "About",
-        "nav.routes": "Routes",
-        "nav.contact": "Contact",
-        "hero.title": "Cycling in Cortona, Tuscany",
-        "hero.subtitle": "A cycling project through olive groves, woods, and white gravel roads.",
-        "hero.cta": "Discover the project",
-        "project.title": "About",
-        "project.p1": "Casa Isabella Bike is a cycling project through olive groves, woods and white gravel roads, born from a love for the territory and for bikes.",
-        "project.p2": "Where we are: Cortona (Arezzo province), in the heart of Tuscany, a perfect area to explore the countryside away from traffic and fast-paced rhythms.",
-        "routes.title": "Routes &amp; territory",
-        "routes.card1.title": "&#x1F6B4; White gravel roads",
-        "routes.card1.body": "Gravel routes across the countryside, olive groves and panoramic stretches.",
-        "routes.card2.title": "&#x1F333; Woods",
-        "routes.card2.body": "Sections immersed in nature, designed to ride far from traffic.",
-        "routes.card3.title": "&#x1F33F; Olive groves",
-        "routes.card3.body": "Authentic, quiet landscapes connected to local rural life.",
-        "contact.title": "Contact",
-        "contact.p1": "Casa Isabella is a work-in-progress project, born from a passion for the territory and for cycling. If you want to know more, share an idea or simply get in touch, write to us.",
-        "contact.note": "We reply as soon as we can &#x1F33F;",
-        "footer.text": "&copy; 2026 Casa Isabella Bike &mdash; Cycling among olive groves and white gravel roads",
-      }
-    };
-
-    function normalizeLang(lang) {
-      return lang === "en" ? "en" : "it";
-    }
-
-    function getInitialLang() {
-      const urlLang = new URLSearchParams(window.location.search).get("lang");
-      if (urlLang) return normalizeLang(urlLang);
-
-      const stored = localStorage.getItem("cib_lang");
-      if (stored) return normalizeLang(stored);
-
-      return normalizeLang((navigator.language || "").slice(0, 2));
-    }
-
-    function setLang(lang) {
-      const normalized = normalizeLang(lang);
-      const dict = I18N[normalized];
-      if (!dict) return;
-
-      document.documentElement.lang = normalized;
-      localStorage.setItem("cib_lang", normalized);
-
-      const pressedIt = normalized === "it";
-      document.getElementById("lang-it").setAttribute("aria-pressed", String(pressedIt));
-      document.getElementById("lang-en").setAttribute("aria-pressed", String(!pressedIt));
-
-      if (dict["meta.title"]) document.title = dict["meta.title"];
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc && dict["meta.description"]) metaDesc.setAttribute("content", dict["meta.description"]);
-
-      document.querySelectorAll("[data-i18n]").forEach((el) => {
-        const key = el.getAttribute("data-i18n");
-        if (!key) return;
-        const value = dict[key];
-        if (typeof value !== "string") return;
-        el.innerHTML = value;
-      });
-    }
-
-    document.getElementById("lang-it").addEventListener("click", () => setLang("it"));
-    document.getElementById("lang-en").addEventListener("click", () => setLang("en"));
-    setLang(getInitialLang());
-  </script>
+    </section>
+    <section class="container" aria-labelledby="experiences-title">
+      <h2 data-i18n="home.experiences" id="experiences-title">Vivi Casa Isabella</h2>
+      <div class="experience-grid"><article class="experience">
+        <img src="images/raccolta-2026/pausa-davanti-casa.webp" width="1280" height="960" alt="Persone in pausa sul prato davanti alla casa in pietra, tra sedie, un tavolo e gli ulivi." data-i18n-alt="harvest.break.alt" loading="lazy" decoding="async" />
+        <h3 data-i18n="nav.hospitality">Ospitalità</h3>
+        <p data-i18n="home.hospitality">La casa, le pause e il piacere di condividere la vita in campagna.</p>
+        <a data-i18n="home.hospitality.link" href="ospitalita.html">Scopri l’ospitalità</a>
+      </article><article class="experience">
+        <img src="images/hero003.jpg" width="4032" height="3024" alt="Colline intorno a Cortona al tramonto, sopra una distesa di nebbia." data-i18n-alt="bike.landscape.alt" loading="lazy" decoding="async" />
+        <h3 data-i18n="nav.bike">Bicicletta e territorio</h3>
+        <p data-i18n="home.bike">Cortona e la campagna toscana, da conoscere in bicicletta tra strade bianche, boschi e ulivi.</p>
+        <a data-i18n="home.bike.link" href="bicicletta.html">Esplora il territorio</a>
+      </article><article class="experience">
+        <img src="images/raccolta-2026/raccolta-insieme.webp" width="1280" height="960" alt="Tre persone sorridono intorno a un banco di lavoro durante la raccolta, con cassette e ulivi alle spalle." data-i18n-alt="harvest.together.alt" loading="lazy" decoding="async" />
+        <h3 data-i18n="harvest.title">La raccolta delle olive</h3>
+        <p data-i18n="home.harvest">Il lavoro tra gli ulivi, gli amici e i momenti a tavola: il racconto della raccolta 2026.</p>
+        <a data-i18n="home.harvest.link" href="raccolta-olive.html">Leggi il racconto</a>
+      </article></div>
+    </section>
+  </main>
+  <footer><span data-i18n="footer.text">© 2026 Casa Isabella Bike · Cortona, Toscana</span></footer>
 </body>
 </html>
