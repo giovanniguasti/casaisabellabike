@@ -244,3 +244,7 @@ Incarico di riallineamento GC-20261115-01 completato su `dev`, senza pubblicare 
 - [x] Verificata la pubblicazione configurata soltanto da main; push su dev eseguito e confrontato con il remoto, senza workflow o deployment da dev. Commit ed evidenze in CODEX-GPT.md.
 - [ ] Revisione finale di Giovanni dei contenuti e dell'impaginazione del sito.
 - [x] Autorizzazione separata GC-20261115-07 ricevuta per merge della candidata in main e pubblicazione per prova d'uso. Esito in M5.1; nessuna approvazione definitiva implicita.
+
+### Catalogo Percorsi — GC-20261121-08 (21 novembre 2026)
+
+Implementato su dev per anteprima: catalogo bilingue con filtri Passeggiate e Mountain bike, dati condivisi e numerazione stabile; scheda 01 Parterre Torreone, circa 9,2 km, mappa Leaflet/OpenStreetMap, GPX ripulito e posizione su richiesta. Copia integrale verificata punto per punto; originale preservato localmente. Verifiche desktop e mobile emulati, incluse geolocalizzazione concessa/negata e tessere bloccate simulate, descritte in `CODEX-GPT.md` insieme a fonti e attribuzioni. Satellite da concordare; dispositivi reali e approvazione dell'anteprima ancora da verificare. Nessuna pubblicazione autorizzata.

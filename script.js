@@ -1,5 +1,6 @@
 const I18N = {
   "it": {
+    "catalog.link": "Scopri i percorsi", "catalog.back": "Bicicletta e territorio", "catalog.title": "Percorsi", "catalog.intro": "Esplora gli itinerari intorno a Cortona.", "catalog.all": "Tutti", "catalog.walks": "Passeggiate", "catalog.mtb": "Mountain bike", "catalog.empty": "Nessun percorso in questa categoria per ora.", "catalog.list": "Tutti i percorsi", "catalog.download": "Scarica GPX", "catalog.locate": "Mostra la mia posizione", "catalog.stop": "Ferma aggiornamento", "catalog.privacy": "La posizione resta sul dispositivo e non viene registrata.", "meta.catalog.title": "Percorsi | Casa Isabella Bike", "meta.catalog.description": "Percorsi intorno a Cortona.",
     "nav.harvest": "La raccolta delle olive",
     "nav.contact": "Contatti",
     "project.p1": "Casa Isabella Bike è un progetto di cicloturismo tra ulivi, boschi e strade bianche, nato dalla passione per il territorio e per la bicicletta.",
@@ -67,6 +68,7 @@ const I18N = {
     "meta.contact.description": "Scrivi a info@casaisabellabike.it per informazioni su Casa Isabella Bike. Indica periodo, numero di persone ed esperienza di interesse."
   },
   "en": {
+    "catalog.link": "Explore the routes", "catalog.back": "Cycling & countryside", "catalog.title": "Routes", "catalog.intro": "Explore routes around Cortona.", "catalog.all": "All", "catalog.walks": "Walks", "catalog.mtb": "Mountain bike", "catalog.empty": "There are no routes in this category yet.", "catalog.list": "All routes", "catalog.download": "Download GPX", "catalog.locate": "Show my location", "catalog.stop": "Stop updating", "catalog.privacy": "Your location stays on your device and is not recorded.", "meta.catalog.title": "Routes | Casa Isabella Bike", "meta.catalog.description": "Routes around Cortona.",
     "nav.harvest": "The olive harvest",
     "nav.contact": "Contact",
     "project.p1": "Casa Isabella Bike is a cycling project through olive groves, woods and white gravel roads, born from a love for the territory and for bikes.",
