@@ -4,9 +4,11 @@
     en: {walk:'Walk', mtb:'Mountain bike', distance:'about 9.2 km', open:'View route', start:'Start', end:'Finish', loading:'Loading map…', mapError:'Map unavailable. You can still download the GPX track.', locating:'Finding your location…', accuracy:'Accuracy: about {n} m', denied:'Location permission denied. You can still use this route.', unavailable:'Location unavailable. Try again when ready.', unsupported:'Geolocation is unavailable in this browser.', stopped:'Location updates stopped.'}
   };
   const $ = id => document.getElementById(id);
+  const photoContainer = document.createElement('div');
+  photoContainer.id = 'route-photo'; photoContainer.hidden = true;
   const profileContainer = document.createElement('section');
   profileContainer.id = 'profile'; profileContainer.hidden = true;
-  $('map-status').after(profileContainer);
+  $('map-status').after(photoContainer, profileContainer);
   let filter = 'all', selected = null, map = null, line = null, start = null, end = null, marker = null, accuracy = null, watch = null, lastAccuracy = null, statusKey = '', loadVersion = 0, profile = null;
   const lang = () => document.documentElement.lang === 'en' ? 'en' : 'it';
   const t = key => copy[lang()][key];
@@ -51,7 +53,7 @@
       start = L.marker(segments[0][0], {title:t('start'), alt:t('start')}).addTo(map).bindTooltip(t('start'), {permanent:true, direction:'top'});
       const last = segments[segments.length-1]; end = L.marker(last[last.length-1], {title:t('end'), alt:t('end')}).addTo(map).bindTooltip(t('end'), {permanent:true, direction:'top'});
       map.invalidateSize(); map.fitBounds(line.getBounds(), {padding:[35,35]}); $('map-status').textContent = '';
-      profile = createRouteProfile($('profile'), map, points, lang);
+      profile = createRouteProfile($('profile'), map, points, lang, route.photos || [], photoContainer);
     } catch (_) { $('map-status').textContent = t('mapError'); }
   }
   document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', () => { filter = b.dataset.filter; document.querySelectorAll('[data-filter]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); render(); }));

@@ -118,6 +118,13 @@ footer { padding: 1.5rem; text-align: center; background: var(--green); color: v
 #profile-dot { fill: #612d75; stroke: white; stroke-width: 2; }
 .profile-readout { margin-top: .8rem; font-weight: bold; }
 .route-position-icon span { display: grid; place-items: center; width: 28px; height: 28px; color: white; background: #612d75; border: 2px solid white; border-radius: 50%; font-size: 17px; box-shadow: 0 1px 5px #333; }
+.route-photo-icon span { display: grid; place-items: center; width: 30px; height: 30px; color: white; background: #6b4f35; border: 2px solid white; border-radius: 50%; font: bold 20px Arial, sans-serif; box-shadow: 0 1px 5px #333; }
+#route-photo:not([hidden]) { max-width: 720px; margin: 2rem auto 0; animation: route-photo-in .45s ease-out; }
+#route-photo h3 { font-size: 1.45rem; margin-bottom: .75rem; }
+#route-photo img { display: block; width: 100%; height: auto; border-radius: 12px; }
+#route-photo figcaption { margin-top: .6rem; color: var(--brown); font: 1rem/1.5 Arial, sans-serif; }
+@keyframes route-photo-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { #route-photo:not([hidden]) { animation: none; } }
 @media (max-width: 700px) {
   #profile-grid text, #profile-x-label { font-size: 21px; }
 }
