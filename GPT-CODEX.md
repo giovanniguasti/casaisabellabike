@@ -86,3 +86,12 @@ Una **PROPOSTA** non autorizza l'implementazione. Le decisioni qui registrate no
 - **Scheda:** mappa Leaflet con zoom, inquadratura della traccia completa, marcatori Partenza e Arrivo, vista cartografica e opzione Satellite. Verificare licenze, attribuzioni, limiti e requisiti dei fornitori. Se il satellite richiede account, costi o configurazione non autorizzata, consegnare la vista cartografica e documentare l'opzione da decidere.
 - **Posizione:** avvio su richiesta e con permesso del browser; posizione e accuratezza visualizzate sul dispositivo senza registrarle né trasmettere esplicitamente le coordinate. Consentire di fermare l'aggiornamento e gestire rifiuto o indisponibilità lasciando utilizzabile la scheda. Pulsante Scarica GPX disponibile indipendentemente dalla mappa.
 - **Consegna:** sito statico e bilingue. Verificare su desktop e mobile navigazione, filtri, traccia, zoom, marcatori, download e posizione consentita/rifiutata; indicare le verifiche simulate. Aggiornare MILESTONES.md e CODEX-GPT.md con esito effettivo, fornitori e istruzioni di anteprima. Sincronizzare e consegnare su dev; nessun merge su main o pubblicazione.
+
+## GC-20261121-09 — Profilo altimetrico e riproduzione della traccia
+
+Stato: approvato per sviluppo e anteprima su dev. Estende GC-20261121-08 sulla scheda pilota 01 · Parterre Torreone.
+
+- Usare coordinate e quote del GPX integrale già previsto. Calcolare la distanza cumulativa lungo la traccia e stimare la pendenza firmata su una finestra di circa 50 m di percorso. Adattare la finestra ai bordi e gestire punti duplicati, quote mancanti e distanze nulle. Mostrare che la pendenza è stimata.
+- Aggiungere sotto la mappa un profilo con asse della distanza in km e viste Altitudine (m) e Pendenza (%). Mostrare distanza, quota e pendenza al punto selezionato. Tocco, trascinamento e controllo a tastiera spostano lo stesso cursore su grafico e mappa.
+- Aggiungere Play, Pausa e Riparti. Il cursore avanza a velocità costante rispetto alla distanza percorsa, indipendentemente dalla densità dei punti e dagli orari originali. Fermarsi all'arrivo. Distinguere il cursore dal GPS del visitatore e mantenere disponibile lo zoom manuale.
+- Riutilizzare struttura, geometria e componenti della scheda esistente. Verificare desktop e mobile, IT/EN, tastiera, sincronizzazione dopo spostamento manuale, fine traccia e posizione GPS separata. Aggiornare MILESTONES.md e CODEX-GPT.md. Consegnare su dev con anteprima e verifiche. Merge su main e pubblicazione richiedono autorizzazione separata.
