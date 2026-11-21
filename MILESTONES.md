@@ -192,17 +192,31 @@ Questa milestone pianifica il lavoro futuro; non autorizza ancora modifiche appl
 
 ## M4 — Visibilità e SEO
 
-Stato: OBIETTIVO APPROVATO; attività e strumenti PROPOSTI.
+Stato: OBIETTIVO E PRIORITÀ APPROVATI. Implementazione da avviare con Codex su `dev`.
 
-Preparare i contenuti e la struttura con attenzione alla ricerca già nelle fasi precedenti. Procedere poi per passi approvati:
-- [ ] Definire pubblico e ricerche pertinenti a Cortona, ospitalità, cicloturismo e raccolta olive.
-- [ ] Esaminare indicizzabilità, titoli, descrizioni, gerarchia dei contenuti e collegamenti.
-- [ ] Proporre gestione IT/EN, URL canonici, sitemap, robots.txt e metadati social coerenti con la struttura effettiva.
-- [ ] Valutare dati strutturati solo sulla base di attività e informazioni confermate.
-- [ ] Proporre configurazione di Google Search Console e presenza locale; accessi e modifiche esterne richiedono incarico specifico.
-- [ ] Concordare come misurare visite pertinenti e richieste, senza introdurre automaticamente analytics o altri servizi.
+### M4.1 — Verifica iniziale e sitemap
 
-Completamento: verifiche tecniche documentate e sistema di osservazione concordato. Nessuna promessa di posizionamento; risultati da valutare nel tempo.
+- [ ] Verificare per ogni pagina pubblica link interni, indicizzabilità, titoli, descrizioni, gerarchia dei contenuti e URL canonico.
+- [ ] Aggiungere `sitemap.xml` con gli URL canonici delle pagine pubbliche effettive. Verificare se serve `robots.txt` e, se presente, che non blocchi le pagine da indicizzare e indichi la sitemap.
+- [ ] Documentare le verifiche e preparare le istruzioni per verificare il dominio in Google Search Console, inviare la sitemap dopo la pubblicazione e controllare Home, Ospitalità e Percorsi con Controllo URL. L'accesso e le modifiche a servizi esterni richiedono un incarico specifico.
+
+### M4.2 — Schede dei percorsi riconoscibili e condivisibili
+
+- [ ] Partire da 01 · Parterre Torreone: URL stabile, link diretto dal catalogo, titolo e descrizione specifici. Esempio di titolo: «Parterre–Torreone: passeggiata a Cortona, mappa e GPX».
+- [ ] Descrivere partenza, arrivo, fondo e punti di interesse solo con informazioni confermate. Mantenere mappa, profilo, Play, fotografie e download GPX.
+- [ ] Definire gli URL distinti per italiano e inglese e, quando entrambe le versioni saranno disponibili su URL propri, le relative annotazioni `hreflang`. Coordinare sitemap, canonical e metadati per la condivisione.
+
+### M4.3 — Ospitalità e visibilità locale
+
+- [ ] Completare Ospitalità in coordinamento con M3 e M3.1: foto per appartamento, capienza, dotazioni e posizione confermate, collegamento per chiedere disponibilità.
+- [ ] Valutare Google Business Profile dopo aver verificato l'idoneità della struttura. Valutare dati strutturati sulle sole informazioni confermate.
+
+### M4.4 — Misurazione
+
+- [ ] Verificare in Search Console copertura, impressioni e clic sulle pagine principali. Distinguere ricerche sul nome Casa Isabella Bike da ricerche come «passeggiate a Cortona», «percorsi MTB Cortona» e quelle legate all'ospitalità.
+- [ ] Valutare nel tempo visite pertinenti e richieste di informazioni, senza introdurre automaticamente altri servizi di analisi.
+
+**Prossimo incarico per Codex:** partire da M4.1. Presentare il riepilogo della verifica, i file proposti e i passi da completare in Search Console dopo il rilascio. La pubblicazione richiede autorizzazione separata.
 
 ## M5 — Qualità, rilascio e manutenzione
 
