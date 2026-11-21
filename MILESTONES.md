@@ -248,3 +248,7 @@ Incarico di riallineamento GC-20261115-01 completato su `dev`, senza pubblicare 
 ### Catalogo Percorsi — GC-20261121-08 (21 novembre 2026)
 
 Implementato su dev per anteprima: catalogo bilingue con filtri Passeggiate e Mountain bike, dati condivisi e numerazione stabile; scheda 01 Parterre Torreone, circa 9,2 km, mappa Leaflet/OpenStreetMap, GPX ripulito e posizione su richiesta. Copia integrale verificata punto per punto; originale preservato localmente. Verifiche desktop e mobile emulati, incluse geolocalizzazione concessa/negata e tessere bloccate simulate, descritte in `CODEX-GPT.md` insieme a fonti e attribuzioni. Satellite da concordare; dispositivi reali e approvazione dell'anteprima ancora da verificare. Nessuna pubblicazione autorizzata.
+
+### Profilo e riproduzione — GC-20261121-09 (21 novembre 2026)
+
+Implementati su dev i profili interattivi di altitudine e pendenza stimata, sincronizzati con cursore e tratto sulla mappa, e i controlli Play, Pausa e Riparti. Verificati in Chrome desktop e mobile emulato, IT/EN, con tastiera, touch simulato, GPS simulato e casi sintetici di dati incompleti; dettagli e limiti in `CODEX-GPT.md`. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it. Revisione su dispositivi fisici e approvazione dell'anteprima ancora aperte; nessuna pubblicazione autorizzata.

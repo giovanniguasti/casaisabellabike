@@ -4,7 +4,10 @@
     en: {walk:'Walk', mtb:'Mountain bike', distance:'about 9.2 km', open:'View route', start:'Start', end:'Finish', loading:'Loading map…', mapError:'Map unavailable. You can still download the GPX track.', locating:'Finding your location…', accuracy:'Accuracy: about {n} m', denied:'Location permission denied. You can still use this route.', unavailable:'Location unavailable. Try again when ready.', unsupported:'Geolocation is unavailable in this browser.', stopped:'Location updates stopped.'}
   };
   const $ = id => document.getElementById(id);
-  let filter = 'all', selected = null, map = null, line = null, start = null, end = null, marker = null, accuracy = null, watch = null, lastAccuracy = null, statusKey = '', loadVersion = 0;
+  const profileContainer = document.createElement('section');
+  profileContainer.id = 'profile'; profileContainer.hidden = true;
+  $('map-status').after(profileContainer);
+  let filter = 'all', selected = null, map = null, line = null, start = null, end = null, marker = null, accuracy = null, watch = null, lastAccuracy = null, statusKey = '', loadVersion = 0, profile = null;
   const lang = () => document.documentElement.lang === 'en' ? 'en' : 'it';
   const t = key => copy[lang()][key];
   function status(key) { statusKey = key; $('location-status').textContent = key === 'accuracy' ? t(key).replace('{n}', Math.round(lastAccuracy)) : (key ? t(key) : ''); }
@@ -24,10 +27,11 @@
     if (start) start.bindTooltip(t('start'), {permanent:true, direction:'top'}).getElement()?.setAttribute('aria-label', t('start'));
     if (end) end.bindTooltip(t('end'), {permanent:true, direction:'top'}).getElement()?.setAttribute('aria-label', t('end'));
     if (statusKey) status(statusKey);
+    if (profile) profile.translate();
   }
   async function select(route) {
     selected = route; const version = ++loadVersion;
-    stopWatch(); status(''); $('route-detail').hidden = false; $('detail-title').textContent = route.number + ' · ' + route.name; $('download').href = route.gpx; render();
+    stopWatch(); if (profile) { profile.destroy(); profile = null; } status(''); $('route-detail').hidden = false; $('detail-title').textContent = route.number + ' · ' + route.name; $('download').href = route.gpx; render();
     $('route-detail').scrollIntoView({behavior:'smooth', block:'start'}); $('map-status').textContent = t('loading');
     if (!window.L) { $('map-status').textContent = t('mapError'); return; }
     if (!map) { map = L.map('map'); L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}).addTo(map); }
@@ -37,12 +41,17 @@
       const response = await fetch(route.gpx); if (!response.ok) throw Error('GPX');
       const xml = new DOMParser().parseFromString(await response.text(), 'application/xml');
       if (version !== loadVersion) return;
-      const segments = Array.from(xml.getElementsByTagName('trkseg'), seg => Array.from(seg.getElementsByTagName('trkpt'), p => [Number(p.getAttribute('lat')), Number(p.getAttribute('lon'))])).filter(s => s.length);
+      const points = Array.from(xml.getElementsByTagName('trkseg'), seg => Array.from(seg.getElementsByTagName('trkpt'), p => {
+        const elevation = p.getElementsByTagName('ele')[0]?.textContent.trim();
+        return {lat:Number(p.getAttribute('lat')), lon:Number(p.getAttribute('lon')), ele:elevation && Number.isFinite(Number(elevation)) ? Number(elevation) : null};
+      })).filter(s => s.length);
+      const segments = points.map(seg => seg.map(p => [p.lat, p.lon]));
       if (!segments.length || segments.some(s => s.some(p => !p.every(Number.isFinite)))) throw Error('GPX');
       line = L.polyline(segments, {color:'#b44727', weight:5}).addTo(map);
       start = L.marker(segments[0][0], {title:t('start'), alt:t('start')}).addTo(map).bindTooltip(t('start'), {permanent:true, direction:'top'});
       const last = segments[segments.length-1]; end = L.marker(last[last.length-1], {title:t('end'), alt:t('end')}).addTo(map).bindTooltip(t('end'), {permanent:true, direction:'top'});
       map.invalidateSize(); map.fitBounds(line.getBounds(), {padding:[35,35]}); $('map-status').textContent = '';
+      profile = createRouteProfile($('profile'), map, points, lang);
     } catch (_) { $('map-status').textContent = t('mapError'); }
   }
   document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', () => { filter = b.dataset.filter; document.querySelectorAll('[data-filter]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); render(); }));

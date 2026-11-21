@@ -101,3 +101,23 @@ footer { padding: 1.5rem; text-align: center; background: var(--green); color: v
 .path-detail > p { margin-bottom: .7rem; }
 #map { height: min(65vh, 560px); min-height: 340px; margin-top: 1.25rem; background: #d9ded4; z-index: 0; }
 #map-status, #location-status { font-family: Arial, sans-serif; }
+
+#profile { margin-top: 2.5rem; font-family: Arial, sans-serif; }
+#profile h3 { font: bold 1.6rem Georgia, serif; margin-bottom: 1rem; }
+.profile-tabs, .profile-controls { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+.profile-tabs button, .profile-controls button { min-height: 44px; padding: .65rem 1.1rem; border: 1px solid var(--green); border-radius: 999px; background: white; color: var(--green); font: inherit; cursor: pointer; }
+.profile-tabs button[aria-pressed="true"], .profile-controls button:not(:disabled):hover { background: var(--green); color: white; }
+.profile-controls button:disabled { opacity: .5; cursor: default; }
+#profile-estimate, #profile-hint { margin: .4rem 0; }
+#profile-chart { display: block; width: 100%; height: auto; background: white; border: 1px solid #b7c2b7; border-radius: 8px; touch-action: none; cursor: crosshair; }
+#profile-chart:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+#profile-grid line { stroke: #d8e0d8; stroke-width: 1; }
+#profile-grid text, #profile-x-label { fill: #294736; font: 14px Arial, sans-serif; }
+#profile-path { fill: none; stroke: #a33b20; stroke-width: 2.5; stroke-linejoin: round; }
+#profile-cursor { stroke: #612d75; stroke-width: 2.5; }
+#profile-dot { fill: #612d75; stroke: white; stroke-width: 2; }
+.profile-readout { margin-top: .8rem; font-weight: bold; }
+.route-position-icon span { display: grid; place-items: center; width: 28px; height: 28px; color: white; background: #612d75; border: 2px solid white; border-radius: 50%; font-size: 17px; box-shadow: 0 1px 5px #333; }
+@media (max-width: 700px) {
+  #profile-grid text, #profile-x-label { font-size: 21px; }
+}
