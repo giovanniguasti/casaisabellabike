@@ -101,6 +101,11 @@ footer { padding: 1.5rem; text-align: center; background: var(--green); color: v
 .path-detail > p { margin-bottom: .7rem; }
 #map { height: min(65vh, 560px); min-height: 340px; background: #d9ded4; z-index: 0; }
 #map-status, #location-status { font-family: Arial, sans-serif; }
+.route-speed-legend { margin-top: .8rem; font: .9rem/1.4 Arial, sans-serif; }
+.route-speed-bar { height: 10px; margin-top: .4rem; border-radius: 6px; background: linear-gradient(to right,#154ea6,#2185c5,#53b5cf,#d6dce0,#f3b37c,#df6447,#ac2428); }
+.route-speed-labels { display: flex; justify-content: space-between; gap: .5rem; }
+.route-speed-legend small { display: block; margin-top: .3rem; }
+
 
 .route-map-profile { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; margin-top: 1.25rem; }
 .route-map-panel, #profile { min-width: 0; }
