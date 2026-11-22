@@ -103,3 +103,7 @@ Stato: approvato per anteprima su dev. Sulla scheda 01 usare IMG_1982.JPG, dispo
 Associare la foto al percorso in modo che sia facile aggiungerne altre. Mostrare una copia ottimizzata sotto la mappa quando il Play attraversa il punto, anche se un fotogramma lo salta. Rendere la foto visibile anche selezionando quel punto sul grafico. Il Play continua e la foto rimane visibile in pausa; azzerarla quando si ricomincia dall'inizio. Usare una dissolvenza discreta rispettando la preferenza di movimento ridotto. Preservare l'originale ed escluderlo da Git.
 
 Verificare su desktop e mobile il passaggio in Play, la selezione sul grafico e il riavvio. Riferire in CODEX-GPT.md la distanza usata e l'anteprima su dev. Pubblicazione da autorizzare separatamente.
+
+## GC-20261122-11 — Nuova traccia escursionistica 02
+
+Stato: approvato per sviluppo e anteprima su dev. La sorgente è il GPX registrato con Garmin `gpx/activity_25161095745.gpx` sul PC di Giovanni. Usare numero 02 e categoria esistente `walk` se il numero è ancora libero. Usare «Escursione 02» come titolo provvisorio. Mantenere ordine, segmenti, coordinate e quote del GPX. Creare una copia per il sito in `percorsi/` senza orari, estensioni Garmin o dati dei sensori. Conservare l'originale in locale. Calcolare la distanza senza collegare segmenti separati. Riutilizzare mappa, profilo, Play e download. Verificare in anteprima il tracciato e gli estremi prima della pubblicazione, che richiede autorizzazione separata. Registrare esito e URL in CODEX-GPT.md.
