@@ -1,8 +1,8 @@
 /* Profilo costruito dal GPX già caricato dalla scheda. Distanze in metri. */
 function createRouteProfile(container, map, segments, language, photos = [], photoContainer = null) {
   const texts = {
-    it: {title:'Profilo del percorso', altitude:'Altitudine (m)', grade:'Pendenza (%)', estimate:'La pendenza è una stima calcolata su circa 50 m di percorso.', hint:'Tocca o trascina sul grafico; usa le frecce della tastiera per spostare il cursore. Il simbolo viola indica il percorso; il punto blu indica la tua posizione GPS.', distance:'Distanza', elevation:'Altitudine', slope:'Pendenza stimata', missing:'non disponibile', play:'Play', pause:'Pausa', restart:'Riparti', cursor:'Cursore del percorso', axis:'Distanza dalla partenza (km)', end:'Arrivo raggiunto', photo:'Foto lungo il percorso', photoAt:'Foto lungo il percorso, circa {km} km dalla partenza'},
-    en: {title:'Route profile', altitude:'Elevation (m)', grade:'Gradient (%)', estimate:'Gradient is an estimate calculated over approximately 50 m of the route.', hint:'Tap or drag on the chart; use the arrow keys to move the cursor. The purple symbol marks the route; the blue dot marks your GPS location.', distance:'Distance', elevation:'Elevation', slope:'Estimated gradient', missing:'unavailable', play:'Play', pause:'Pause', restart:'Restart', cursor:'Route cursor', axis:'Distance from start (km)', end:'Finish reached', photo:'Photo along the route', photoAt:'Photo along the route, about {km} km from the start'}
+    it: {title:'Profilo del percorso', altitude:'Altitudine (m)', grade:'Pendenza (%)', estimate:'La pendenza è una stima calcolata su circa 50 m di percorso.', hint:'Tocca o trascina sul grafico; usa le frecce della tastiera per spostare il cursore. Il simbolo viola indica il percorso; il punto blu indica la tua posizione GPS.', distance:'Distanza', elevation:'Altitudine', slope:'Pendenza stimata', missing:'non disponibile', play:'Play', pause:'Pausa', restart:'Riparti', cursor:'Cursore del percorso', axis:'Distanza dalla partenza (km)', end:'Arrivo raggiunto', photo:'Foto lungo il percorso', photoAt:'Foto lungo il percorso, circa {km} km dalla partenza', previousPhoto:'Foto precedente', nextPhoto:'Foto successiva', photoCount:'Foto {n} di {total}'},
+    en: {title:'Route profile', altitude:'Elevation (m)', grade:'Gradient (%)', estimate:'Gradient is an estimate calculated over approximately 50 m of the route.', hint:'Tap or drag on the chart; use the arrow keys to move the cursor. The purple symbol marks the route; the blue dot marks your GPS location.', distance:'Distance', elevation:'Elevation', slope:'Estimated gradient', missing:'unavailable', play:'Play', pause:'Pause', restart:'Restart', cursor:'Route cursor', axis:'Distance from start (km)', end:'Finish reached', photo:'Photo along the route', photoAt:'Photo along the route, about {km} km from the start', previousPhoto:'Previous photo', nextPhoto:'Next photo', photoCount:'Photo {n} of {total}'}
   };
   const t = k => texts[language()][k];
   const samples = [];
@@ -52,7 +52,7 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
   const el = id => container.querySelector('#profile-' + id);
   const chart = el('chart'), path = el('path'), cursor = el('cursor'), dot = el('dot');
   let view = 'altitude', current = 0, frame = null, previousTime = null, playing = false;
-  let visiblePhoto = null;
+  let visiblePhoto = null, visiblePhotoIndex = 0;
   const highlight = L.polyline([], {color:'#612d75', weight:8, opacity:.85, interactive:false}).addTo(map);
   const routeCursor = L.marker([samples[0].lat, samples[0].lon], {icon:L.divIcon({className:'route-position-icon', html:'<span aria-hidden="true">◆</span>', iconSize:[28,28], iconAnchor:[14,14]}), keyboard:false}).addTo(map);
   const format = (n, decimals) => n.toLocaleString(language() === 'it' ? 'it-IT' : 'en-US', {minimumFractionDigits:decimals, maximumFractionDigits:decimals});
@@ -66,32 +66,51 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
   });
   const photoMarkers = photoGroups.map(group => {
     const photo = group[0], point = at(photo.distanceM);
-    const icon = L.divIcon({className:'route-photo-icon', html:'<span aria-hidden="true">?</span>', iconSize:[30,30], iconAnchor:[15,15]});
+    const icon = L.divIcon({className:'route-photo-icon', html:'<span aria-hidden="true">&#9635;</span>', iconSize:[30,30], iconAnchor:[15,15]});
     return {photo, marker:L.marker([point.lat,point.lon], {icon}).addTo(map).on('click', () => seek(photo.distanceM))};
   });
   function clearPhoto() { visiblePhoto = null; if (photoContainer) { photoContainer.hidden = true; photoContainer.replaceChildren(); } }
   function translatePhoto() {
     photoMarkers.forEach(({photo,marker}) => { const label = t('photoAt').replace('{km}', format(photo.distanceM/1000, 2)); marker.getElement()?.setAttribute('aria-label', label); marker.bindTooltip(label); });
     if (!visiblePhoto || !photoContainer) return;
+    const photo = visiblePhoto[visiblePhotoIndex], figure = photoContainer.querySelector('figure');
     photoContainer.querySelector('h3').textContent = t('photo');
-    photoContainer.querySelectorAll('figure').forEach((figure, i) => {
-      const photo = visiblePhoto[i];
-      figure.querySelector('img').alt = photo.alt[language()];
-      figure.querySelector('figcaption').textContent = `${photo.caption[language()]} ? ${format(photo.distanceM/1000, 2)} km`;
-    });
+    figure.querySelector('img').alt = photo.alt[language()];
+    figure.querySelector('figcaption').textContent = `${photo.caption[language()]} \u00b7 ${format(photo.distanceM/1000, 2)} km`;
+    if (visiblePhoto.length > 1) {
+      photoContainer.querySelector('[data-photo-prev]').textContent = t('previousPhoto');
+      photoContainer.querySelector('[data-photo-next]').textContent = t('nextPhoto');
+      photoContainer.querySelector('[data-photo-count]').textContent = t('photoCount').replace('{n}', visiblePhotoIndex + 1).replace('{total}', visiblePhoto.length);
+      photoContainer.querySelector('[data-photo-prev]').disabled = visiblePhotoIndex === 0;
+      photoContainer.querySelector('[data-photo-next]').disabled = visiblePhotoIndex === visiblePhoto.length - 1;
+    }
+  }
+  function renderPhoto() {
+    const photo = visiblePhoto[visiblePhotoIndex], image = photoContainer.querySelector('img');
+    image.src = photo.src; image.width = photo.width || 1440; image.height = photo.height || 1080;
+    translatePhoto();
   }
   function showPhoto(photo) {
     if (!photoContainer) return;
     const group = photoGroups.find(g => g.includes(photo));
-    if (visiblePhoto === group) return;
-    visiblePhoto = group;
-    const heading = document.createElement('h3');
-    const figures = group.map(item => {
-      const figure = document.createElement('figure'), image = document.createElement('img'), caption = document.createElement('figcaption');
-      image.src = item.src; image.width = item.width || 1440; image.height = item.height || 1080; image.decoding = 'async';
-      figure.append(image, caption); return figure;
-    });
-    photoContainer.replaceChildren(heading, ...figures); photoContainer.hidden = false; translatePhoto();
+    const index = group.indexOf(photo);
+    if (visiblePhoto === group) {
+      if (visiblePhotoIndex !== index) { visiblePhotoIndex = index; renderPhoto(); }
+      return;
+    }
+    visiblePhoto = group; visiblePhotoIndex = index;
+    const heading = document.createElement('h3'), figure = document.createElement('figure'), image = document.createElement('img'), caption = document.createElement('figcaption');
+    image.decoding = 'async'; figure.append(image, caption);
+    photoContainer.replaceChildren(heading);
+    if (group.length > 1) {
+      const controls = document.createElement('div'); controls.className = 'route-photo-controls';
+      const previous = document.createElement('button'), next = document.createElement('button'), count = document.createElement('span');
+      previous.type = next.type = 'button'; previous.dataset.photoPrev = ''; next.dataset.photoNext = ''; count.dataset.photoCount = ''; count.setAttribute('aria-live', 'polite');
+      previous.addEventListener('click', () => { if (visiblePhotoIndex > 0) { visiblePhotoIndex--; renderPhoto(); } });
+      next.addEventListener('click', () => { if (visiblePhotoIndex < visiblePhoto.length - 1) { visiblePhotoIndex++; renderPhoto(); } });
+      controls.append(previous, count, next); photoContainer.append(controls);
+    }
+    photoContainer.append(figure); photoContainer.hidden = false; renderPhoto();
   }
   const value = n => n === null ? t('missing') : format(n, 1);
   let yMin = 0, yMax = 1;

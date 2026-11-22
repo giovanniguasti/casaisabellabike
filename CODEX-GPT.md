@@ -248,3 +248,10 @@ Verificati in Chrome headless desktop IT e mobile EN emulato: tutti gli otto fil
 Su richiesta di Giovanni, la passeggiata 02 si chiama **Le corchie**, anche nel nome interno del GPX scaricabile; il percorso del file rimane stabile e la geometria ? identica all'originale. IMG_2062 ? stata rimossa dalla scheda e la copia WebP dal sito; l'originale locale ? conservato. Restano sette foto, con IMG_2061 e IMG_2063 nello stesso gruppo.
 
 Verificati in Chrome headless desktop IT e mobile EN emulato: nome nel catalogo e nella scheda, mappa, profilo e caricamento delle sette foto senza IMG_2062; geometria GPX confrontata con tutti i punti dell'originale. Nessun errore JavaScript osservato. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; pubblicazione in attesa di approvazione.
+
+
+### GC-20261122-11 ? Accesso alle foto vicine
+
+Segnalazione di Giovanni: IMG_2063 e IMG_2067 non erano facilmente visibili. Erano incluse dopo un'altra foto nello stesso gruppo, in una colonna sotto la mappa; durante la riproduzione il gruppo poteva inoltre essere sostituito rapidamente. I gruppi ora mostrano una foto per volta con contatore e pulsanti Foto precedente / Foto successiva sopra l'immagine. Selezionare l'indicatore del gruppo e usare i pulsanti; le didascalie mantengono le distanze individuali. Il Play continua e la foto resta in pausa.
+
+Verificati in Chrome headless desktop IT e mobile EN emulato: entrambi i gruppi, apertura, passaggio a IMG_2063 e IMG_2067 e ritorno, caricamento dei file, selezione dal grafico e ripristino; nessun errore JavaScript osservato. Originali e modifiche locali di Giovanni a nomi e didascalie preservati. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; pubblicazione ancora in attesa di approvazione.

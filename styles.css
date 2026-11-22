@@ -121,6 +121,9 @@ footer { padding: 1.5rem; text-align: center; background: var(--green); color: v
 .route-photo-icon span { display: grid; place-items: center; width: 30px; height: 30px; color: white; background: #6b4f35; border: 2px solid white; border-radius: 50%; font: bold 20px Arial, sans-serif; box-shadow: 0 1px 5px #333; }
 #route-photo:not([hidden]) { max-width: 720px; margin: 2rem auto 0; animation: route-photo-in .45s ease-out; }
 #route-photo h3 { font-size: 1.45rem; margin-bottom: .75rem; }
+.route-photo-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 0 0 .8rem; font-family: Arial, sans-serif; }
+.route-photo-controls button { min-height: 44px; padding: .6rem 1rem; border: 1px solid var(--green); border-radius: 999px; background: white; color: var(--green); font: inherit; cursor: pointer; }
+.route-photo-controls button:disabled { opacity: .5; cursor: default; }
 #route-photo img { display: block; width: 100%; height: auto; border-radius: 12px; }
 #route-photo figcaption { margin-top: .6rem; color: var(--brown); font: 1rem/1.5 Arial, sans-serif; }
 @keyframes route-photo-in { from { opacity: 0; } to { opacity: 1; } }
