@@ -249,6 +249,12 @@ Le prove touch sono eseguite tramite Chrome DevTools: dispositivi fisici, Safari
 
 Versione precedente: `pre-usability-test-20261115-e1363d6` → `e1363d6c3cd40cd0519546efc4d6ef4907bd03b9`. Il tag è disponibile su GitHub. Nessuna regressione bloccante rilevata e nessun revert necessario; un eventuale ripristino va eseguito tramite commit di revert, mai con force push. CNAME e configurazione Pages invariati.
 
+## M5.2 — Rilascio degli aggiornamenti ai percorsi
+
+Il 22 novembre 2026 GitHub Pages ha completato con successo il deploy del commit `89ae00d9218b2a0d589501ffd79364d1eb072153`. Il rilascio comprende il catalogo, i profili interattivi e il Play, la foto del percorso 01, il percorso **02 · Le Corchie** (7,8 km, sette foto), la galleria di miniature, mappa e profilo affiancati su desktop e la colorazione per velocità di entrambe le passeggiate. Verifiche funzionali precedenti al rilascio: Chrome desktop e mobile emulato. Il deploy è confermato da GitHub Actions; la prova diretta del dominio pubblico e dei dispositivi fisici resta da fare. [Esito del deploy](https://github.com/giovanniguasti/casaisabellabike/actions/runs/45026058610)
+
+Prossimo incarico: M4.1, verifica SEO e sitemap.
+
 ## Riallineamento della collaborazione
 
 Incarico di riallineamento GC-20261115-01 completato su `dev`, senza pubblicare il sito in quella fase. M1 e M1.1 restano sottoposte alla revisione definitiva di Giovanni per testi, immagini e impaginazione. La successiva autorizzazione GC-20261115-07 consente soltanto il rilascio della candidata identificata per prova d'uso, non nuove funzionalità o rilasci futuri. Non avviare M2, M3 oltre i contenuti già autorizzati, M4 o il consolidamento tecnico proposto.
@@ -261,8 +267,8 @@ Incarico di riallineamento GC-20261115-01 completato su `dev`, senza pubblicare 
 
 ### Catalogo Percorsi — GC-20261121-08 (21 novembre 2026)
 
-Implementato su dev per anteprima: catalogo bilingue con filtri Passeggiate e Mountain bike, dati condivisi e numerazione stabile; scheda 01 Parterre Torreone, circa 9,2 km, mappa Leaflet/OpenStreetMap, GPX ripulito e posizione su richiesta. Copia integrale verificata punto per punto; originale preservato localmente. Verifiche desktop e mobile emulati, incluse geolocalizzazione concessa/negata e tessere bloccate simulate, descritte in `CODEX-GPT.md` insieme a fonti e attribuzioni. Satellite da concordare; dispositivi reali e approvazione dell'anteprima ancora da verificare. Nessuna pubblicazione autorizzata.
+Implementato e pubblicato con il rilascio del 22 novembre: catalogo bilingue con filtri Passeggiate e Mountain bike, dati condivisi e numerazione stabile; scheda 01 Parterre Torreone, circa 9,2 km, mappa Leaflet/OpenStreetMap, GPX ripulito e posizione su richiesta. Copia integrale verificata punto per punto; originale preservato localmente. Verifiche desktop e mobile emulati, incluse geolocalizzazione concessa/negata e tessere bloccate simulate, descritte in `CODEX-GPT.md` insieme a fonti e attribuzioni. Satellite da concordare; verifica su dispositivi reali ancora aperta.
 
 ### Profilo e riproduzione — GC-20261121-09 (21 novembre 2026)
 
-Implementati su dev i profili interattivi di altitudine e pendenza stimata, sincronizzati con cursore e tratto sulla mappa, e i controlli Play, Pausa e Riparti. Verificati in Chrome desktop e mobile emulato, IT/EN, con tastiera, touch simulato, GPS simulato e casi sintetici di dati incompleti; dettagli e limiti in `CODEX-GPT.md`. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it. Revisione su dispositivi fisici e approvazione dell'anteprima ancora aperte; nessuna pubblicazione autorizzata.
+Implementati su dev i profili interattivi di altitudine e pendenza stimata, sincronizzati con cursore e tratto sulla mappa, e i controlli Play, Pausa e Riparti. Verificati in Chrome desktop e mobile emulato, IT/EN, con tastiera, touch simulato, GPS simulato e casi sintetici di dati incompleti; dettagli e limiti in `CODEX-GPT.md`. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it. Pubblicato con il rilascio del 22 novembre. Revisione su dispositivi fisici ancora aperta.
