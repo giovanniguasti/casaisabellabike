@@ -1,5 +1,5 @@
 /* Profilo costruito dal GPX già caricato dalla scheda. Distanze in metri. */
-function createRouteProfile(container, map, segments, language, photos = [], photoContainer = null) {
+function createRouteProfile(container, map, segments, language, photos = [], photoContainer = null, controlsContainer = null) {
   const texts = {
     it: {title:'Profilo del percorso', altitude:'Altitudine (m)', grade:'Pendenza (%)', estimate:'La pendenza è una stima calcolata su circa 50 m di percorso.', hint:'Tocca o trascina sul grafico; usa le frecce della tastiera per spostare il cursore. Il simbolo viola indica il percorso; il punto blu indica la tua posizione GPS.', distance:'Distanza', elevation:'Altitudine', slope:'Pendenza stimata', missing:'non disponibile', play:'Play', pause:'Pausa', restart:'Riparti', cursor:'Cursore del percorso', axis:'Distanza dalla partenza (km)', end:'Arrivo raggiunto', photo:'Foto lungo il percorso', photoAt:'Foto lungo il percorso, circa {km} km dalla partenza', previousPhoto:'Foto precedente', nextPhoto:'Foto successiva', photoCount:'Foto {n} di {total}', galleryTitle:'Foto del percorso', galleryHint:'Seleziona una foto per vederla e trovare il punto sulla mappa.'},
     en: {title:'Route profile', altitude:'Elevation (m)', grade:'Gradient (%)', estimate:'Gradient is an estimate calculated over approximately 50 m of the route.', hint:'Tap or drag on the chart; use the arrow keys to move the cursor. The purple symbol marks the route; the blue dot marks your GPS location.', distance:'Distance', elevation:'Elevation', slope:'Estimated gradient', missing:'unavailable', play:'Play', pause:'Pause', restart:'Restart', cursor:'Route cursor', axis:'Distance from start (km)', end:'Finish reached', photo:'Photo along the route', photoAt:'Photo along the route, about {km} km from the start', previousPhoto:'Previous photo', nextPhoto:'Next photo', photoCount:'Photo {n} of {total}', galleryTitle:'Route photos', galleryHint:'Select a photo to see it and locate it on the map.'}
@@ -47,9 +47,13 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
   }
   const bounds = {};
   samples.forEach((p, i) => { if (!bounds[p.segment]) bounds[p.segment] = [p.distance, p.distance, i, i]; else { bounds[p.segment][1] = p.distance; bounds[p.segment][3] = i; } });
-  container.innerHTML = `<h3 id="profile-title"></h3><div class="profile-tabs" role="group"><button type="button" data-view="altitude" aria-pressed="true"></button><button type="button" data-view="grade" aria-pressed="false"></button></div><p id="profile-estimate"></p><p id="profile-hint"></p><svg id="profile-chart" viewBox="0 0 800 260" role="slider" tabindex="0" aria-valuemin="0" aria-orientation="horizontal"><g id="profile-grid"></g><path id="profile-path"></path><line id="profile-cursor"></line><circle id="profile-dot" r="5"></circle><text id="profile-x-label" x="420" y="254" text-anchor="middle"></text></svg><div class="profile-readout" id="profile-readout"></div><div class="profile-controls"><button type="button" id="profile-play"></button><button type="button" id="profile-pause"></button><button type="button" id="profile-restart"></button></div><p id="profile-state" role="status"></p>`;
+  container.innerHTML = `<h3 id="profile-title"></h3><div class="profile-tabs" role="group"><button type="button" data-view="altitude" aria-pressed="true"></button><button type="button" data-view="grade" aria-pressed="false"></button></div><svg id="profile-chart" viewBox="0 0 800 260" role="slider" tabindex="0" aria-valuemin="0" aria-orientation="horizontal"><g id="profile-grid"></g><path id="profile-path"></path><line id="profile-cursor"></line><circle id="profile-dot" r="5"></circle><text id="profile-x-label" x="420" y="254" text-anchor="middle"></text></svg><div class="profile-readout" id="profile-readout"></div><p id="profile-estimate"></p><p id="profile-hint"></p><div class="profile-controls"><button type="button" id="profile-play"></button><button type="button" id="profile-pause"></button><button type="button" id="profile-restart"></button></div><p id="profile-state" role="status"></p>`;
   container.hidden = false;
-  const el = id => container.querySelector('#profile-' + id);
+  if (controlsContainer) {
+    controlsContainer.replaceChildren(container.querySelector('.profile-controls'), container.querySelector('#profile-state'));
+    controlsContainer.hidden = false;
+  }
+  const el = id => container.querySelector('#profile-' + id) || controlsContainer?.querySelector('#profile-' + id);
   const chart = el('chart'), path = el('path'), cursor = el('cursor'), dot = el('dot');
   let view = 'altitude', current = 0, frame = null, previousTime = null, playing = false;
   let visiblePhoto = null, visiblePhotoIndex = 0;
@@ -188,5 +192,5 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
     translatePhoto();
   }
   pause(); translate();
-  return {translate, destroy() { pause(); clearPhoto(); gallery.remove(); photoMarkers.forEach(({marker}) => map.removeLayer(marker)); map.removeLayer(routeCursor); map.removeLayer(highlight); container.hidden = true; container.replaceChildren(); }};
+  return {translate, destroy() { pause(); clearPhoto(); gallery.remove(); if (controlsContainer) { controlsContainer.hidden = true; controlsContainer.replaceChildren(); } photoMarkers.forEach(({marker}) => map.removeLayer(marker)); map.removeLayer(routeCursor); map.removeLayer(highlight); container.hidden = true; container.replaceChildren(); }};
 }
