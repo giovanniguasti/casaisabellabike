@@ -108,7 +108,7 @@ Informazioni fornite da Giovanni:
 - Eleiva Cortonensis 2023, zona 6 Montagna cortonese: terzo premio olio fruttato.
 - Eleiva Cortonensis 2024, zona 6 Montagna cortonese: primo premio olio fruttato.
 - Eleiva Cortonensis 2024, finale tra tutte le zone: primo premio olio fruttato.
-- 2026: secondo premio per il miglior equilibrio. Denominazione ufficiale e ambito da verificare sull'attestato.
+- Eleiva Cortonensis 2026, Selezione della Montagna Cortonese: secondo premio «Olio extravergine di oliva — Miglior equilibrio», assegnato a Isabella Muzzarelli il 22 novembre 2026. Dicitura e ambito verificati sulla foto della targa.
 
 Documento esaminato: certificato IT-BIO-014.380-0005590.2026.002, intestato a Isabella Muzzarelli Verzoni, organismo QCertificazioni IT-BIO-014; validità riportata 11/11/2026–10/11/2029. Repertorio: olive da olio biologiche; sono presenti anche terreni in conversione. Non estendere automaticamente questa attestazione all'olio trasformato.
 
