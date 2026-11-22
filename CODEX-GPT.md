@@ -262,3 +262,19 @@ Verificati in Chrome headless desktop IT e mobile EN emulato: entrambi i gruppi,
 Dopo una seconda segnalazione di Giovanni, aggiunta sotto la mappa una galleria con tutte le foto del percorso, sempre visibili e selezionabili senza attendere il Play: ogni miniatura apre la propria foto e sposta il cursore al relativo punto. Questo rende accessibili IMG_2063 e IMG_2067 anche quando i passaggi ravvicinati sono superati rapidamente. Restano disponibili Play, marcatori e comandi dei gruppi. Le miniature WebP sono copie ridotte senza metadati, complessivamente circa 72 kB.
 
 Verificati in Chrome headless desktop IT e mobile EN emulato apertura diretta e caricamento di entrambe le immagini, sette miniature, cambio percorso e rimozione della galleria precedente; controllata anche visivamente l'immagine IMG_2067 nell'anteprima. Nessun errore JavaScript osservato. Screenshot: `C:/Users/giova/le-corchie-gallery-it.png`; anteprima http://127.0.0.1:8000/percorsi.html?lang=it. Le modifiche locali di Giovanni a `percorsi-data.js` restano nel suo file e non sono incluse in questo commit. Pubblicazione in attesa di approvazione.
+
+
+### Anteprima ? Mappa e profilo affiancati
+
+Su richiesta di Giovanni, nelle schede percorso mappa e profilo sono affiancati su schermi ampi; su schermi fino a 800 px sono disposti in verticale. Play, Pausa e Riparti sono immediatamente sotto entrambi; seguono galleria e foto selezionata. La struttura ? condivisa dai due percorsi.
+
+Verificati in Chrome headless desktop 1440?900 IT e mobile 390?844 EN emulato: disposizione, Play/Pausa/Riparti, pendenza, cursore da tastiera, apertura foto e cambio tra percorsi; nessun errore JavaScript rilevato. Dispositivi fisici e altri browser non verificati. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; screenshot desktop `C:/Users/giova/le-corchie-layout-it.png`. La modifica ? proposta su dev per revisione e non ? pubblicata.
+
+
+### Anteprima ? Colore della traccia in base alla velocit?
+
+Su richiesta di Giovanni, la traccia di entrambe le passeggiate ? colorata dal blu (pi? lento) al rosso (pi? veloce), con legenda in km/h e scala relativa a ciascun percorso. Le velocit? sono stime da distanza e orari dei GPX originali, smussate su una finestra di circa 50 m; le soste possono influenzarle. Gli estremi della scala corrispondono approssimativamente al 10? e 90? percentile ponderati per distanza, con colori saturi oltre tali valori: 01 da 4,0 a 5,8 km/h, 02 da 2,7 a 5,2 km/h. Non usare i colori per confronti diretti tra percorsi senza leggere le rispettive legende.
+
+I file `percorsi/01-velocita.json` e `percorsi/02-velocita.json` contengono intervalli di colore riferiti agli indici della geometria e valori di scala, senza orari o coordinate; rendono pubblicabili informazioni derivate sulla velocit?. Gli originali restano locali e i GPX scaricabili restano privi di orari e sensori. Su 01, lacune superiori a 30 secondi e stime oltre 20 km/h sono marcate come non disponibili e rese in grigio; se il file dei colori manca o non ? valido la traccia resta utilizzabile in grigio.
+
+Verificati con Chrome headless desktop IT e mobile EN emulato: entrambe le schede, colori e legenda, Play/Pausa, foto, cambio percorso e ripiego con file velocit? bloccato; profilo e download disponibili e nessun errore JavaScript osservato. Non verificati dispositivi fisici o altri browser. Anteprima http://127.0.0.1:8000/percorsi.html?lang=it; screenshot `C:/Users/giova/le-corchie-velocita-it.png`. Modifica su dev per revisione; non pubblicata.

@@ -99,10 +99,20 @@ footer { padding: 1.5rem; text-align: center; background: var(--green); color: v
 .path-detail { margin-top: 3rem; scroll-margin-top: 1rem; }
 .path-detail > .eyebrow { margin-top: 2rem; }
 .path-detail > p { margin-bottom: .7rem; }
-#map { height: min(65vh, 560px); min-height: 340px; margin-top: 1.25rem; background: #d9ded4; z-index: 0; }
+#map { height: min(65vh, 560px); min-height: 340px; background: #d9ded4; z-index: 0; }
 #map-status, #location-status { font-family: Arial, sans-serif; }
+.route-speed-legend { margin-top: .8rem; font: .9rem/1.4 Arial, sans-serif; }
+.route-speed-bar { height: 10px; margin-top: .4rem; border-radius: 6px; background: linear-gradient(to right,#154ea6,#2185c5,#53b5cf,#d6dce0,#f3b37c,#df6447,#ac2428); }
+.route-speed-labels { display: flex; justify-content: space-between; gap: .5rem; }
+.route-speed-legend small { display: block; margin-top: .3rem; }
 
-#profile { margin-top: 2.5rem; font-family: Arial, sans-serif; }
+
+.route-map-profile { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; margin-top: 1.25rem; }
+.route-map-panel, #profile { min-width: 0; }
+#profile { font-family: Arial, sans-serif; }
+#route-playback { font-family: Arial, sans-serif; }
+#route-playback .profile-controls { margin: 1rem 0 .4rem; }
+@media (max-width: 800px) { .route-map-profile { grid-template-columns: minmax(0, 1fr); } }
 #profile h3 { font: bold 1.6rem Georgia, serif; margin-bottom: 1rem; }
 .profile-tabs, .profile-controls { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
 .profile-tabs button, .profile-controls button { min-height: 44px; padding: .65rem 1.1rem; border: 1px solid var(--green); border-radius: 999px; background: white; color: var(--green); font: inherit; cursor: pointer; }
