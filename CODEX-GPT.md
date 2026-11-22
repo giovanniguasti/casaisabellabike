@@ -255,3 +255,10 @@ Verificati in Chrome headless desktop IT e mobile EN emulato: nome nel catalogo 
 Segnalazione di Giovanni: IMG_2063 e IMG_2067 non erano facilmente visibili. Erano incluse dopo un'altra foto nello stesso gruppo, in una colonna sotto la mappa; durante la riproduzione il gruppo poteva inoltre essere sostituito rapidamente. I gruppi ora mostrano una foto per volta con contatore e pulsanti Foto precedente / Foto successiva sopra l'immagine. Selezionare l'indicatore del gruppo e usare i pulsanti; le didascalie mantengono le distanze individuali. Il Play continua e la foto resta in pausa.
 
 Verificati in Chrome headless desktop IT e mobile EN emulato: entrambi i gruppi, apertura, passaggio a IMG_2063 e IMG_2067 e ritorno, caricamento dei file, selezione dal grafico e ripristino; nessun errore JavaScript osservato. Originali e modifiche locali di Giovanni a nomi e didascalie preservati. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; pubblicazione ancora in attesa di approvazione.
+
+
+### GC-20261122-11 ? Foto sempre raggiungibili
+
+Dopo una seconda segnalazione di Giovanni, aggiunta sotto la mappa una galleria con tutte le foto del percorso, sempre visibili e selezionabili senza attendere il Play: ogni miniatura apre la propria foto e sposta il cursore al relativo punto. Questo rende accessibili IMG_2063 e IMG_2067 anche quando i passaggi ravvicinati sono superati rapidamente. Restano disponibili Play, marcatori e comandi dei gruppi. Le miniature WebP sono copie ridotte senza metadati, complessivamente circa 72 kB.
+
+Verificati in Chrome headless desktop IT e mobile EN emulato apertura diretta e caricamento di entrambe le immagini, sette miniature, cambio percorso e rimozione della galleria precedente; controllata anche visivamente l'immagine IMG_2067 nell'anteprima. Nessun errore JavaScript osservato. Screenshot: `C:/Users/giova/le-corchie-gallery-it.png`; anteprima http://127.0.0.1:8000/percorsi.html?lang=it. Le modifiche locali di Giovanni a `percorsi-data.js` restano nel suo file e non sono incluse in questo commit. Pubblicazione in attesa di approvazione.
