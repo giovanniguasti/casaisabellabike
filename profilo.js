@@ -57,25 +57,41 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
   const routeCursor = L.marker([samples[0].lat, samples[0].lon], {icon:L.divIcon({className:'route-position-icon', html:'<span aria-hidden="true">◆</span>', iconSize:[28,28], iconAnchor:[14,14]}), keyboard:false}).addTo(map);
   const format = (n, decimals) => n.toLocaleString(language() === 'it' ? 'it-IT' : 'en-US', {minimumFractionDigits:decimals, maximumFractionDigits:decimals});
   const photoCues = photos.filter(p => Number.isFinite(p.distanceM) && p.distanceM >= 0 && p.distanceM <= total).slice().sort((a,b) => a.distanceM-b.distanceM);
-  const photoMarkers = photoCues.map(photo => {
-    const point = at(photo.distanceM);
-    const icon = L.divIcon({className:'route-photo-icon', html:'<span aria-hidden="true">▣</span>', iconSize:[30,30], iconAnchor:[15,15]});
+  // Scatti a pochi metri condividono un indicatore e rimangono tutti visibili.
+  const photoGroups = [];
+  photoCues.forEach(photo => {
+    const last = photoGroups[photoGroups.length - 1];
+    if (last && photo.distanceM - last[0].distanceM <= 50) last.push(photo);
+    else photoGroups.push([photo]);
+  });
+  const photoMarkers = photoGroups.map(group => {
+    const photo = group[0], point = at(photo.distanceM);
+    const icon = L.divIcon({className:'route-photo-icon', html:'<span aria-hidden="true">?</span>', iconSize:[30,30], iconAnchor:[15,15]});
     return {photo, marker:L.marker([point.lat,point.lon], {icon}).addTo(map).on('click', () => seek(photo.distanceM))};
   });
   function clearPhoto() { visiblePhoto = null; if (photoContainer) { photoContainer.hidden = true; photoContainer.replaceChildren(); } }
   function translatePhoto() {
     photoMarkers.forEach(({photo,marker}) => { const label = t('photoAt').replace('{km}', format(photo.distanceM/1000, 2)); marker.getElement()?.setAttribute('aria-label', label); marker.bindTooltip(label); });
     if (!visiblePhoto || !photoContainer) return;
-    photoContainer.querySelector('img').alt = visiblePhoto.alt[language()];
-    photoContainer.querySelector('figcaption').textContent = `${visiblePhoto.caption[language()]} · ${format(visiblePhoto.distanceM/1000, 2)} km`;
     photoContainer.querySelector('h3').textContent = t('photo');
+    photoContainer.querySelectorAll('figure').forEach((figure, i) => {
+      const photo = visiblePhoto[i];
+      figure.querySelector('img').alt = photo.alt[language()];
+      figure.querySelector('figcaption').textContent = `${photo.caption[language()]} ? ${format(photo.distanceM/1000, 2)} km`;
+    });
   }
   function showPhoto(photo) {
-    if (!photoContainer || visiblePhoto === photo) return;
-    visiblePhoto = photo;
-    const heading = document.createElement('h3'), figure = document.createElement('figure'), image = document.createElement('img'), caption = document.createElement('figcaption');
-    image.src = photo.src; image.width = 1440; image.height = 1080; image.decoding = 'async';
-    figure.append(image, caption); photoContainer.replaceChildren(heading, figure); photoContainer.hidden = false; translatePhoto();
+    if (!photoContainer) return;
+    const group = photoGroups.find(g => g.includes(photo));
+    if (visiblePhoto === group) return;
+    visiblePhoto = group;
+    const heading = document.createElement('h3');
+    const figures = group.map(item => {
+      const figure = document.createElement('figure'), image = document.createElement('img'), caption = document.createElement('figcaption');
+      image.src = item.src; image.width = item.width || 1440; image.height = item.height || 1080; image.decoding = 'async';
+      figure.append(image, caption); return figure;
+    });
+    photoContainer.replaceChildren(heading, ...figures); photoContainer.hidden = false; translatePhoto();
   }
   const value = n => n === null ? t('missing') : format(n, 1);
   let yMin = 0, yMax = 1;
@@ -119,7 +135,7 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
     if (current >= total) { pause(); el('state').textContent = t('end'); } else frame = requestAnimationFrame(tick);
   }
   function play() { if (playing || current >= total) return; playing = true; previousTime = null; el('state').textContent = ''; el('play').disabled = true; el('pause').disabled = false; frame = requestAnimationFrame(tick); }
-  function seek(d) { current = Math.max(0, Math.min(total, d)); previousTime = null; el('state').textContent = ''; if (!playing) el('play').disabled = current >= total; const nearby = photoCues.find(photo => Math.abs(photo.distanceM-current) <= 50); if (nearby) showPhoto(nearby); else clearPhoto(); update(true); }
+  function seek(d) { current = Math.max(0, Math.min(total, d)); previousTime = null; el('state').textContent = ''; if (!playing) el('play').disabled = current >= total; const nearby = photoCues.reduce((best, photo) => Math.abs(photo.distanceM-current) <= 50 && (!best || Math.abs(photo.distanceM-current) < Math.abs(best.distanceM-current)) ? photo : best, null); if (nearby) showPhoto(nearby); else clearPhoto(); update(true); }
   let pointerRect = null;
   function pointer(event) { const rect = pointerRect || chart.getBoundingClientRect(); const svgX = (event.clientX-rect.left)/rect.width*800; seek((svgX-60)/710*total); }
   chart.addEventListener('pointerdown', e => { if (e.button !== 0) return; pointerRect = chart.getBoundingClientRect(); chart.setPointerCapture(e.pointerId); chart.focus({preventScroll:true}); pointer(e); });

@@ -7,5 +7,12 @@ const ROUTES = [
   { number: '02', id: 'escursione-02', name: 'Escursione 02', category: 'walk', distance: '7,8', gpx: 'percorsi/02-escursione-02.gpx',
     photos: [{distanceM: 2791, src: 'images/percorsi/02-img-2058.webp',
       alt: {it: 'Arbusto con frutti rossi e fiori chiari.', en: 'Shrub with red fruit and pale flowers.'},
-      caption: {it: 'Frutti lungo il sentiero', en: 'Fruit along the trail'}}] }
+      caption: {it: 'Frutti lungo il sentiero', en: 'Fruit along the trail'}},
+      {distanceM: 2962, src: 'images/percorsi/02-img-2059.webp', alt: {it: 'Panorama sulle colline tra gli alberi.', en: 'View of the hills between the trees.'}, caption: {it: 'Uno sguardo sulle colline', en: 'A view across the hills'}},
+      {distanceM: 3443, src: 'images/percorsi/02-img-2061.webp', alt: {it: 'Una torre di pietra tra gli alberi.', en: 'A stone tower among the trees.'}, caption: {it: 'Una torre tra gli alberi', en: 'A tower among the trees'}},
+      {distanceM: 3488, src: 'images/percorsi/02-img-2063.webp', alt: {it: 'Sentiero sterrato e colline in lontananza.', en: 'A dirt trail with distant hills.'}, caption: {it: 'Il sentiero verso la valle', en: 'The trail towards the valley'}},
+      {distanceM: 3490, src: 'images/percorsi/02-img-2062.webp', alt: {it: 'Sentiero tra la vegetazione e panorama sulla valle.', en: 'A trail through vegetation overlooking the valley.'}, caption: {it: 'Panorama dal sentiero', en: 'A view from the trail'}},
+      {distanceM: 3658, src: 'images/percorsi/02-img-2065.webp', alt: {it: 'Un piccolo edificio in pietra lungo il percorso.', en: 'A small stone building along the route.'}, caption: {it: 'Un edificio in pietra', en: 'A stone building'}},
+      {distanceM: 3728, src: 'images/percorsi/02-img-2066.webp', width: 1080, height: 1440, alt: {it: 'Una torre in pietra vista tra i rami.', en: 'A stone tower seen through branches.'}, caption: {it: 'La torre tra i rami', en: 'The tower through the branches'}},
+      {distanceM: 3776, src: 'images/percorsi/02-img-2067.webp', width: 1080, height: 1440, alt: {it: 'Una torre in pietra sotto il cielo nuvoloso.', en: 'A stone tower under a cloudy sky.'}, caption: {it: 'Una torre in pietra', en: 'A stone tower'}}] }
 ];

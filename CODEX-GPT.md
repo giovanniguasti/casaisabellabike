@@ -217,3 +217,27 @@ Nessun problema bloccante rilevato nei controlli locali o pubblici. Dispositivi 
 - Copia `images/percorsi/02-img-2058.webp`, 1440?1080, 556.424 byte, senza EXIF, XMP o profilo ICC. La scheda riusa indicatore, selezione dal grafico e apparizione durante Play del percorso 01; foto associata a 2.791 m, senza modificare il GPX.
 - Chrome headless su desktop 1440?900 IT e mobile 390?844 EN emulato: verificati indicatore, caricamento immagine, selezione da tastiera, comparsa in Play, Pausa e azzeramento con Riparti; nessun errore JavaScript osservato. Dispositivi fisici e altri browser non verificati.
 - Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; aprire **02 ? Escursione 02** e selezionare l'indicatore foto o il grafico a circa 2,79 km. Se necessario avviare dalla radice `python -m http.server 8000 --bind 127.0.0.1`. Screenshot desktop `C:/Users/giova/escursione-02-foto-it.png`. La pubblicazione rimane in attesa di autorizzazione.
+
+
+### GC-20261122-11 ? Altre foto sul percorso 02
+
+Aggiunte IMG_2059, IMG_2061, IMG_2062, IMG_2063, IMG_2065, IMG_2066 e IMG_2067; IMG_2058 era gi? presente e non ? duplicata. Gli originali in `gpx/foto/` restano locali. Le copie WebP in `images/percorsi/` sono orientate correttamente, fino a 1440 px, senza EXIF, XMP o ICC.
+
+Confronto fra GPS delle foto e proiezione sui segmenti del GPX originale; distanze cumulative e scarti approssimati:
+
+| Foto | Distanza | Scarto dalla traccia |
+| --- | ---: | ---: |
+| IMG_2058 | 2.791 m | 1,9 m |
+| IMG_2059 | 2.962 m | 2,4 m |
+| IMG_2061 | 3.443 m | 1,0 m |
+| IMG_2062 | 3.490 m | 2,8 m |
+| IMG_2063 | 3.488 m | 1,1 m |
+| IMG_2065 | 3.658 m | 1,9 m |
+| IMG_2066 | 3.728 m | 5,1 m |
+| IMG_2067 | 3.776 m | 4,7 m |
+
+Tutti gli orari di scatto con fuso +01:00 sono coerenti con il GPX del 22 novembre 2026: al secondo dello scatto il punto registrato ? entro circa 1?7 m dalle coordinate della foto. Per IMG_2059 l'errore orizzontale dichiarato dalla fotocamera ? circa 65 m: posizione indicativa, non precisione garantita dalla piccola distanza dalla traccia. Le altre foto riportano errori orizzontali di circa 3?9,5 m. I tempi del punto geometricamente pi? vicino differiscono dagli scatti da circa 2 a 22 secondi.
+
+Scatti entro 50 m dal primo di un gruppo condividono un indicatore e sono mostrati insieme anche in Play, per evitare immagini sostituite troppo rapidamente: 2061/2063/2062 e 2066/2067. Ogni didascalia mantiene la propria distanza; selezionando il grafico si sceglie lo scatto pi? vicino. Il comportamento della foto del percorso 01 rimane verificato.
+
+Verificati in Chrome headless desktop IT e mobile EN emulato: tutti gli otto file caricati tramite indicatori, gruppi, grafico da tastiera, Play, Pausa e Riparti; verificato il passaggio in Play di ciascun gruppo e la foto della scheda 01. Nessun errore JavaScript osservato. Dispositivi fisici e altri browser non verificati. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; aprire Escursione 02 e selezionare gli indicatori o il grafico. Pubblicazione in attesa di approvazione.
