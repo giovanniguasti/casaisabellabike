@@ -208,3 +208,12 @@ Nessun problema bloccante rilevato nei controlli locali o pubblici. Dispositivi 
 - Verificati in Chrome headless, desktop 1440?900 IT e mobile 390?844 EN emulato: scheda e tracciato, profilo, vista pendenza, selezione estremi da tastiera, Play/Pausa, collegamento GPX e assenza di errori JavaScript. Il grafico misura 7.842 m. Non verificati dispositivi fisici n? altri browser.
 - Anteprima locale: http://127.0.0.1:8000/percorsi.html?lang=it, aprire **02 ? Escursione 02**; se necessario avviare dalla radice `python -m http.server 8000 --bind 127.0.0.1`. Leaflet e tessere richiedono rete. Immagine dell'anteprima desktop: `C:/Users/giova/escursione-02-it.png`.
 - GitHub Pages verificato via API: sorgente `main`, cartella `/`; la consegna su `dev` non pubblica il sito. Revisione dell'itinerario e pubblicazione restano in attesa di approvazione.
+
+
+### GC-20261122-11 ? Foto IMG_2058 sul percorso 02
+
+- Originale locale `gpx/foto/IMG_2058.JPG` conservato e non tracciato. EXIF: coordinate 43,26737222 N, 12,02382500 E, errore orizzontale indicato circa 3,0 m; scatto 22 novembre 2026 alle 10:40:40, fuso +01:00, coerente con 09:40:40 UTC del GPS.
+- Proiezione sul segmento pi? vicino del GPX originale: **2.791 m** cumulativi dalla partenza, scarto **1,9 m**, posizione stimata 43,26736176 N, 12,02384285 E. Il passaggio corrisponde alle 09:40:45?46 UTC, circa sei secondi dopo lo scatto; al secondo dello scatto il punto registrato dista circa 3,1 m dalla foto. Il riscontro temporale e spaziale identifica lo stesso passaggio; le posizioni GPS restano stime.
+- Copia `images/percorsi/02-img-2058.webp`, 1440?1080, 556.424 byte, senza EXIF, XMP o profilo ICC. La scheda riusa indicatore, selezione dal grafico e apparizione durante Play del percorso 01; foto associata a 2.791 m, senza modificare il GPX.
+- Chrome headless su desktop 1440?900 IT e mobile 390?844 EN emulato: verificati indicatore, caricamento immagine, selezione da tastiera, comparsa in Play, Pausa e azzeramento con Riparti; nessun errore JavaScript osservato. Dispositivi fisici e altri browser non verificati.
+- Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; aprire **02 ? Escursione 02** e selezionare l'indicatore foto o il grafico a circa 2,79 km. Se necessario avviare dalla radice `python -m http.server 8000 --bind 127.0.0.1`. Screenshot desktop `C:/Users/giova/escursione-02-foto-it.png`. La pubblicazione rimane in attesa di autorizzazione.
