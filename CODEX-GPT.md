@@ -241,3 +241,10 @@ Tutti gli orari di scatto con fuso +01:00 sono coerenti con il GPX del 22 novemb
 Scatti entro 50 m dal primo di un gruppo condividono un indicatore e sono mostrati insieme anche in Play, per evitare immagini sostituite troppo rapidamente: 2061/2063/2062 e 2066/2067. Ogni didascalia mantiene la propria distanza; selezionando il grafico si sceglie lo scatto pi? vicino. Il comportamento della foto del percorso 01 rimane verificato.
 
 Verificati in Chrome headless desktop IT e mobile EN emulato: tutti gli otto file caricati tramite indicatori, gruppi, grafico da tastiera, Play, Pausa e Riparti; verificato il passaggio in Play di ciascun gruppo e la foto della scheda 01. Nessun errore JavaScript osservato. Dispositivi fisici e altri browser non verificati. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; aprire Escursione 02 e selezionare gli indicatori o il grafico. Pubblicazione in attesa di approvazione.
+
+
+### GC-20261122-11 ? Nome e selezione foto aggiornati
+
+Su richiesta di Giovanni, la passeggiata 02 si chiama **Le corchie**, anche nel nome interno del GPX scaricabile; il percorso del file rimane stabile e la geometria ? identica all'originale. IMG_2062 ? stata rimossa dalla scheda e la copia WebP dal sito; l'originale locale ? conservato. Restano sette foto, con IMG_2061 e IMG_2063 nello stesso gruppo.
+
+Verificati in Chrome headless desktop IT e mobile EN emulato: nome nel catalogo e nella scheda, mappa, profilo e caricamento delle sette foto senza IMG_2062; geometria GPX confrontata con tutti i punti dell'originale. Nessun errore JavaScript osservato. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; pubblicazione in attesa di approvazione.
