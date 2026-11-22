@@ -102,7 +102,7 @@ Limiti: test touch tramite Chrome DevTools, non su hardware reale; Safari, Firef
 
 ## M2 — Olio, premi e coltivazione biologica
 
-Stato: CONTENUTI RACCOLTI; struttura e implementazione PROPOSTE.
+Stato: CONTENUTI RACCOLTI; pagina dedicata ai premi approvata come obiettivo il 22 novembre 2026. Struttura della pagina e implementazione da concordare.
 
 Informazioni fornite da Giovanni:
 - Eleiva Cortonensis 2023, zona 6 Montagna cortonese: terzo premio olio fruttato.
@@ -117,6 +117,13 @@ Documento esaminato: certificato IT-BIO-014.380-0005590.2026.002, intestato a Is
 - [ ] Verificare documentazione del prodotto trasformato prima di dichiarare olio certificato biologico.
 
 Completamento: contenuti documentati, approvati e distinti per annata; nessun premio attribuito al raccolto 2026.
+
+### M2.1 — Pagina Premi dell'olio
+
+- [ ] Creare una pagina dedicata ai riconoscimenti Eleiva Cortonensis, organizzata per anno, con concorso, categoria, zona o finale e piazzamento.
+- [ ] Verificare i nomi ufficiali e associare a ogni riconoscimento l'attestato o la foto corrispondente, se disponibile e approvata.
+- [ ] Preparare testi e didascalie in italiano e inglese. Collegare la pagina dal racconto della raccolta e concordare l'eventuale accesso dal menu.
+- [ ] Presentare l'anteprima su `dev` per revisione. La pubblicazione richiede autorizzazione separata.
 
 ## M3 — Casa, ospitalità e bicicletta
 
