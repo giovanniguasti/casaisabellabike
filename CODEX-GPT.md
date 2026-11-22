@@ -198,3 +198,67 @@ Nessun problema bloccante rilevato nei controlli locali o pubblici. Dispositivi 
 - La foto appare sotto la mappa quando Play attraversa il punto, anche se un fotogramma lo supera; rimane visibile in pausa, si azzera con Riparti ed è accessibile selezionando il punto sul grafico (tolleranza ±50 m). Se si seleziona manualmente un'altra posizione, la foto viene nascosta. Dati e didascalie IT/EN sono associati al percorso per aggiungere altre foto; dissolvenza disattivata con movimento ridotto.
 - Verificati in Chrome headless su desktop 1440 × 900 e mobile 390 × 844 emulato, in IT/EN: selezione su grafico, indicatore, cambio lingua, normale passaggio in Play, permanenza in pausa, Riparti, caricamento dell'immagine, salto simulato di 5 secondi tra fotogrammi e movimento ridotto. Il touch mobile e il salto del tempo sono simulati; non verificati dispositivi fisici o altri browser. Nessun errore JavaScript rilevato nelle prove principali.
 - Anteprima locale su dev: http://127.0.0.1:8000/percorsi.html?lang=it ; aprire la scheda e selezionare l'indicatore foto sulla mappa, oppure il grafico presso 6,34 km. Avvio dalla radice: `python -m http.server 8000 --bind 127.0.0.1`. Pubblicazione da autorizzare separatamente.
+
+
+## GC-20261122-11 ? Escursione 02, anteprima su dev
+
+- Aggiunta al catalogo come **02 ? Escursione 02**, categoria `walk`, titolo provvisorio. La distanza, calcolata sommando le distanze tra punti consecutivi all'interno di ciascun segmento, ? **7.842 m**, mostrata come circa 7,8 km. Il GPX ha un segmento e 7.339 punti.
+- Partenza: **43,27858172 N, 12,01537672 E**, quota registrata 459,2 m; arrivo: **43,27863025 N, 12,01536365 E**, quota registrata 463,6 m. Sono punti distinti ma molto vicini (circa 5,5 m): nell'inquadratura iniziale i marcatori si sovrappongono; verificare gli estremi in anteprima prima della pubblicazione.
+- La copia `percorsi/02-escursione-02.gpx` conserva ordine, segmenti, coordinate e quote dell'originale locale `gpx/activity_25161095745.gpx`, senza orari, estensioni o sensori. Confrontati tutti i punti e la struttura dei segmenti; originale preservato e non aggiunto a Git. Mappa e download usano la stessa copia.
+- Verificati in Chrome headless, desktop 1440?900 IT e mobile 390?844 EN emulato: scheda e tracciato, profilo, vista pendenza, selezione estremi da tastiera, Play/Pausa, collegamento GPX e assenza di errori JavaScript. Il grafico misura 7.842 m. Non verificati dispositivi fisici n? altri browser.
+- Anteprima locale: http://127.0.0.1:8000/percorsi.html?lang=it, aprire **02 ? Escursione 02**; se necessario avviare dalla radice `python -m http.server 8000 --bind 127.0.0.1`. Leaflet e tessere richiedono rete. Immagine dell'anteprima desktop: `C:/Users/giova/escursione-02-it.png`.
+- GitHub Pages verificato via API: sorgente `main`, cartella `/`; la consegna su `dev` non pubblica il sito. Revisione dell'itinerario e pubblicazione restano in attesa di approvazione.
+
+
+### GC-20261122-11 ? Foto IMG_2058 sul percorso 02
+
+- Originale locale `gpx/foto/IMG_2058.JPG` conservato e non tracciato. EXIF: coordinate 43,26737222 N, 12,02382500 E, errore orizzontale indicato circa 3,0 m; scatto 22 novembre 2026 alle 10:40:40, fuso +01:00, coerente con 09:40:40 UTC del GPS.
+- Proiezione sul segmento pi? vicino del GPX originale: **2.791 m** cumulativi dalla partenza, scarto **1,9 m**, posizione stimata 43,26736176 N, 12,02384285 E. Il passaggio corrisponde alle 09:40:45?46 UTC, circa sei secondi dopo lo scatto; al secondo dello scatto il punto registrato dista circa 3,1 m dalla foto. Il riscontro temporale e spaziale identifica lo stesso passaggio; le posizioni GPS restano stime.
+- Copia `images/percorsi/02-img-2058.webp`, 1440?1080, 556.424 byte, senza EXIF, XMP o profilo ICC. La scheda riusa indicatore, selezione dal grafico e apparizione durante Play del percorso 01; foto associata a 2.791 m, senza modificare il GPX.
+- Chrome headless su desktop 1440?900 IT e mobile 390?844 EN emulato: verificati indicatore, caricamento immagine, selezione da tastiera, comparsa in Play, Pausa e azzeramento con Riparti; nessun errore JavaScript osservato. Dispositivi fisici e altri browser non verificati.
+- Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; aprire **02 ? Escursione 02** e selezionare l'indicatore foto o il grafico a circa 2,79 km. Se necessario avviare dalla radice `python -m http.server 8000 --bind 127.0.0.1`. Screenshot desktop `C:/Users/giova/escursione-02-foto-it.png`. La pubblicazione rimane in attesa di autorizzazione.
+
+
+### GC-20261122-11 ? Altre foto sul percorso 02
+
+Aggiunte IMG_2059, IMG_2061, IMG_2062, IMG_2063, IMG_2065, IMG_2066 e IMG_2067; IMG_2058 era gi? presente e non ? duplicata. Gli originali in `gpx/foto/` restano locali. Le copie WebP in `images/percorsi/` sono orientate correttamente, fino a 1440 px, senza EXIF, XMP o ICC.
+
+Confronto fra GPS delle foto e proiezione sui segmenti del GPX originale; distanze cumulative e scarti approssimati:
+
+| Foto | Distanza | Scarto dalla traccia |
+| --- | ---: | ---: |
+| IMG_2058 | 2.791 m | 1,9 m |
+| IMG_2059 | 2.962 m | 2,4 m |
+| IMG_2061 | 3.443 m | 1,0 m |
+| IMG_2062 | 3.490 m | 2,8 m |
+| IMG_2063 | 3.488 m | 1,1 m |
+| IMG_2065 | 3.658 m | 1,9 m |
+| IMG_2066 | 3.728 m | 5,1 m |
+| IMG_2067 | 3.776 m | 4,7 m |
+
+Tutti gli orari di scatto con fuso +01:00 sono coerenti con il GPX del 22 novembre 2026: al secondo dello scatto il punto registrato ? entro circa 1?7 m dalle coordinate della foto. Per IMG_2059 l'errore orizzontale dichiarato dalla fotocamera ? circa 65 m: posizione indicativa, non precisione garantita dalla piccola distanza dalla traccia. Le altre foto riportano errori orizzontali di circa 3?9,5 m. I tempi del punto geometricamente pi? vicino differiscono dagli scatti da circa 2 a 22 secondi.
+
+Scatti entro 50 m dal primo di un gruppo condividono un indicatore e sono mostrati insieme anche in Play, per evitare immagini sostituite troppo rapidamente: 2061/2063/2062 e 2066/2067. Ogni didascalia mantiene la propria distanza; selezionando il grafico si sceglie lo scatto pi? vicino. Il comportamento della foto del percorso 01 rimane verificato.
+
+Verificati in Chrome headless desktop IT e mobile EN emulato: tutti gli otto file caricati tramite indicatori, gruppi, grafico da tastiera, Play, Pausa e Riparti; verificato il passaggio in Play di ciascun gruppo e la foto della scheda 01. Nessun errore JavaScript osservato. Dispositivi fisici e altri browser non verificati. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; aprire Escursione 02 e selezionare gli indicatori o il grafico. Pubblicazione in attesa di approvazione.
+
+
+### GC-20261122-11 ? Nome e selezione foto aggiornati
+
+Su richiesta di Giovanni, la passeggiata 02 si chiama **Le corchie**, anche nel nome interno del GPX scaricabile; il percorso del file rimane stabile e la geometria ? identica all'originale. IMG_2062 ? stata rimossa dalla scheda e la copia WebP dal sito; l'originale locale ? conservato. Restano sette foto, con IMG_2061 e IMG_2063 nello stesso gruppo.
+
+Verificati in Chrome headless desktop IT e mobile EN emulato: nome nel catalogo e nella scheda, mappa, profilo e caricamento delle sette foto senza IMG_2062; geometria GPX confrontata con tutti i punti dell'originale. Nessun errore JavaScript osservato. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; pubblicazione in attesa di approvazione.
+
+
+### GC-20261122-11 ? Accesso alle foto vicine
+
+Segnalazione di Giovanni: IMG_2063 e IMG_2067 non erano facilmente visibili. Erano incluse dopo un'altra foto nello stesso gruppo, in una colonna sotto la mappa; durante la riproduzione il gruppo poteva inoltre essere sostituito rapidamente. I gruppi ora mostrano una foto per volta con contatore e pulsanti Foto precedente / Foto successiva sopra l'immagine. Selezionare l'indicatore del gruppo e usare i pulsanti; le didascalie mantengono le distanze individuali. Il Play continua e la foto resta in pausa.
+
+Verificati in Chrome headless desktop IT e mobile EN emulato: entrambi i gruppi, apertura, passaggio a IMG_2063 e IMG_2067 e ritorno, caricamento dei file, selezione dal grafico e ripristino; nessun errore JavaScript osservato. Originali e modifiche locali di Giovanni a nomi e didascalie preservati. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it ; pubblicazione ancora in attesa di approvazione.
+
+
+### GC-20261122-11 ? Foto sempre raggiungibili
+
+Dopo una seconda segnalazione di Giovanni, aggiunta sotto la mappa una galleria con tutte le foto del percorso, sempre visibili e selezionabili senza attendere il Play: ogni miniatura apre la propria foto e sposta il cursore al relativo punto. Questo rende accessibili IMG_2063 e IMG_2067 anche quando i passaggi ravvicinati sono superati rapidamente. Restano disponibili Play, marcatori e comandi dei gruppi. Le miniature WebP sono copie ridotte senza metadati, complessivamente circa 72 kB.
+
+Verificati in Chrome headless desktop IT e mobile EN emulato apertura diretta e caricamento di entrambe le immagini, sette miniature, cambio percorso e rimozione della galleria precedente; controllata anche visivamente l'immagine IMG_2067 nell'anteprima. Nessun errore JavaScript osservato. Screenshot: `C:/Users/giova/le-corchie-gallery-it.png`; anteprima http://127.0.0.1:8000/percorsi.html?lang=it. Le modifiche locali di Giovanni a `percorsi-data.js` restano nel suo file e non sono incluse in questo commit. Pubblicazione in attesa di approvazione.
