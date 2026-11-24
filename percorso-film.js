@@ -56,9 +56,9 @@
     }
     map.getSource('whole').setData({type:'FeatureCollection',features});
     map.getSource('position').setData({type:'Feature',geometry:{type:'Point',coordinates:p.coord}});
-    if (started) map.jumpTo({center:p.coord, zoom:14.3, pitch:60, bearing:-18});
+    if (started) map.jumpTo({center:p.coord});
   }
-  function overview() { if (!map) return; const bounds = new maplibregl.LngLatBounds(); segments.forEach(seg => seg.forEach(p => bounds.extend([p.lon,p.lat]))); map.fitBounds(bounds, {padding:45, pitch:0, bearing:0, duration:0, maxZoom:15}); }
+  function overview() { if (!map) return; const bounds = new maplibregl.LngLatBounds(); segments.forEach(seg => seg.forEach(p => bounds.extend([p.lon,p.lat]))); map.fitBounds(bounds, {padding:45, pitch:0, bearing:map.getBearing(), duration:0, maxZoom:15}); }
   function showPhoto(photo) { currentGroup=groups.find(group=>group.includes(photo)); photoIndex=currentGroup.indexOf(photo); currentPhoto=photo; el('.film-photo img').src=photo.src; card.hidden=false; translate(); }
   function tick(now) {
     if(!playing || !map) return; if(last===null) last=now; const dt=Math.min((now-last)/1000,0.1); last=now;
@@ -70,7 +70,7 @@
     }
     frame=requestAnimationFrame(tick);
   }
-  function start() { if(!map || !map.getSource('position') || playing) return; if(matchMedia('(prefers-reduced-motion: reduce)').matches){status.textContent=t('reduced');return;} if(!started || progress>=distance){progress=0;nextPhoto=0;hold=0;card.hidden=true;currentPhoto=null;started=true;draw();onPosition(progress);} status.textContent=''; playing=true; last=null; translate(); frame=requestAnimationFrame(tick); }
+  function start() { if(!map || !map.getSource('position') || playing) return; if(matchMedia('(prefers-reduced-motion: reduce)').matches){status.textContent=t('reduced');return;} if(!started || progress>=distance){progress=0;nextPhoto=0;hold=0;card.hidden=true;currentPhoto=null;started=true;map.jumpTo({zoom:14.3,pitch:60});draw();onPosition(progress);} status.textContent=''; playing=true; last=null; translate(); frame=requestAnimationFrame(tick); }
   function toggle() { if(playing) stop(); else start(); }
   function seek(d){stop();progress=Math.max(0,Math.min(distance,d));nextPhoto=photos.findIndex(p=>p.distanceM>progress);if(nextPhoto<0)nextPhoto=photos.length;hold=0;card.hidden=true;currentPhoto=null;draw();}
   let gpsMarker=null;
