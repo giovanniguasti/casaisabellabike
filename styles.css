@@ -149,3 +149,33 @@ footer { padding: 1.5rem; text-align: center; background: var(--green); color: v
 @media (max-width: 700px) {
   #profile-grid text, #profile-x-label { font-size: 21px; }
 }
+.route-film { margin: 2rem 0; font-family: Arial, sans-serif; }
+.route-film h3 { font: bold 1.45rem Georgia, serif; margin-bottom: .5rem; }
+.film-view { position: relative; height: min(62vw, 540px); min-height: 320px; overflow: hidden; border-radius: 12px; background: #d8e0da; }
+.film-map { width: 100%; height: 100%; }
+.film-photo { position: absolute; left: 1rem; bottom: 2.5rem; width: min(34%, 240px); margin: 0; padding: .5rem; background: white; border-radius: 6px; box-shadow: 0 5px 20px #0006; transform: rotate(-2deg); }
+.film-photo img { display: block; width: 100%; max-height: 180px; object-fit: contain; }
+.film-photo figcaption { padding: .5rem .2rem .15rem; color: #342d26; font: .9rem/1.3 Arial, sans-serif; }
+.film-controls { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .75rem; }
+.film-controls[hidden], .film-view[hidden], .film-photo[hidden] { display: none; }
+.film-controls button, .film-open { padding: .65rem 1rem; border: 1px solid var(--green); border-radius: 999px; background: white; color: var(--green); font: inherit; cursor: pointer; }
+@media (max-width: 600px) { .film-photo { width: 46%; left: .6rem; bottom: 2rem; } .film-photo img { max-height: 120px; } }
+.route-map-panel { position: relative; }
+#map.route-map-backing { position: absolute; width: 500px; height: 350px; visibility: hidden; pointer-events: none; }
+.route-map-panel .route-film { margin: 0; }
+.route-map-panel .film-view { height: 440px; min-height: 300px; }
+#route-playback { display: none; }
+.film-photo-marker { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 2px solid white; border-radius: 50%; background: #6b4f35; box-shadow: 0 1px 5px #333; cursor: pointer; }
+.film-gps { display: block; width: 18px; height: 18px; border: 3px solid white; border-radius: 50%; background: #1769aa; box-shadow: 0 1px 5px #333; }
+@media (max-width: 800px) { .route-map-panel .film-view { height: 360px; } }
+.film-photo { z-index: 5; }
+.film-photo-marker { color: white; z-index: 3; }
+.film-photo-marker svg { width: 19px; height: 19px; pointer-events: none; }
+.film-photo-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; margin-bottom: .35rem; font: .75rem/1.2 Arial, sans-serif; }
+.film-photo-controls[hidden] { display: none; }
+.film-photo-controls button { padding: .35rem; border: 1px solid #6b4f35; border-radius: 4px; background: white; color: #342d26; font: inherit; cursor: pointer; }
+.film-photo-controls button:disabled { opacity: .45; }
+.film-map-controls { position: absolute; z-index: 6; top: .65rem; left: .65rem; display: flex; gap: .35rem; }
+.film-map-controls button { display: grid; place-items: center; width: 42px; height: 42px; padding: 9px; border: 1px solid #526052; border-radius: 6px; background: white; color: #263d2c; box-shadow: 0 1px 5px #0005; cursor: pointer; }
+.film-map-controls button:disabled { opacity: .55; cursor: default; }
+.film-map-controls svg { display: block; width: 22px; height: 22px; fill: currentColor; }

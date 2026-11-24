@@ -7,6 +7,7 @@
   const layout = document.createElement('div'); layout.className = 'route-map-profile';
   const mapPanel = document.createElement('div'); mapPanel.className = 'route-map-panel';
   $('map').before(layout); layout.append(mapPanel); mapPanel.append($('map'), $('map-status'));
+  $('map').classList.add('route-map-backing');
   const speedLegend = document.createElement('div'); speedLegend.className = 'route-speed-legend'; speedLegend.hidden = true; mapPanel.append(speedLegend);
   const profileContainer = document.createElement('section');
   profileContainer.id = 'profile'; profileContainer.hidden = true; layout.append(profileContainer);
@@ -14,7 +15,7 @@
   const photoContainer = document.createElement('div');
   photoContainer.id = 'route-photo'; photoContainer.hidden = true;
   layout.after(controlsContainer, photoContainer);
-  let speedScale = null, filter = 'all', selected = null, map = null, line = null, start = null, end = null, marker = null, accuracy = null, watch = null, lastAccuracy = null, statusKey = '', loadVersion = 0, profile = null;
+  let speedScale = null, filter = 'all', selected = null, map = null, line = null, start = null, end = null, marker = null, accuracy = null, watch = null, lastAccuracy = null, statusKey = '', loadVersion = 0, profile = null, film = null;
   const lang = () => document.documentElement.lang === 'en' ? 'en' : 'it';
   const t = key => copy[lang()][key];
   function status(key) { statusKey = key; $('location-status').textContent = key === 'accuracy' ? t(key).replace('{n}', Math.round(lastAccuracy)) : (key ? t(key) : ''); }
@@ -49,11 +50,12 @@
     if (statusKey) status(statusKey);
     renderSpeedLegend();
     if (profile) profile.translate();
+    if (film) film.translate();
   }
   async function select(route) {
     selected = route; const version = ++loadVersion;
     speedScale = null; renderSpeedLegend();
-    stopWatch(); if (profile) { profile.destroy(); profile = null; } status(''); $('route-detail').hidden = false; $('detail-title').textContent = route.number + ' · ' + route.name; $('download').href = route.gpx; render();
+    stopWatch(); if (profile) { profile.destroy(); profile = null; } if (film) { film.destroy(); film = null; } status(''); $('route-detail').hidden = false; $('detail-title').textContent = route.number + ' · ' + route.name; $('download').href = route.gpx; render();
     $('route-detail').scrollIntoView({behavior:'smooth', block:'start'}); $('map-status').textContent = t('loading');
     if (!window.L) { $('map-status').textContent = t('mapError'); return; }
     if (!map) { map = L.map('map'); L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}).addTo(map); }
@@ -89,7 +91,8 @@
       start = L.marker(segments[0][0], {title:t('start'), alt:t('start')}).addTo(map).bindTooltip(t('start'), {permanent:true, direction:'top'});
       const last = segments[segments.length-1]; end = L.marker(last[last.length-1], {title:t('end'), alt:t('end')}).addTo(map).bindTooltip(t('end'), {permanent:true, direction:'top'});
       map.invalidateSize(); map.fitBounds(line.getBounds(), {padding:[35,35]}); $('map-status').textContent = '';
-      profile = createRouteProfile($('profile'), map, points, lang, route.photos || [], photoContainer, controlsContainer);
+      profile = createRouteProfile($('profile'), map, points, lang, route.photos || [], photoContainer, controlsContainer, distance => { if (film) film.seek(distance); });
+      film = createRouteFilm(route, points, lang, validSpeed ? speed : null, distance => profile?.seek(distance, false), mapPanel, speedLegend);
     } catch (_) { $('map-status').textContent = t('mapError'); }
   }
   document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', () => { filter = b.dataset.filter; document.querySelectorAll('[data-filter]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); render(); }));
@@ -101,9 +104,10 @@
       const point = [pos.coords.latitude, pos.coords.longitude]; lastAccuracy = pos.coords.accuracy;
       if (!marker) { marker = L.circleMarker(point, {radius:8, color:'#fff', weight:3, fillColor:'#1769aa', fillOpacity:1}).addTo(map); accuracy = L.circle(point, {radius:lastAccuracy, color:'#1769aa', fillOpacity:.12}).addTo(map); }
       else { marker.setLatLng(point); accuracy.setLatLng(point).setRadius(lastAccuracy); }
+      if (film) film.setLocation(pos.coords);
       status('accuracy');
     }, err => { status(err.code === 1 ? 'denied' : 'unavailable'); if (err.code === 1) stopWatch(); }, {enableHighAccuracy:true, maximumAge:0, timeout:15000});
   });
-  $('stop').addEventListener('click', () => { stopWatch(); if (marker) { map.removeLayer(marker); map.removeLayer(accuracy); marker = accuracy = null; } status('stopped'); });
+  $('stop').addEventListener('click', () => { stopWatch(); if (film) film.setLocation(null); if (marker) { map.removeLayer(marker); map.removeLayer(accuracy); marker = accuracy = null; } status('stopped'); });
   document.addEventListener('languagechange', render); window.addEventListener('pagehide', stopWatch); render();
 })();
