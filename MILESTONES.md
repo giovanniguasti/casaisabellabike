@@ -173,6 +173,15 @@ Valorizzare nella pagina Bicicletta e territorio video pertinenti alle uscite e 
 
 Questa milestone pianifica il lavoro futuro; non autorizza ancora conversioni, modifiche applicative o pubblicazione. Il successivo incarico sarà definito dopo aver raccolto e analizzato i materiali.
 
+### M3.2.1 — Video 3D pilota di Le Corchie
+
+Obiettivo approvato il 24 novembre 2026. Progettazione e realizzazione da avviare con un incarico dedicato.
+
+- [ ] Usare il GPX del percorso 02 · Le Corchie, circa 7,8 km, e selezionare tre o quattro foto tra quelle già associate alla traccia.
+- [ ] Verificare copertura, risoluzione e condizioni di riutilizzo di un modello altimetrico per il terreno. Valutare Copernicus DEM e partire con una resa topografica. Vista satellitare da valutare a parte.
+- [ ] Preparare con Codex locale un flusso riutilizzabile in Blender: camera animata lungo il percorso, traccia evidenziata e foto mostrate in base alla distanza dalla partenza.
+- [ ] Esportare un'anteprima MP4 di circa 45 secondi. Verificare ritmo, leggibilità, peso e attribuzioni, poi decidere come inserirla nella scheda del percorso. Pubblicazione soggetta ad approvazione separata.
+
 ## M3.3 — Salvaguardia del territorio e luoghi incantati
 
 Stato: OBIETTIVO E TEMI APPROVATI da Giovanni il 15 novembre 2026; materiali, struttura e presentazione da concordare prima dell'implementazione.
