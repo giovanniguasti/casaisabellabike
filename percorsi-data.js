@@ -12,5 +12,6 @@ const ROUTES = [
       {distanceM: 3488, src: 'images/percorsi/02-img-2063.webp', alt: {it: 'Sentiero sterrato e colline in lontananza.', en: 'A dirt trail with distant hills.'}, caption: {it: 'Il sentiero verso la valle', en: 'The trail towards the valley'}},
       {distanceM: 3658, src: 'images/percorsi/02-img-2065.webp', alt: {it: 'Un piccolo edificio in pietra lungo il percorso.', en: 'A small stone building along the route.'}, caption: {it: 'Un edificio in pietra', en: 'A stone building'}},
       {distanceM: 3728, src: 'images/percorsi/02-img-2066.webp', width: 1080, height: 1440, alt: {it: 'Torre in pietra vista tra i rami.', en: 'Stone tower seen through branches.'}, caption: {it: 'La torre tra i rami', en: 'The tower through the branches'}},
-      {distanceM: 3776, src: 'images/percorsi/02-img-2067.webp', width: 1080, height: 1440, alt: {it: 'Una torre in pietra sotto il cielo nuvoloso.', en: 'A stone tower under a cloudy sky.'}, caption: {it: 'Una torre in pietra', en: 'A stone tower'}}] }
+      {distanceM: 3776, src: 'images/percorsi/02-img-2067.webp', width: 1080, height: 1440, alt: {it: 'Una torre in pietra sotto il cielo nuvoloso.', en: 'A stone tower under a cloudy sky.'}, caption: {it: 'Una torre in pietra', en: 'A stone tower'}}] },
+  { number: '03', id: 'teccognano', name: 'Teccognano', category: 'walk', distance: '9,9', gpx: 'percorsi/03-teccognano.gpx', speed: 'percorsi/03-velocita.json', photos: [] }
      ];

@@ -278,3 +278,9 @@ Su richiesta di Giovanni, la traccia di entrambe le passeggiate ? colorata dal b
 I file `percorsi/01-velocita.json` e `percorsi/02-velocita.json` contengono intervalli di colore riferiti agli indici della geometria e valori di scala, senza orari o coordinate; rendono pubblicabili informazioni derivate sulla velocit?. Gli originali restano locali e i GPX scaricabili restano privi di orari e sensori. Su 01, lacune superiori a 30 secondi e stime oltre 20 km/h sono marcate come non disponibili e rese in grigio; se il file dei colori manca o non ? valido la traccia resta utilizzabile in grigio.
 
 Verificati con Chrome headless desktop IT e mobile EN emulato: entrambe le schede, colori e legenda, Play/Pausa, foto, cambio percorso e ripiego con file velocit? bloccato; profilo e download disponibili e nessun errore JavaScript osservato. Non verificati dispositivi fisici o altri browser. Anteprima http://127.0.0.1:8000/percorsi.html?lang=it; screenshot `C:/Users/giova/le-corchie-velocita-it.png`. Modifica su dev per revisione; non pubblicata.
+
+## Rilascio pubblico dei percorsi — 22 novembre 2026
+
+Il 22 novembre 2026 GitHub Pages ha completato con successo il deploy del commit `89ae00d9218b2a0d589501ffd79364d1eb072153`. Il rilascio comprende il catalogo, i profili interattivi e il Play, la foto del percorso 01, il percorso **02 · Le Corchie** (7,8 km, sette foto), la galleria di miniature, mappa e profilo affiancati su desktop e la colorazione per velocità di entrambe le passeggiate. Verifiche funzionali precedenti al rilascio: Chrome desktop e mobile emulato. Il deploy è confermato da GitHub Actions; la prova diretta del dominio pubblico e dei dispositivi fisici resta da fare. [Esito del deploy](https://github.com/giovanniguasti/casaisabellabike/actions/runs/45026058610)
+
+Questo esito aggiorna gli stati di anteprima riportati nelle sezioni precedenti. Il prossimo incarico resta M4.1.

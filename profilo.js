@@ -1,8 +1,8 @@
 /* Profilo costruito dal GPX già caricato dalla scheda. Distanze in metri. */
-function createRouteProfile(container, map, segments, language, photos = [], photoContainer = null, controlsContainer = null) {
+function createRouteProfile(container, map, segments, language, photos = [], photoContainer = null, controlsContainer = null, onPosition = () => {}) {
   const texts = {
-    it: {title:'Profilo del percorso', altitude:'Altitudine (m)', grade:'Pendenza (%)', estimate:'La pendenza è una stima calcolata su circa 50 m di percorso.', hint:'Tocca o trascina sul grafico; usa le frecce della tastiera per spostare il cursore. Il simbolo viola indica il percorso; il punto blu indica la tua posizione GPS.', distance:'Distanza', elevation:'Altitudine', slope:'Pendenza stimata', missing:'non disponibile', play:'Play', pause:'Pausa', restart:'Riparti', cursor:'Cursore del percorso', axis:'Distanza dalla partenza (km)', end:'Arrivo raggiunto', photo:'Foto lungo il percorso', photoAt:'Foto lungo il percorso, circa {km} km dalla partenza', previousPhoto:'Foto precedente', nextPhoto:'Foto successiva', photoCount:'Foto {n} di {total}', galleryTitle:'Foto del percorso', galleryHint:'Seleziona una foto per vederla e trovare il punto sulla mappa.'},
-    en: {title:'Route profile', altitude:'Elevation (m)', grade:'Gradient (%)', estimate:'Gradient is an estimate calculated over approximately 50 m of the route.', hint:'Tap or drag on the chart; use the arrow keys to move the cursor. The purple symbol marks the route; the blue dot marks your GPS location.', distance:'Distance', elevation:'Elevation', slope:'Estimated gradient', missing:'unavailable', play:'Play', pause:'Pause', restart:'Restart', cursor:'Route cursor', axis:'Distance from start (km)', end:'Finish reached', photo:'Photo along the route', photoAt:'Photo along the route, about {km} km from the start', previousPhoto:'Previous photo', nextPhoto:'Next photo', photoCount:'Photo {n} of {total}', galleryTitle:'Route photos', galleryHint:'Select a photo to see it and locate it on the map.'}
+    it: {title:'Profilo', altitude:'Altitudine (m)', grade:'Pendenza (%)', estimate:'La pendenza è una stima calcolata su circa 50 m di percorso.', hint:'Tocca o trascina sul grafico; usa le frecce della tastiera per spostare il cursore sulla mappa 3D.', distance:'Distanza', elevation:'Altitudine', slope:'Pendenza stimata', missing:'non disponibile', play:'Play', pause:'Pausa', restart:'Riparti', cursor:'Cursore del percorso', axis:'Distanza dalla partenza (km)', end:'Arrivo raggiunto', photo:'Foto lungo il percorso', photoAt:'Foto lungo il percorso, circa {km} km dalla partenza', previousPhoto:'Foto precedente', nextPhoto:'Foto successiva', photoCount:'Foto {n} di {total}', galleryTitle:'Foto del percorso', galleryHint:'Seleziona una foto per vederla e trovare il punto sulla mappa.'},
+    en: {title:'Profile', altitude:'Elevation (m)', grade:'Gradient (%)', estimate:'Gradient is an estimate calculated over approximately 50 m of the route.', hint:'Tap or drag on the chart; use the arrow keys to move the cursor on the 3D map.', distance:'Distance', elevation:'Elevation', slope:'Estimated gradient', missing:'unavailable', play:'Play', pause:'Pause', restart:'Restart', cursor:'Route cursor', axis:'Distance from start (km)', end:'Finish reached', photo:'Photo along the route', photoAt:'Photo along the route, about {km} km from the start', previousPhoto:'Previous photo', nextPhoto:'Next photo', photoCount:'Photo {n} of {total}', galleryTitle:'Route photos', galleryHint:'Select a photo to see it and locate it on the map.'}
   };
   const t = k => texts[language()][k];
   const samples = [];
@@ -61,21 +61,6 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
   const routeCursor = L.marker([samples[0].lat, samples[0].lon], {icon:L.divIcon({className:'route-position-icon', html:'<span aria-hidden="true">◆</span>', iconSize:[28,28], iconAnchor:[14,14]}), keyboard:false}).addTo(map);
   const format = (n, decimals) => n.toLocaleString(language() === 'it' ? 'it-IT' : 'en-US', {minimumFractionDigits:decimals, maximumFractionDigits:decimals});
   const photoCues = photos.filter(p => Number.isFinite(p.distanceM) && p.distanceM >= 0 && p.distanceM <= total).slice().sort((a,b) => a.distanceM-b.distanceM);
-  // Tutte le foto restano raggiungibili anche quando il Play le supera rapidamente.
-  const gallery = document.createElement('section');
-  gallery.className = 'route-photo-gallery';
-  const galleryHeading = document.createElement('h3'), galleryHint = document.createElement('p'), galleryList = document.createElement('div');
-  galleryList.className = 'route-photo-list';
-  const galleryButtons = photoCues.map(photo => {
-    const button = document.createElement('button'), image = document.createElement('img'), label = document.createElement('span');
-    button.type = 'button'; image.alt = ''; image.loading = 'lazy'; image.decoding = 'async';
-    image.onerror = () => { image.onerror = null; image.src = photo.src; };
-    image.src = photo.src.startsWith('images/percorsi/') ? photo.src.replace('images/percorsi/', 'images/percorsi/miniature/') : photo.src;
-    button.append(image, label); button.addEventListener('click', () => { seek(photo.distanceM); photoContainer.scrollIntoView({block:'nearest'}); });
-    galleryList.append(button); return {photo, button, label};
-  });
-  gallery.append(galleryHeading, galleryHint, galleryList);
-  if (photoCues.length && photoContainer) photoContainer.before(gallery);
   // Scatti a pochi metri condividono un indicatore e rimangono tutti visibili.
   const photoGroups = [];
   photoCues.forEach(photo => {
@@ -91,8 +76,6 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
   function clearPhoto() { visiblePhoto = null; if (photoContainer) { photoContainer.hidden = true; photoContainer.replaceChildren(); } }
   function translatePhoto() {
     photoMarkers.forEach(({photo,marker}) => { const label = t('photoAt').replace('{km}', format(photo.distanceM/1000, 2)); marker.getElement()?.setAttribute('aria-label', label); marker.bindTooltip(label); });
-    galleryHeading.textContent = t('galleryTitle'); galleryHint.textContent = t('galleryHint');
-    galleryButtons.forEach(({photo,button,label}) => { label.textContent = `${photo.caption[language()]} \u00b7 ${format(photo.distanceM/1000, 2)} km`; button.setAttribute('aria-label', label.textContent); });
     if (!visiblePhoto || !photoContainer) return;
     const photo = visiblePhoto[visiblePhotoIndex], figure = photoContainer.querySelector('figure');
     photoContainer.querySelector('h3').textContent = t('photo');
@@ -149,9 +132,9 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
     for (let i=0; i<=4; i++) { const gy = 215-i*45, label = format(yMin+(yMax-yMin)*i/4, 0); grid += `<line x1="60" y1="${gy}" x2="770" y2="${gy}"/><text x="53" y="${gy+4}" text-anchor="end">${label}</text>`; }
     for (let i=0; i<=4; i++) { const gx=60+i*177.5; grid += `<text x="${gx}" y="235" text-anchor="middle">${format(total*i/4000, 1)}</text>`; }
     el('grid').innerHTML = grid;
-    update(false);
+    update(false, false);
   }
-  function update(pan) {
+  function update(pan, notify = true) {
     const p = at(current), g = grade(current), v = view === 'altitude' ? p.ele : g;
     routeCursor.setLatLng([p.lat,p.lon]);
     const group = bounds[p.segment], left = Math.max(group[0], current-25), right = Math.min(group[1], current+25);
@@ -162,6 +145,7 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
     dot.setAttribute('cx', x(current)); dot.setAttribute('cy', v === null ? 215 : y(v)); dot.style.display = v === null ? 'none' : '';
     const summary = `${t('distance')}: ${format(current/1000, 2)} km · ${t('elevation')}: ${value(p.ele)}${p.ele === null ? '' : ' m'} · ${t('slope')}: ${value(g)}${g === null ? '' : ' %'}`;
     el('readout').textContent = summary;
+    if (notify) onPosition(current);
     chart.setAttribute('aria-valuemax', total.toFixed(0)); chart.setAttribute('aria-valuenow', current.toFixed(0)); chart.setAttribute('aria-valuetext', summary);
   }
   function pause() { playing = false; previousTime = null; if (frame !== null) cancelAnimationFrame(frame); frame = null; el('play').disabled = current >= total; el('pause').disabled = true; }
@@ -175,7 +159,7 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
     if (current >= total) { pause(); el('state').textContent = t('end'); } else frame = requestAnimationFrame(tick);
   }
   function play() { if (playing || current >= total) return; playing = true; previousTime = null; el('state').textContent = ''; el('play').disabled = true; el('pause').disabled = false; frame = requestAnimationFrame(tick); }
-  function seek(d) { current = Math.max(0, Math.min(total, d)); previousTime = null; el('state').textContent = ''; if (!playing) el('play').disabled = current >= total; const nearby = photoCues.reduce((best, photo) => Math.abs(photo.distanceM-current) <= 50 && (!best || Math.abs(photo.distanceM-current) < Math.abs(best.distanceM-current)) ? photo : best, null); if (nearby) showPhoto(nearby); else clearPhoto(); update(true); }
+  function seek(d, notify = true) { current = Math.max(0, Math.min(total, d)); previousTime = null; el('state').textContent = ''; if (!playing) el('play').disabled = current >= total; const nearby = photoCues.reduce((best, photo) => Math.abs(photo.distanceM-current) <= 50 && (!best || Math.abs(photo.distanceM-current) < Math.abs(best.distanceM-current)) ? photo : best, null); if (notify && nearby) showPhoto(nearby); else clearPhoto(); update(true, notify); }
   let pointerRect = null;
   function pointer(event) { const rect = pointerRect || chart.getBoundingClientRect(); const svgX = (event.clientX-rect.left)/rect.width*800; seek((svgX-60)/710*total); }
   chart.addEventListener('pointerdown', e => { if (e.button !== 0) return; pointerRect = chart.getBoundingClientRect(); chart.setPointerCapture(e.pointerId); chart.focus({preventScroll:true}); pointer(e); });
@@ -192,5 +176,5 @@ function createRouteProfile(container, map, segments, language, photos = [], pho
     translatePhoto();
   }
   pause(); translate();
-  return {translate, destroy() { pause(); clearPhoto(); gallery.remove(); if (controlsContainer) { controlsContainer.hidden = true; controlsContainer.replaceChildren(); } photoMarkers.forEach(({marker}) => map.removeLayer(marker)); map.removeLayer(routeCursor); map.removeLayer(highlight); container.hidden = true; container.replaceChildren(); }};
+  return {translate, seek, destroy() { pause(); clearPhoto(); if (controlsContainer) { controlsContainer.hidden = true; controlsContainer.replaceChildren(); } photoMarkers.forEach(({marker}) => map.removeLayer(marker)); map.removeLayer(routeCursor); map.removeLayer(highlight); container.hidden = true; container.replaceChildren(); }};
 }

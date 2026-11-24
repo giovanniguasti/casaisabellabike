@@ -102,12 +102,13 @@ Limiti: test touch tramite Chrome DevTools, non su hardware reale; Safari, Firef
 
 ## M2 — Olio, premi e coltivazione biologica
 
-Stato: CONTENUTI RACCOLTI; struttura e implementazione PROPOSTE.
+Stato: CONTENUTI RACCOLTI; pagina dedicata ai premi approvata come obiettivo il 22 novembre 2026. Struttura della pagina e implementazione da concordare.
 
 Informazioni fornite da Giovanni:
 - Eleiva Cortonensis 2023, zona 6 Montagna cortonese: terzo premio olio fruttato.
 - Eleiva Cortonensis 2024, zona 6 Montagna cortonese: primo premio olio fruttato.
 - Eleiva Cortonensis 2024, finale tra tutte le zone: primo premio olio fruttato.
+- Eleiva Cortonensis 2026, Selezione della Montagna Cortonese: secondo premio «Olio extravergine di oliva — Miglior equilibrio», assegnato a Isabella Muzzarelli il 22 novembre 2026. Dicitura e ambito verificati sulla foto della targa.
 
 Documento esaminato: certificato IT-BIO-014.380-0005590.2026.002, intestato a Isabella Muzzarelli Verzoni, organismo QCertificazioni IT-BIO-014; validità riportata 11/11/2026–10/11/2029. Repertorio: olive da olio biologiche; sono presenti anche terreni in conversione. Non estendere automaticamente questa attestazione all'olio trasformato.
 
@@ -116,7 +117,14 @@ Documento esaminato: certificato IT-BIO-014.380-0005590.2026.002, intestato a Is
 - [ ] Concordare testo e modalità di presentazione della certificazione, compresa l'eventuale pubblicazione del documento.
 - [ ] Verificare documentazione del prodotto trasformato prima di dichiarare olio certificato biologico.
 
-Completamento: contenuti documentati, approvati e distinti per annata; nessun premio attribuito al raccolto 2026.
+Completamento: contenuti documentati, approvati e distinti per edizione del concorso; annata dell'olio indicata quando confermata.
+
+### M2.1 — Pagina Premi dell'olio
+
+- [ ] Creare una pagina dedicata ai riconoscimenti Eleiva Cortonensis, organizzata per anno, con concorso, categoria, zona o finale e piazzamento.
+- [ ] Verificare i nomi ufficiali e associare a ogni riconoscimento l'attestato o la foto corrispondente, se disponibile e approvata.
+- [ ] Preparare testi e didascalie in italiano e inglese. Collegare la pagina dal racconto della raccolta e concordare l'eventuale accesso dal menu.
+- [ ] Presentare l'anteprima su `dev` per revisione. La pubblicazione richiede autorizzazione separata.
 
 ## M3 — Casa, ospitalità e bicicletta
 
@@ -164,6 +172,15 @@ Valorizzare nella pagina Bicicletta e territorio video pertinenti alle uscite e 
 - [ ] Presentare anteprima per approvazione; pubblicazione con autorizzazione separata.
 
 Questa milestone pianifica il lavoro futuro; non autorizza ancora conversioni, modifiche applicative o pubblicazione. Il successivo incarico sarà definito dopo aver raccolto e analizzato i materiali.
+
+### M3.2.1 — Video 3D pilota di Le Corchie
+
+Obiettivo approvato il 24 novembre 2026. Progettazione e realizzazione da avviare con un incarico dedicato.
+
+- [ ] Usare il GPX del percorso 02 · Le Corchie, circa 7,8 km, e selezionare tre o quattro foto tra quelle già associate alla traccia.
+- [ ] Verificare copertura, risoluzione e condizioni di riutilizzo di un modello altimetrico per il terreno. Valutare Copernicus DEM e partire con una resa topografica. Vista satellitare da valutare a parte.
+- [ ] Preparare con Codex locale un flusso riutilizzabile in Blender: camera animata lungo il percorso, traccia evidenziata e foto mostrate in base alla distanza dalla partenza.
+- [ ] Esportare un'anteprima MP4 di circa 45 secondi. Verificare ritmo, leggibilità, peso e attribuzioni, poi decidere come inserirla nella scheda del percorso. Pubblicazione soggetta ad approvazione separata.
 
 ## M3.3 — Salvaguardia del territorio e luoghi incantati
 
@@ -249,6 +266,12 @@ Le prove touch sono eseguite tramite Chrome DevTools: dispositivi fisici, Safari
 
 Versione precedente: `pre-usability-test-20261115-e1363d6` → `e1363d6c3cd40cd0519546efc4d6ef4907bd03b9`. Il tag è disponibile su GitHub. Nessuna regressione bloccante rilevata e nessun revert necessario; un eventuale ripristino va eseguito tramite commit di revert, mai con force push. CNAME e configurazione Pages invariati.
 
+## M5.2 — Rilascio degli aggiornamenti ai percorsi
+
+Il 22 novembre 2026 GitHub Pages ha completato con successo il deploy del commit `89ae00d9218b2a0d589501ffd79364d1eb072153`. Il rilascio comprende il catalogo, i profili interattivi e il Play, la foto del percorso 01, il percorso **02 · Le Corchie** (7,8 km, sette foto), la galleria di miniature, mappa e profilo affiancati su desktop e la colorazione per velocità di entrambe le passeggiate. Verifiche funzionali precedenti al rilascio: Chrome desktop e mobile emulato. Il deploy è confermato da GitHub Actions; la prova diretta del dominio pubblico e dei dispositivi fisici resta da fare. [Esito del deploy](https://github.com/giovanniguasti/casaisabellabike/actions/runs/45026058610)
+
+Prossimo incarico: M4.1, verifica SEO e sitemap.
+
 ## Riallineamento della collaborazione
 
 Incarico di riallineamento GC-20261115-01 completato su `dev`, senza pubblicare il sito in quella fase. M1 e M1.1 restano sottoposte alla revisione definitiva di Giovanni per testi, immagini e impaginazione. La successiva autorizzazione GC-20261115-07 consente soltanto il rilascio della candidata identificata per prova d'uso, non nuove funzionalità o rilasci futuri. Non avviare M2, M3 oltre i contenuti già autorizzati, M4 o il consolidamento tecnico proposto.
@@ -261,8 +284,8 @@ Incarico di riallineamento GC-20261115-01 completato su `dev`, senza pubblicare 
 
 ### Catalogo Percorsi — GC-20261121-08 (21 novembre 2026)
 
-Implementato su dev per anteprima: catalogo bilingue con filtri Passeggiate e Mountain bike, dati condivisi e numerazione stabile; scheda 01 Parterre Torreone, circa 9,2 km, mappa Leaflet/OpenStreetMap, GPX ripulito e posizione su richiesta. Copia integrale verificata punto per punto; originale preservato localmente. Verifiche desktop e mobile emulati, incluse geolocalizzazione concessa/negata e tessere bloccate simulate, descritte in `CODEX-GPT.md` insieme a fonti e attribuzioni. Satellite da concordare; dispositivi reali e approvazione dell'anteprima ancora da verificare. Nessuna pubblicazione autorizzata.
+Implementato e pubblicato con il rilascio del 22 novembre: catalogo bilingue con filtri Passeggiate e Mountain bike, dati condivisi e numerazione stabile; scheda 01 Parterre Torreone, circa 9,2 km, mappa Leaflet/OpenStreetMap, GPX ripulito e posizione su richiesta. Copia integrale verificata punto per punto; originale preservato localmente. Verifiche desktop e mobile emulati, incluse geolocalizzazione concessa/negata e tessere bloccate simulate, descritte in `CODEX-GPT.md` insieme a fonti e attribuzioni. Satellite da concordare; verifica su dispositivi reali ancora aperta.
 
 ### Profilo e riproduzione — GC-20261121-09 (21 novembre 2026)
 
-Implementati su dev i profili interattivi di altitudine e pendenza stimata, sincronizzati con cursore e tratto sulla mappa, e i controlli Play, Pausa e Riparti. Verificati in Chrome desktop e mobile emulato, IT/EN, con tastiera, touch simulato, GPS simulato e casi sintetici di dati incompleti; dettagli e limiti in `CODEX-GPT.md`. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it. Revisione su dispositivi fisici e approvazione dell'anteprima ancora aperte; nessuna pubblicazione autorizzata.
+Implementati su dev i profili interattivi di altitudine e pendenza stimata, sincronizzati con cursore e tratto sulla mappa, e i controlli Play, Pausa e Riparti. Verificati in Chrome desktop e mobile emulato, IT/EN, con tastiera, touch simulato, GPS simulato e casi sintetici di dati incompleti; dettagli e limiti in `CODEX-GPT.md`. Anteprima: http://127.0.0.1:8000/percorsi.html?lang=it. Pubblicato con il rilascio del 22 novembre. Revisione su dispositivi fisici ancora aperta.
