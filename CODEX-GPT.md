@@ -284,3 +284,9 @@ Verificati con Chrome headless desktop IT e mobile EN emulato: entrambe le sched
 Il 22 novembre 2026 GitHub Pages ha completato con successo il deploy del commit `89ae00d9218b2a0d589501ffd79364d1eb072153`. Il rilascio comprende il catalogo, i profili interattivi e il Play, la foto del percorso 01, il percorso **02 · Le Corchie** (7,8 km, sette foto), la galleria di miniature, mappa e profilo affiancati su desktop e la colorazione per velocità di entrambe le passeggiate. Verifiche funzionali precedenti al rilascio: Chrome desktop e mobile emulato. Il deploy è confermato da GitHub Actions; la prova diretta del dominio pubblico e dei dispositivi fisici resta da fare. [Esito del deploy](https://github.com/giovanniguasti/casaisabellabike/actions/runs/45026058610)
 
 Questo esito aggiorna gli stati di anteprima riportati nelle sezioni precedenti. Il prossimo incarico resta M4.1.
+
+## Via Romana — 26 novembre 2026
+
+Aggiunta la passeggiata 04 · Via Romana dal file locale `gpx/activity_25207579090.gpx`: un segmento, 9.691 punti e circa 10,4 km. La copia `percorsi/04-via-romana.gpx` conserva coordinate e quote, senza orari, estensioni o sensori. La mappa e il download condividono questa copia; l'originale resta locale.
+
+La colorazione usa `percorsi/04-velocita.json`, con velocità stimate su una finestra di circa 50 m e scala relativa da 3,2 a 6,3 km/h, basata sui percentili 10 e 90 ponderati per distanza. Intervalli con tempi mancanti, non crescenti, lacune oltre 30 secondi o stime oltre 20 km/h sono indicati come non disponibili. Verificati il confronto di tutti i punti e delle quote con l'originale e la copertura degli intervalli di velocità. Le stime possono risentire delle soste e del GPS. La modifica è locale; non è stata pubblicata né verificata in browser.
